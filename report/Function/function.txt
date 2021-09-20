@@ -1,0 +1,31 @@
+- Khách hàng:
++ Đăng ký tài khoản
++ Đặt hàng
++ Giỏ hàng
++ Xem sản phẩm
++ Đánh giá sản phẩm sau khi mua hàng
++ Hỏi thông tin về sản phẩm 
++ Khi đặt hàng áp dụng các mã giảm giá
++ Hạng thành viên: Đồng, Bạc,..
++ Xem trạng thái các đơn hàng
++ Lịch sử mua
+
+- Chủ cửa hàng:
++ Quản lý người dùng
++ Quản lý sách.
++ Xem các sách bán chạy
++ Thống kê tiền 
+- Người xử lý hóa đơn:
++ Xác nhận thông tin đặt hàng từ khách hàng
++ Xem lại các hóa đơn mình đã duyệt
+- Người soạn đơn:
++ Soạn đơn từ người xử lý hóa đơn và giao shiper
+
+- Shipper:
++ Nhận đơn hàng từ người soạn đơn
++ Giao hàng và nhận tiền
++ Giao tiền cho người soạn đơn và xác nhận đã giao
+
+- Thủ kho:
++ Xem hàng tồn
++ Đặt thêm hàng
