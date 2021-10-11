@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Store</string>
+
+    <string name="dangNhap">ĐĂNG NHẬP</string>
+    <string name="username">Username: </string>
+    <string name="password">Password: </string>
+
+    <array name="loaisach">
+        <item>Lựa chọn loại sách</item>
+        <item>Truyện</item>
+        <item>Học sinh</item>
+        <item>Tài liệu</item>
+    </array>
+
+    <array name="tensach">
+        <item>Chọn tên sách</item>
+        <item>Toán</item>
+        <item>Ngữ văn</item>
+    </array>
+    <array name="soan_don">
+        <item>Chọn người soạn đơn cần nhận</item>
+    </array>
 </resources>

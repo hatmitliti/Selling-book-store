@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_hang_ton.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_loai_sach.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_main.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_nhap_hang.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_tong_hop.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xem_lai.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xuat_hang.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
