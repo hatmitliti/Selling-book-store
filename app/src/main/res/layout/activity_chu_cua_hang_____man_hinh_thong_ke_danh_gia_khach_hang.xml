@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaKhachHang"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/backThongKeDanhGiaKH"
+            style="@style/buttonBack"
+            android:text="Back"
+            />
+        <TextView
+            style="@style/titleActivity"
+            android:text="Thống Kê Đánh Giá Của Khách Hàng"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/TKDGthongkedanhgiaTot"
+            style="@style/buttonStyle"
+            android:text="Thống Kê Đánh Giá Tốt" />
+
+        <Button
+            android:id="@+id/TKDGthongkedanhgiaxau"
+            style="@style/buttonStyle"
+            android:text="Thống Kê Đánh Giá Xấu" />
+
+    </LinearLayout>
+</LinearLayout>

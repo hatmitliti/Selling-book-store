@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/adapterTKDGTXNguoiDG"
+        style="@style/styleTableData"
+        android:text="Người Đánh Giá"
+        />
+    <TextView
+        android:id="@+id/adapterTKDGTXTenSP"
+        style="@style/styleTableData"
+        android:text="Sản Phẩm"
+        />
+    <TextView
+        android:id="@+id/adapterTKDGTXSoSao"
+        style="@style/styleTableData"
+        android:text="Số Sao"
+        />
+    <TextView
+        android:id="@+id/adapterTKDGTXNoiDung"
+        style="@style/styleTableData"
+        android:text="Nội Dung"
+        />
+</LinearLayout>
