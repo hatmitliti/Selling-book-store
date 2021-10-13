@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhChinh"
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:orientation="vertical"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image_ChuCuaHang"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/chucuahang"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chủ Cửa Hàng"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/CCCthongkedoanhthu"
+            style="@style/buttonStyle"
+            android:text="Thống Kê Doanh Thu" />
+        <Button
+            android:id="@+id/CCCthongkedanhgia"
+            style="@style/buttonStyle"
+            android:text="Thống Kê Đánh Giá Của Khách" />
+        <Button
+            android:id="@+id/CCCthongkehangtrongkho"
+            style="@style/buttonStyle"
+            android:text="Thống Kê Hàng Trong Kho" />
+        <Button
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Xuất"/>
+    </LinearLayout>
+
+</LinearLayout>

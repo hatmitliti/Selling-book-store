@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/backThongKeDonHang"
+            style="@style/buttonBack"
+            android:text="Back" />
+
+        <TextView
+            style="@style/titleActivity"
+            android:text="Thống Kê Đơn Hàng" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rdbTKDHthongketheongay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thống Kê Theo Ngày" />
+            <RadioButton
+                android:layout_marginLeft="20dp"
+                android:id="@+id/rdbTKDHthongketheothang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thống Kê Theo Tháng" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtTKDHthongketheongay"
+                    android:layout_width="130dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/vien1"
+                    android:hint="dd/mm/yy"
+                    android:enabled="false"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_calendar_today_24" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tháng" />
+
+                    <Spinner
+                        android:id="@+id/spnTKDHthang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/vien1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Năm" />
+
+                    <Spinner
+                        android:id="@+id/spnTKDHnam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/vien1" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTKDHThongKe"
+        style="@style/styleButtonThongKe" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:background="@color/cardview_shadow_start_color"
+            style="@style/styleTableData2"
+            android:text="Mã"
+            />
+        <TextView
+            android:background="@color/cardview_shadow_start_color"
+            style="@style/styleTableData2"
+            android:text="Người Đặt"
+            />
+        <TextView
+            android:background="@color/cardview_shadow_start_color"
+            style="@style/styleTableData2"
+            android:text="Địa Chỉ"
+            />
+        <TextView
+            android:background="@color/cardview_shadow_start_color"
+            style="@style/styleTableData2"
+            android:text="Trị Giá"
+            />
+        <TextView
+            android:background="@color/cardview_shadow_start_color"
+            style="@style/styleTableData2"
+            android:text="Tình Trạng"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvthongkedonhang"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+</LinearLayout>

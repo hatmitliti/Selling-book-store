@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/adapterTKDHtvMaDH"
+        style="@style/styleTableData"
+        android:text="Mã"
+        />
+    <TextView
+        android:id="@+id/adapterTKDHtvNguoiDat"
+        style="@style/styleTableData"
+        android:text="Người Đặt"
+        />
+    <TextView
+        android:id="@+id/adapterTKDHtvDiaChi"
+        style="@style/styleTableData"
+        android:text="Địa Chỉ"
+        />
+    <TextView
+        android:id="@+id/adapterTKDHtvTriGia"
+        style="@style/styleTableData"
+        android:text="Trị Giá"
+        />
+    <TextView
+        android:id="@+id/adapterTKDHtvTinhTrang"
+        style="@style/styleTableData"
+        android:text="Tình Trạng"
+        />
+
+</LinearLayout>
