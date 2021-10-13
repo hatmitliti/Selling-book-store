@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Store</string>
+
+    <string name="dangNhap">ĐĂNG NHẬP</string>
+    <string name="username">Username: </string>
+    <string name="password">Password: </string>
+
+    <array name="loaisach">
+        <item>Lựa chọn loại sách</item>
+        <item>Truyện</item>
+        <item>Học sinh</item>
+        <item>Tài liệu</item>
+    </array>
+
+    <array name="tensach">
+        <item>Chọn tên sách</item>
+        <item>Toán</item>
+        <item>Ngữ văn</item>
+    </array>
+    <array name="soan_don">
+        <item>Chọn người soạn đơn cần nhận</item>
+    </array>
+
+    <array name="resouceThang">
+        <item>Tháng 1</item>
+        <item>Tháng 2</item>
+        <item>Tháng 3</item>
+        <item>Tháng 4</item>
+        <item>Tháng 5</item>
+        <item>Tháng 6</item>
+        <item>Tháng 7</item>
+        <item>Tháng 8</item>
+        <item>Tháng 9</item>
+        <item>Tháng 10</item>
+        <item>Tháng 11</item>
+        <item>Tháng 12</item>
+    </array>
+    <array name="resouceNam">
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+    </array>
+</resources>
