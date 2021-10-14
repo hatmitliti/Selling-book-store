@@ -44,5 +44,17 @@
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:text">Thống Kê</item>
     </style>
-
+    <style name="employeeStyle">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="employeeItemStyle">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">10sp</item>
+        <item name="android:paddingRight">10sp</item>
+    </style>
 </resources>

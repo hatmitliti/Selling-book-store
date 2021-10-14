@@ -3,18 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/drawable/vien2.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_chinh.xml" value="0.1" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_doanh_thu.xml" value="0.2359375" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_nguoi_xu_ly_hoa_don_____man_hinh_chi_tiet_don_hang.xml" value="0.264" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_hang_ton.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_loai_sach.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_main.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_nhap_hang.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_tong_hop.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xem_lai.xml" value="0.25" />
-        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xuat_hang.xml" value="0.25" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_chinh.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_main.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_add_blacklist_items.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_layout.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_user_layout.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/packager_unpacked_layout.xml" value="0.22644927536231885" />
       </map>
     </option>
   </component>

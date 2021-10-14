@@ -41,4 +41,14 @@
         <item>2020</item>
         <item>2021</item>
     </array>
+    <string name="user">Người Dùng</string>
+    <string name="employee">Nhân Viên</string>
+    <string name="blacklist">Danh Sách Đen</string>
+    <string name="block">Danh Sách Chặn</string>
+    <string name="message">Tin Nhắn</string>
+    <string name="hint_user">Nhập tài khoản...</string>
+    <string name="hint_pass">Nhập mật khẩu...</string>
+    <string name="re_enter">Nhập lại mật khẩu:</string>
+    <string name="hint_repass">Nhập mật khẩu...</string>
+    <string name="btnAdd">Thêm</string>
 </resources>

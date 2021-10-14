@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.store">
+    package="com.example.book">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
-        <activity android:name="com.example.store.ThuKho.Thu_kho_hang_ton"></activity>
-        <activity android:name="com.example.store.ThuKho.Thu_kho_main"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,6 +20,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
+        <activity android:name="com.example.book.ThuKho.Thu_kho_main" />
+        <activity android:name="com.example.book.QuanLy.manage.UserActivity" />
+        <activity android:name="com.example.book.QuanLy.manage.ManageActivity" />
+        <activity android:name=".QuanLy.manage.BlacklistActivity" />
+        <activity android:name=".QuanLy.manage.BlockActivity" />
+        <activity android:name=".QuanLy.manage.MessageActivity" />
+        <activity android:name=".QuanLy.manage.ChatActivity" />
+        <activity android:name=".QuanLy.manage.EmployeeActivity" />
+        <activity android:name=".QuanLy.manage.RecordEmployeeActivity" />
+        <activity android:name=".QuanLy.manage.UpdateEmployeeActivity" />
+        <activity android:name=".QuanLy.manage.AddEmployeeActivity" />
+        <activity android:name=".QuanLy.manage.UpdateUserActivity" />
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhChinh" />
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh" />
+
+
+        <activity android:name=".SoanDon.PackerActivity" />
+        <activity android:name=".SoanDon.UnpackedActivity" />
+        <activity android:name=".SoanDon.OrderDetailActivity" />
+        <activity android:name=".SoanDon.StorehouseActivity" />
+        <activity android:name=".SoanDon.PackagedActivity" />
+        <activity android:name=".SoanDon.InTransitActivity" />
+        <activity android:name=".SoanDon.DeliveredActivity" />
+
+
     </application>
 
 </manifest>
