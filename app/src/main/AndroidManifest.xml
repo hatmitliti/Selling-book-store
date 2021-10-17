@@ -10,18 +10,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
+        </activity>
+        <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_tong_hop"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
-        <activity android:name="com.example.book.ThuKho.Thu_kho_main" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_main"
+            android:exported="true">
+
+        </activity>
         <activity android:name="com.example.book.QuanLy.manage.UserActivity" />
         <activity android:name="com.example.book.QuanLy.manage.ManageActivity" />
         <activity android:name=".QuanLy.manage.BlacklistActivity" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -16,8 +17,10 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/TKTHedittextTenSach"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,8 +35,28 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/TKTHeditextGiaSach"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tác Giả: "
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/TKTHeditextTacGia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,49 +71,118 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/TKTHedittextMoTa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="5"
-            android:maxLines="8" />
+            android:lines="4"
+            android:maxLines="6"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:orientation="horizontal">
-
+        android:orientation="vertical">
         <Spinner
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/TKTHspinnerLoaiSach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/loaisach"
+            tools:ignore="TouchTargetSizeCheck"
+            android:background="@drawable/vien1"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/loaisach" />
+            android:layout_gravity="center">
+            <RadioGroup
+                android:id="@+id/TKTHrdbGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/TKTHrdbChonAnhTuCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn Ảnh Từ Camera"
+                    android:layout_marginRight="10dp"/>
+                <RadioButton
+                    android:id="@+id/TKTHrdbChonAnhTuThuVien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn Ảnh Từ Thư Viện"
+                    android:layout_marginLeft="10dp"/>
 
-        <Button
-
-            android:layout_width="wrap_content"
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chọn hình ảnh" />
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/TKTHImageViewCameraAnhSanPhamCanThem"
+                android:src="@drawable/ic_baseline_camera_alt_24"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                />
+            <ImageView
+                android:id="@+id/TKTHImageViewChonAnhSanPhamCanThem"
+                android:src="@drawable/ic_baseline_image_24"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
 
         <Button
+            android:id="@+id/btnTKTHThem"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_weight="5"
             android:text="Thêm"
+            android:layout_weight="1"
             android:textColor="@color/black" />
 
         <Button
+            android:id="@+id/btnTKTHSua"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
             android:text="Sửa"
+            android:layout_weight="1"
+            android:textColor="@color/black" />
+        <Button
+            android:id="@+id/btnTKTHXoa"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xoa"
+            android:layout_weight="1"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -102,61 +194,10 @@
         android:text="Danh sách sản phẩm: "
         android:textStyle="bold" />
 
-    <ScrollView
+    <ListView
+        android:id="@+id/TKTH_lisviewProducts"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/sach12" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lich su"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="8"
-                        android:text="50 000"
-                        android:textSize="20dp" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Xoa" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lịch sử thế giới hiện đại từ năm 1945 đến năm 2000" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
+        android:layout_height="fill_parent" />
 
 
 </LinearLayout>
