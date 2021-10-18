@@ -8,10 +8,12 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -32,13 +34,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.book.R;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
 import com.example.book.ThuKho.TKQuanLiSanPham.ProductAdapter;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class Thu_kho_tong_hop extends AppCompatActivity {
@@ -62,19 +72,41 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thu_kho_tong_hop);
 
+
         setControll();
         setEvent();
     }
 
     private void setEvent() {
+        // set enable false cho các icon chọn ảnh
         ImgCamera.setEnabled(false);
         IMGThuVien.setEnabled(false);
-        ImgCamera.setTag("");
+        //set id nhận diện icon chọn ảnh mặc định
         String idThuVien = R.drawable.ic_baseline_image_24 + "";
         IMGThuVien.setTag(idThuVien);
         String idCamera = R.drawable.ic_baseline_camera_alt_24 + "";
         ImgCamera.setTag(idCamera);
-        // gọi các đối tượng để đổ dữ liệu vào listview
+
+        /*
+         * Tạo các biến để lưu file ảnh trên firebase
+         * */
+        //
+        FirebaseStorage storage = FirebaseStorage.getInstance("gs://selling-books-ba602.appspot.com/");
+        // Create a storage reference from our app
+        StorageReference storageRef = storage.getReference();
+
+        /*
+         *
+         *
+         * */
+
+        /**
+         *
+         *
+         * gọi các đối tượng để đổ dữ liệu vào listview
+         *
+         *
+         * */
         context = this;
         dataProduct = FirebaseDatabase.getInstance().getReference();
         adapterProduct = new ProductAdapter(context, R.layout.thu_kho_tong_hop_adapter_item, listProduct);
@@ -179,37 +211,161 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                         || spnTheLoai.getSelectedItem().toString().equals("Lựa chọn loại sách")
                 ) {
                     Toast.makeText(context, "Thiếu Dữ Liệu Vui Lòng Kiểm Tra Lại", Toast.LENGTH_SHORT).show();
-                }
-                else if (rdbChonAnhTuCamera.isSelected() == true && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
-                        || rdbChonAnhTuThuVien.isSelected() == true && IMGThuVien.getTag().toString().equals(R.drawable.ic_baseline_image_24 + "") == true ||
-                        rdbChonAnhTuCamera.isSelected() == false &&  rdbChonAnhTuThuVien.isSelected() == false && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
+                } else if (rdbChonAnhTuCamera.isChecked() == true && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
+                        || rdbChonAnhTuThuVien.isChecked() == true && IMGThuVien.getTag().toString().equals(R.drawable.ic_baseline_image_24 + "") == true ||
+                        rdbChonAnhTuCamera.isChecked() == false && rdbChonAnhTuThuVien.isChecked() == false && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
                                 && IMGThuVien.getTag().toString().equals(R.drawable.ic_baseline_image_24 + "") == true) {
                     Toast.makeText(context, "Bạn Chưa Chọn Ảnh", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(context, "Đầy Đủ Thông Tin", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (rdbChonAnhTuCamera.isChecked() == true) {
+
+                        Calendar calendar = Calendar.getInstance();
+                        // Create a reference to "mountains.jpg"
+                        StorageReference mountainsRef = storageRef.child("ImagesProducts/image" + calendar.getTimeInMillis() + ".jpg");
+                        // Get the data from an ImageView as bytes
+                        ImgCamera.setDrawingCacheEnabled(true);
+                        ImgCamera.buildDrawingCache();
+                        Bitmap bitmap = ((BitmapDrawable) ImgCamera.getDrawable()).getBitmap();
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                        byte[] data = baos.toByteArray();
+
+                        UploadTask uploadTask = mountainsRef.putBytes(data);
+                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Thêm Sản Phẩm", Toast.LENGTH_SHORT).show();
+                                // Handle unsuccessful uploads
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                                // ...
+
+                                if (taskSnapshot.getMetadata() != null) {
+                                    if (taskSnapshot.getMetadata().getReference() != null) {
+                                        Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                        result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                String idProduct = "s" + mKey.size();
+                                                String tenSP = edtTenSP.getText().toString();
+                                                int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
+                                                String theLoai = spnTheLoai.getSelectedItem().toString();
+                                                String moTa = edtMota.getText().toString();
+                                                String tacGia = edtTacGia.getText().toString();
+                                                String imageURL = uri.toString();
+                                                //tạo đối tượng Product và thêm đối tượng vào firsebase
+                                                Product pd = new Product(imageURL, idProduct, tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                                                dataProduct.child("products").push().setValue(pd);
+                                                Toast.makeText(context, "Thêm Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                                                setTextEmpty();
+                                            }
+                                        });
+                                    }
+                                }
+
+
+                            }
+                        });
+                    } else if (rdbChonAnhTuThuVien.isChecked() == true) {
+                        Calendar calendar = Calendar.getInstance();
+                        // Create a reference to "mountains.jpg"
+                        StorageReference mountainsRef = storageRef.child("ImagesProducts/image" + calendar.getTimeInMillis() + ".jpg");
+                        // Get the data from an ImageView as bytes
+                        IMGThuVien.setDrawingCacheEnabled(true);
+                        IMGThuVien.buildDrawingCache();
+                        Bitmap bitmap = ((BitmapDrawable) IMGThuVien.getDrawable()).getBitmap();
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                        byte[] data = baos.toByteArray();
+
+                        UploadTask uploadTask = mountainsRef.putBytes(data);
+                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Thêm Sản Phẩm", Toast.LENGTH_SHORT).show();
+                                // Handle unsuccessful uploads
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                                // ...
+                                if (taskSnapshot.getMetadata() != null) {
+                                    if (taskSnapshot.getMetadata().getReference() != null) {
+                                        Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                        result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                String idProduct = "s" + mKey.size();
+                                                String tenSP = edtTenSP.getText().toString();
+                                                int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
+                                                String theLoai = spnTheLoai.getSelectedItem().toString();
+                                                String moTa = edtMota.getText().toString();
+                                                String tacGia = edtTacGia.getText().toString();
+                                                String imageURL = uri.toString();
+                                                //createNewPost(imageUrl);
+                                                Product pd = new Product(imageURL, idProduct, tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                                                dataProduct.child("products").push().setValue(pd);
+                                                Toast.makeText(context, "Thêm Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                                                setTextEmpty();
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                    }
                 }
 
             }
         });
-
-
     }
 
+    private void setTextEmpty(){
+        edtTenSP.setText("");
+        edtGiaSP.setText("");
+        edtMota.setText("");
+        edtTacGia.setText("");
+        spnTheLoai.setSelection(0);
+        // set enable false cho các icon chọn ảnh
+        ImgCamera.setEnabled(false);
+        IMGThuVien.setEnabled(false);
+        //set id nhận diện icon chọn ảnh mặc định
+        String idThuVien = R.drawable.ic_baseline_image_24 + "";
+        IMGThuVien.setTag(idThuVien);
+        String idCamera = R.drawable.ic_baseline_camera_alt_24 + "";
+        ImgCamera.setTag(idCamera);
+        //set Image
+        IMGThuVien.setImageResource(R.drawable.ic_baseline_image_24);
+        ImgCamera.setImageResource(R.drawable.ic_baseline_image_24);
+        //set backgound image
+        IMGThuVien.setBackground(getDrawable(R.drawable.backgroundimage));
+        ImgCamera.setBackground(getDrawable(R.drawable.backgroundimage));
+        //
+        if(rdbChonAnhTuCamera.isChecked())
+        {
+            rdbChonAnhTuCamera.setChecked(false);
+        }
+        else if (rdbChonAnhTuThuVien.isChecked())
+        {
+            rdbChonAnhTuThuVien.setChecked(false);
+        }
+
+    }
     // Gọi Hàm Đổ Hình chụp từ camera ra màn hình
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_IMAGE && resultCode == RESULT_OK && data != null) {
-            String idCamera = R.drawable.ic_baseline_camera_alt_24 + "";
-            ImgCamera.setTag(idCamera);
-            IMGThuVien.setTag("");
+            ImgCamera.setTag("");
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             ImgCamera.setImageBitmap(bitmap);
 
         }
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
-            String idThuVien = R.drawable.ic_baseline_image_24 + "";
-            IMGThuVien.setTag(idThuVien);
-            ImgCamera.setTag("");
+            IMGThuVien.setTag("");
             Uri imageUri = data.getData();
             IMGThuVien.setImageURI(imageUri);
 
@@ -222,8 +378,8 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         ImgCamera = findViewById(R.id.TKTHImageViewCameraAnhSanPhamCanThem);
         IMGThuVien = findViewById(R.id.TKTHImageViewChonAnhSanPhamCanThem);
         edtTenSP = findViewById(R.id.TKTHedittextTenSach);
-        edtGiaSP = findViewById(R.id.TKTHeditextTacGia);
-        edtTacGia = findViewById(R.id.TKTHeditextGiaSach);
+        edtGiaSP = findViewById(R.id.TKTHeditextGiaSach);
+        edtTacGia = findViewById(R.id.TKTHeditextTacGia);
         spnTheLoai = findViewById(R.id.TKTHspinnerLoaiSach);
         edtMota = findViewById(R.id.TKTHedittextMoTa);
         btnThem = findViewById(R.id.btnTKTHThem);
