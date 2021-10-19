@@ -2,6 +2,7 @@ package com.example.book.ThuKho.TKQuanLiSanPham;
 
 public class Product {
     private String hinhAnh;
+    private String tenHinhAnh;
     private String id;
     private String tenSanPham;
     private int giaTien;
@@ -16,8 +17,9 @@ public class Product {
 
     }
 
-    public Product(String hinhAnh, String id, String tenSanPham, int giaTien, String category, double star, int stock, int sold, String description, String author) {
+    public Product(String hinhAnh, String tenHinhAnh, String id, String tenSanPham, int giaTien, String category, double star, int stock, int sold, String description, String author) {
         this.hinhAnh = hinhAnh;
+        this.tenHinhAnh = tenHinhAnh;
         this.id = id;
         this.tenSanPham = tenSanPham;
         this.giaTien = giaTien;
@@ -35,6 +37,14 @@ public class Product {
 
     public void setHinhAnh(String hinhAnh) {
         this.hinhAnh = hinhAnh;
+    }
+
+    public String getTenHinhAnh() {
+        return tenHinhAnh;
+    }
+
+    public void setTenHinhAnh(String tenHinhAnh) {
+        this.tenHinhAnh = tenHinhAnh;
     }
 
     public String getId() {
@@ -107,5 +117,22 @@ public class Product {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "hinhAnh='" + hinhAnh + '\'' +
+                ", tenHinhAnh='" + tenHinhAnh + '\'' +
+                ", id='" + id + '\'' +
+                ", tenSanPham='" + tenSanPham + '\'' +
+                ", giaTien=" + giaTien +
+                ", category='" + category + '\'' +
+                ", star=" + star +
+                ", stock=" + stock +
+                ", sold=" + sold +
+                ", description='" + description + '\'' +
+                ", author='" + author + '\'' +
+                '}';
     }
 }
