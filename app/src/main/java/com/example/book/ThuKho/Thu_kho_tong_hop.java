@@ -77,7 +77,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
     int RESULT_LOAD_IMAGE = 2;
     Product productCLick;
     String idProduct;
-    Map <String,Product> idProducts = new HashMap<String,Product>();
+    Map<String, Product> idProducts = new HashMap<String, Product>();
 
 
     @Override
@@ -150,14 +150,21 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 }
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(IMGThuVien);
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(ImgCamera);
-
-
                 Set set = idProducts.keySet();
                 for (Object key : set) {
-                    if(idProducts.get(key) == productCLick)
-                    {
-                        idProduct = key+"";
+                    if (idProducts.get(key) == productCLick) {
+                        idProduct = key + "";
                     }
+                }
+                if (rdbChonAnhTuCamera.isChecked()) {
+                    rdbChonAnhTuCamera.setChecked(false);
+                    ImgCamera.setEnabled(false);
+                    ImgCamera.setBackground(getDrawable(R.drawable.backgroundimage));
+                } else if (rdbChonAnhTuThuVien.isChecked()) {
+                    rdbChonAnhTuThuVien.setChecked(false);
+                    IMGThuVien.setEnabled(false);
+                    IMGThuVien.setBackground(getDrawable(R.drawable.backgroundimage));
+
                 }
 
             }
@@ -176,7 +183,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 // lấy id của các sản phẩm
                 String key = snapshot.getKey();
                 mKey.add(key);
-                idProducts.put(key,pd);
+                idProducts.put(key, pd);
             }
 
             @Override
@@ -280,9 +287,9 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     if (rdbChonAnhTuCamera.isChecked() == true) {
 
                         Calendar calendar = Calendar.getInstance();
-                        String imageName = "image" + calendar.getTimeInMillis()+ ".png";
+                        String imageName = "image" + calendar.getTimeInMillis() + ".png";
                         // Create a reference to "mountains.jpg"
-                        StorageReference mountainsRef = storageRef.child("ImagesProducts/" + imageName );
+                        StorageReference mountainsRef = storageRef.child("ImagesProducts/" + imageName);
                         // Get the data from an ImageView as bytes
                         ImgCamera.setDrawingCacheEnabled(true);
                         ImgCamera.buildDrawingCache();
@@ -310,7 +317,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                         result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                String idProduct = "s" + mKey.size();
+                                                String idProduct = "s" +( mKey.size()+1);
                                                 String tenSP = edtTenSP.getText().toString();
                                                 int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                                                 String theLoai = spnTheLoai.getSelectedItem().toString();
@@ -319,7 +326,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                                 String imageURL = uri.toString();
                                                 //tạo đối tượng Product và thêm đối tượng vào firsebase
                                                 Product pd = new Product(imageURL, imageName, idProduct, tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
-                                                dataProduct.child("products").push().setValue(pd);
+                                                dataProduct.child("products").child(idProduct).setValue(pd);
                                                 Toast.makeText(context, "Thêm Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
                                                 setTextEmpty();
                                             }
@@ -330,9 +337,9 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                         });
                     } else if (rdbChonAnhTuThuVien.isChecked() == true) {
                         Calendar calendar = Calendar.getInstance();
-                        String imageName = "image" + calendar.getTimeInMillis()+ ".png";
+                        String imageName = "image" + calendar.getTimeInMillis() + ".png";
                         // Create a reference to "mountains.jpg"
-                        StorageReference mountainsRef = storageRef.child("ImagesProducts/" + imageName );
+                        StorageReference mountainsRef = storageRef.child("ImagesProducts/" + imageName);
                         // Get the data from an ImageView as bytes
                         IMGThuVien.setDrawingCacheEnabled(true);
                         IMGThuVien.buildDrawingCache();
@@ -359,7 +366,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                         result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                String idProduct = "s" + mKey.size();
+                                                String idProduct = "s" +( mKey.size()+1);
                                                 String tenSP = edtTenSP.getText().toString();
                                                 int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                                                 String theLoai = spnTheLoai.getSelectedItem().toString();
@@ -368,7 +375,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                                 String imageURL = uri.toString();
                                                 //createNewPost(imageUrl);
                                                 Product pd = new Product(imageURL, imageName, idProduct, tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
-                                                dataProduct.child("products").push().setValue(pd);
+                                                dataProduct.child("products").child(idProduct).setValue(pd);
                                                 Toast.makeText(context, "Thêm Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
                                                 setTextEmpty();
                                             }
@@ -395,14 +402,161 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dataProduct.child("products").child(idProduct).removeValue();
-                                StorageReference desertRef = storageRef.child("ImagesProducts/"+productCLick.getTenHinhAnh());
+                                StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
                                 desertRef.delete();
                                 setTextEmpty();
                             }
                         }).setNegativeButton("Không", null).show();
             }
         });
-    }
+
+        /*
+    Xử Lý Sự Kiện Cho Button Sửa
+     */
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (edtTenSP.getText().toString().equals("") || edtGiaSP.getText().toString().equals("") || edtTacGia.getText().toString().equals("") || edtMota.getText().toString().equals("")
+                        || spnTheLoai.getSelectedItem().toString().equals("Lựa chọn loại sách")
+                ) {
+                    Toast.makeText(context, "Thiếu Dữ Liệu Vui Lòng Kiểm Tra Lại", Toast.LENGTH_SHORT).show();
+                } else if (rdbChonAnhTuCamera.isChecked() == true) {
+
+                    Calendar calendar = Calendar.getInstance();
+                    String imageName = "image" + calendar.getTimeInMillis() + ".png";
+                    // Create a reference to "mountains.jpg"
+                    StorageReference mountainsRef = storageRef.child("ImagesProducts/" + imageName);
+                    // Get the data from an ImageView as bytes
+                    ImgCamera.setDrawingCacheEnabled(true);
+                    ImgCamera.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) ImgCamera.getDrawable()).getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                    byte[] data = baos.toByteArray();
+
+                    UploadTask uploadTask = mountainsRef.putBytes(data);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Sửa Sản Phẩm", Toast.LENGTH_SHORT).show();
+                            // Handle unsuccessful uploads
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                            // ...
+
+                            if (taskSnapshot.getMetadata() != null) {
+                                if (taskSnapshot.getMetadata().getReference() != null) {
+                                    Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                    result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            String tenSP = edtTenSP.getText().toString();
+                                            int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
+                                            String theLoai = spnTheLoai.getSelectedItem().toString();
+                                            String moTa = edtMota.getText().toString();
+                                            String tacGia = edtTacGia.getText().toString();
+                                            String imageURL = uri.toString();
+                                            //tạo đối tượng Product và thêm đối tượng vào firsebase
+                                            Product pd = new Product(imageURL, imageName, productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                                            StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
+                                            desertRef.delete();
+                                            HashMap hashMap = new HashMap();
+                                            hashMap.put(idProduct,pd);
+                                            dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                                                @Override
+                                                public void onSuccess(Object o) {
+                                                    Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                            setTextEmpty();
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                } else if (rdbChonAnhTuThuVien.isChecked() == true) {
+                    Calendar calendar = Calendar.getInstance();
+                    String imageName = "image" + calendar.getTimeInMillis() + ".png";
+                    // Create a reference to "mountains.jpg"
+                    StorageReference mountainsRef = storageRef.child("ImagesProducts/" + imageName);
+                    // Get the data from an ImageView as bytes
+                    IMGThuVien.setDrawingCacheEnabled(true);
+                    IMGThuVien.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) IMGThuVien.getDrawable()).getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                    byte[] data = baos.toByteArray();
+
+                    UploadTask uploadTask = mountainsRef.putBytes(data);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Thêm Sản Phẩm", Toast.LENGTH_SHORT).show();
+                            // Handle unsuccessful uploads
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                            // ...
+                            if (taskSnapshot.getMetadata() != null) {
+                                if (taskSnapshot.getMetadata().getReference() != null) {
+                                    Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                    result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            String tenSP = edtTenSP.getText().toString();
+                                            int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
+                                            String theLoai = spnTheLoai.getSelectedItem().toString();
+                                            String moTa = edtMota.getText().toString();
+                                            String tacGia = edtTacGia.getText().toString();
+                                            String imageURL = uri.toString();
+                                            //createNewPost(imageUrl);
+                                            Product pd = new Product(imageURL, imageName, productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                                            StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
+                                            desertRef.delete();
+                                            HashMap hashMap = new HashMap();
+                                            hashMap.put(idProduct,pd);
+                                            dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                                                @Override
+                                                public void onSuccess(Object o) {
+                                                    Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                            setTextEmpty();
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                }
+                else {
+                    String tenSP = edtTenSP.getText().toString();
+                    int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
+                    String theLoai = spnTheLoai.getSelectedItem().toString();
+                    String moTa = edtMota.getText().toString();
+                    String tacGia = edtTacGia.getText().toString();
+                    String imageURL = productCLick.getHinhAnh();
+                    //tạo đối tượng Product và thêm đối tượng vào firsebase
+                    Product pd = new Product(imageURL, productCLick.getTenHinhAnh(), productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(idProduct,pd);
+                    dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+                        @Override
+                        public void onSuccess(Object o) {
+                            Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    setTextEmpty();
+                }
+            }
+    });
+}
 
 
     private void setTextEmpty() {
