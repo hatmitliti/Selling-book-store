@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class DonHangChoXuLyAdapter extends BaseAdapter {
     private int layout;
     private Context context;
-    private ArrayList<DonHangChoXuLy> listDHChoXuLy;
+    private ArrayList<Bill> listDHChoXuLy;
 
-    public DonHangChoXuLyAdapter(int layout, Context context, ArrayList<DonHangChoXuLy> listDHChoXuLy) {
+    public DonHangChoXuLyAdapter(int layout, Context context, ArrayList<Bill> listDHChoXuLy) {
         this.layout = layout;
         this.context = context;
         this.listDHChoXuLy = listDHChoXuLy;
@@ -57,8 +57,8 @@ public class DonHangChoXuLyAdapter extends BaseAdapter {
         {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tvMaDH.setText(listDHChoXuLy.get(position).getMaDH());
-        viewHolder.tvTenNguoiDat.setText(listDHChoXuLy.get(position).getTenNguoiDat());
+        viewHolder.tvMaDH.setText( "Mã Đơn Hàng: "+listDHChoXuLy.get(position).getId());
+        viewHolder.tvTenNguoiDat.setText("Tên Người Đặt: "+listDHChoXuLy.get(position).getName());
 
         return convertView;
     }

@@ -1,22 +1,19 @@
-package com.example.book.XuLyHD.ChiTietSanPhamTrongDonHang;
+package com.example.book.XuLyHD.DonHangChoXuLy;
 
-public class SanPham {
+public class Bill_Product {
+
     private String name;
     private int price;
     private int quality;
-    private String image;
 
-
-    public SanPham() {
+    public Bill_Product() {
     }
 
-    public SanPham(String name, int price, int quality, String image) {
+    public Bill_Product(String name, int price, int quality) {
         this.name = name;
         this.price = price;
         this.quality = quality;
-        this.image = image;
     }
-
 
     public String getName() {
         return name;
@@ -42,11 +39,4 @@ public class SanPham {
         this.quality = quality;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 }

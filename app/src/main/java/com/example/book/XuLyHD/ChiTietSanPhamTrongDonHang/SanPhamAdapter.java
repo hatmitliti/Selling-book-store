@@ -9,8 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.book.R;
+import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SanPhamAdapter  extends BaseAdapter {
     private int layout;
@@ -43,6 +46,9 @@ public class SanPhamAdapter  extends BaseAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        NumberFormat currentLocale = NumberFormat.getInstance();
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
         ViewHolder viewHolder;
         if (convertView == null)
         {
@@ -60,10 +66,12 @@ public class SanPhamAdapter  extends BaseAdapter {
         {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tvTenSP.setText(listSanPham.get(position).getTenSP());
-        viewHolder.tvSoLuong.setText("Số Lượng: "+listSanPham.get(position).getSoLuongSP());
-        viewHolder.tvGiaSP.setText("Giá: "+listSanPham.get(position).getGiaSP() + "VNĐ");
-        viewHolder.imgAnhSP.setImageResource(listSanPham.get(position).getImgAnhSP());
+
+        String giaTien = en.format(listSanPham.get(position).getPrice());
+        viewHolder.tvTenSP.setText(listSanPham.get(position).getName());
+        viewHolder.tvSoLuong.setText("Số Lượng: "+listSanPham.get(position).getQuality());
+        viewHolder.tvGiaSP.setText("Giá: "+ giaTien + "VNĐ");
+        Picasso.get().load(listSanPham.get(position).getImage()).into(viewHolder.imgAnhSP);
 
         return convertView;
     }

@@ -12,16 +12,12 @@
         android:theme="@style/Theme.Store">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
         <activity
             android:name="com.example.book.ThuKho.Thu_kho_tong_hop"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name="com.example.book.ThuKho.Thu_kho_main"
@@ -40,8 +36,18 @@
         <activity android:name=".QuanLy.manage.AddEmployeeActivity" />
         <activity android:name=".QuanLy.manage.UpdateUserActivity" />
         <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhChinh" />
-        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh" />
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh">
 
+        </activity>
+        <activity
+            android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang" />
 
         <activity android:name=".SoanDon.PackerActivity" />
         <activity android:name=".SoanDon.UnpackedActivity" />
