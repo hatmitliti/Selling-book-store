@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NguoiXuLyHoaDon.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
+    tools:context=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -135,14 +135,6 @@
         <TextView
             style="@style/styleTableData2"
             android:text="Mã"
-            />
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Người Đặt"
-            />
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Địa Chỉ"
             />
         <TextView
             style="@style/styleTableData2"

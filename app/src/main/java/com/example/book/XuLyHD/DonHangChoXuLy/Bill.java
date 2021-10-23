@@ -1,6 +1,7 @@
 package com.example.book.XuLyHD.DonHangChoXuLy;
 
 import java.io.Serializable;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Bill implements Serializable {
@@ -13,14 +14,14 @@ public class Bill implements Serializable {
     private int totalMoney;
     private String phone;
     private String shipper;
-    private Date date;
+    private String date;
     private boolean evalute;
 
 
     public Bill() {
     }
 
-    public Bill(String address, int discount, String id, String id_user, String name, int status, int totalMoney, String phone, String shipper, Date date, boolean evalute) {
+    public Bill(String address, int discount, String id, String id_user, String name, int status, int totalMoney, String phone, String shipper, String date, boolean evalute) {
         this.address = address;
         this.discount = discount;
         this.id = id;
@@ -106,11 +107,11 @@ public class Bill implements Serializable {
         this.shipper = shipper;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

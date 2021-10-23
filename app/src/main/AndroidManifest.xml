@@ -39,13 +39,33 @@
         <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh">
 
         </activity>
-        <activity
-            android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaXau"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaTot"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHangBiHuy"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
+            android:exported="true">
+
         </activity>
         <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang" />
 
