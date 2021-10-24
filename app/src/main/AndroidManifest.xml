@@ -33,6 +33,8 @@
             android:exported="true" />
         <activity
             android:name="com.example.book.ThuKho.Thu_kho_nhap_hang"
+            android:exported="true" /> <activity
+            android:name="com.example.book.ThuKho.Thu_kho_xem_lai"
             android:exported="true" />
         <activity android:name="com.example.book.QuanLy.manage.UserActivity" />
         <activity android:name="com.example.book.QuanLy.manage.ManageActivity" />

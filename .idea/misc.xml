@@ -45,7 +45,12 @@
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_loai_sach.xml" value="0.17300724637681159" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_loai_sach_item.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_main.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_nhap_hang.xml" value="0.26721014492753625" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_tong_hop_adapter_item.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xem_lai.xml" value="0.26721014492753625" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xem_lai_item.xml" value="0.26721014492753625" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xuat_hang.xml" value="0.264" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/thu_kho_xuat_hang_item.xml" value="0.24003623188405798" />
       </map>
     </option>
   </component>
