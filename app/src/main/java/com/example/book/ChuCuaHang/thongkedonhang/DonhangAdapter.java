@@ -38,7 +38,7 @@ public class DonhangAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView tvMaDH, tvNguoiDat, tvDiaChi, tvTriGia, tvTinhTrang;
+        TextView tvMaDH, tvTriGia, tvTinhTrang;
     }
 
     @Override
@@ -51,8 +51,6 @@ public class DonhangAdapter extends BaseAdapter {
             convertView = inflater.inflate(layout,parent,false);
             viewHolder = new ViewHolder();
             viewHolder.tvMaDH = convertView.findViewById(R.id.adapterTKDHtvMaDH);
-            viewHolder.tvNguoiDat = convertView.findViewById(R.id.adapterTKDHtvNguoiDat);
-            viewHolder.tvDiaChi = convertView.findViewById(R.id.adapterTKDHtvDiaChi);
             viewHolder.tvTriGia = convertView.findViewById(R.id.adapterTKDHtvTriGia);
             viewHolder.tvTinhTrang = convertView.findViewById(R.id.adapterTKDHtvTinhTrang);
 
@@ -63,8 +61,6 @@ public class DonhangAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.tvMaDH.setText(listDonHang.get(position).getMaDH());
-        viewHolder.tvNguoiDat.setText(listDonHang.get(position).getNguoiDat());
-        viewHolder.tvDiaChi.setText(listDonHang.get(position).getDiaChi());
         viewHolder.tvTriGia.setText(listDonHang.get(position).getTriGia());
         viewHolder.tvTinhTrang.setText(listDonHang.get(position).getTinhTrang());
 

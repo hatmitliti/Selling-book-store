@@ -32,6 +32,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btntongHop"
                 android:layout_width="69dp"
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_format_list_bulleted_24"
@@ -51,6 +52,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnhangTon"
                 android:layout_width="69dp"
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_horizontal_split_24"
@@ -71,6 +73,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnloaiSach"
                 android:layout_width="69dp"
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_menu_book_24"
@@ -97,6 +100,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnxuatHang"
                 android:layout_width="69dp"
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_north_24"
@@ -117,6 +121,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnnhapHang"
                 android:layout_width="69dp"
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_addchart_24"

@@ -10,18 +10,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
-        <activity android:name="com.example.book.ThuKho.Thu_kho_main" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_tong_hop"
+            android:exported="true" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_loai_sach"
+            android:exported="true" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_main"
+            android:exported="true" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_xuat_hang"
+            android:exported="true" />
+        <activity
+            android:name="com.example.book.ThuKho.Thu_kho_nhap_hang"
+            android:exported="true" />
         <activity android:name="com.example.book.QuanLy.manage.UserActivity" />
         <activity android:name="com.example.book.QuanLy.manage.ManageActivity" />
         <activity android:name=".QuanLy.manage.BlacklistActivity" />
@@ -35,7 +47,25 @@
         <activity android:name=".QuanLy.manage.UpdateUserActivity" />
         <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhChinh" />
         <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh" />
-
+        <activity
+            android:name=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaXau"
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaTot"
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHangBiHuy"
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang"
+            android:exported="true" />
+        <activity
+            android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
+            android:exported="true" />
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang" />
 
         <activity android:name=".SoanDon.PackerActivity" />
         <activity android:name=".SoanDon.UnpackedActivity" />

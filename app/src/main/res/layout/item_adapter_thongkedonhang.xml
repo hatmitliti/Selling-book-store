@@ -9,16 +9,6 @@
         android:text="Mã"
         />
     <TextView
-        android:id="@+id/adapterTKDHtvNguoiDat"
-        style="@style/styleTableData"
-        android:text="Người Đặt"
-        />
-    <TextView
-        android:id="@+id/adapterTKDHtvDiaChi"
-        style="@style/styleTableData"
-        android:text="Địa Chỉ"
-        />
-    <TextView
         android:id="@+id/adapterTKDHtvTriGia"
         style="@style/styleTableData"
         android:text="Trị Giá"

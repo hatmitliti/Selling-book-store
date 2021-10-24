@@ -147,10 +147,6 @@
             style="@style/styleTableData2"
             android:text="Số Sao"
             />
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Nội Dung"
-            />
     </LinearLayout>
 
     <ListView

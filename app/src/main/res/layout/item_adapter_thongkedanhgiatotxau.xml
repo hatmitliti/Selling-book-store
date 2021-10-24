@@ -17,9 +17,4 @@
         style="@style/styleTableData"
         android:text="Số Sao"
         />
-    <TextView
-        android:id="@+id/adapterTKDGTXNoiDung"
-        style="@style/styleTableData"
-        android:text="Nội Dung"
-        />
 </LinearLayout>

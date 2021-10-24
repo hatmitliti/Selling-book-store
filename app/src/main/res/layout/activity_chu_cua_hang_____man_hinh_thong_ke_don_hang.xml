@@ -143,16 +143,6 @@
         <TextView
             android:background="@color/cardview_shadow_start_color"
             style="@style/styleTableData2"
-            android:text="Người Đặt"
-            />
-        <TextView
-            android:background="@color/cardview_shadow_start_color"
-            style="@style/styleTableData2"
-            android:text="Địa Chỉ"
-            />
-        <TextView
-            android:background="@color/cardview_shadow_start_color"
-            style="@style/styleTableData2"
             android:text="Trị Giá"
             />
         <TextView

@@ -151,15 +151,6 @@
         <TextView
             style="@style/styleTableData2"
             android:text="Mã" />
-
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Người Đặt" />
-
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Địa Chỉ" />
-
         <TextView
             style="@style/styleTableData2"
             android:text="Trị Giá" />

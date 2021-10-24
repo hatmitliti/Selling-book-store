@@ -37,7 +37,7 @@ public class DanhGiaAdapter extends BaseAdapter {
         return 0;
     }
     private class ViewHolder {
-        TextView tvNguoiDG, tvTenSP, tvSoSao, tvNoiDung;
+        TextView tvNguoiDG, tvTenSP, tvSoSao;
     }
 
     @Override
@@ -52,7 +52,6 @@ public class DanhGiaAdapter extends BaseAdapter {
             viewHolder.tvNguoiDG = convertView.findViewById(R.id.adapterTKDGTXNguoiDG);
             viewHolder.tvTenSP = convertView.findViewById(R.id.adapterTKDGTXTenSP);
             viewHolder.tvSoSao = convertView.findViewById(R.id.adapterTKDGTXSoSao);
-            viewHolder.tvNoiDung = convertView.findViewById(R.id.adapterTKDGTXNoiDung);
 
 
             convertView.setTag(viewHolder);
@@ -64,7 +63,6 @@ public class DanhGiaAdapter extends BaseAdapter {
         viewHolder.tvNguoiDG.setText(listDanhGia.get(position).getNguoiDG());
         viewHolder.tvTenSP.setText(listDanhGia.get(position).getTenSP());
         viewHolder.tvSoSao.setText(listDanhGia.get(position).getSoSao() + "");
-        viewHolder.tvNoiDung.setText(listDanhGia.get(position).getNoiDung());
         return convertView;
     }
 }
