@@ -48,17 +48,17 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
         spnTKDHnam.setEnabled(false);
 
 
-        DonHang dh1 = new DonHang("1","A","Đồng Nai","2000000","Đang Giao");
-        DonHang dh2 = new DonHang("2","B","Đồng Nai","2000000","Đang Giao");
-        DonHang dh3 = new DonHang("3","C","Đồng Nai","2000000","Đang Giao");
-        DonHang dh4 =  new DonHang("4","D","Đồng Nai","2000000","Đang Giao");
-        DonHang dh5 = new DonHang("5","E","Đồng Nai","2000000","Đang Giao");
-        DonHang dh6 = new DonHang("6","F","Đồng Nai","2000000","Đang Giao");
-        DonHang dh7 = new DonHang("7","G","Đồng Nai","2000000","Đang Giao");
-        DonHang dh8 = new DonHang("8","H","Đồng Nai","2000000","Đang Giao");
-        DonHang dh9 = new DonHang("9","J","Đồng Nai","2000000","Đang Giao");
-        DonHang dh10 = new DonHang("10","Q","Đồng Nai","2000000","Đang Giao");
-        DonHang dh11 = new DonHang("11","K","Đồng Nai","2000000","Đang Giao");
+        DonHang dh1 = new DonHang("1","A","Đang Giao");
+        DonHang dh2 = new DonHang("2","B","Đang Giao");
+        DonHang dh3 = new DonHang("3","C","Đang Giao");
+        DonHang dh4 =  new DonHang("4","D","Đang Giao");
+        DonHang dh5 = new DonHang("5","E","Đang Giao");
+        DonHang dh6 = new DonHang("6","F","Đang Giao");
+        DonHang dh7 = new DonHang("7","G","Đang Giao");
+        DonHang dh8 = new DonHang("8","H","Đang Giao");
+        DonHang dh9 = new DonHang("9","J","Đang Giao");
+        DonHang dh10 = new DonHang("10","Q","Đang Giao");
+        DonHang dh11 = new DonHang("11","K","Đang Giao");
         listDonHang = new ArrayList<>();
 
         listDonHang.add(dh1);

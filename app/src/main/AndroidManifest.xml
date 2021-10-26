@@ -17,10 +17,7 @@
         <activity
             android:name="com.example.book.ThuKho.Thu_kho_tong_hop"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name="com.example.book.ThuKho.Thu_kho_main"
@@ -45,7 +42,10 @@
         <activity
             android:name=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
             android:exported="true">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaXau"

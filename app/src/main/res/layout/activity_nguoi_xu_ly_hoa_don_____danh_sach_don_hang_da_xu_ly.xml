@@ -64,7 +64,7 @@
                     android:layout_height="25dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/vien1"
-                    android:hint="dd/mm/yy"
+                    android:hint="Năm/Tháng/Ngày"
                     android:enabled="false"/>
 
                 <ImageView
