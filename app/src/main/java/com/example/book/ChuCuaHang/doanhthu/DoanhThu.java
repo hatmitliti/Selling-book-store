@@ -2,9 +2,12 @@ package com.example.book.ChuCuaHang.doanhthu;
 
 public class DoanhThu {
     private String MaDH;
-    private int GiaTriDH;
+    private double GiaTriDH;
 
-    public DoanhThu(String maDH, int giaTriDH) {
+    public DoanhThu() {
+    }
+
+    public DoanhThu(String maDH, double giaTriDH) {
         MaDH = maDH;
         GiaTriDH = giaTriDH;
     }
@@ -17,7 +20,7 @@ public class DoanhThu {
         MaDH = maDH;
     }
 
-    public int getGiaTriDH() {
+    public double getGiaTriDH() {
         return GiaTriDH;
     }
 

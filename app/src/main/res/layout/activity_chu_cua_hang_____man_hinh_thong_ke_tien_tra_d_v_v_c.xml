@@ -160,6 +160,6 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
-        android:text="Tổng Số Tiền Phải Trả Là: 125,500,000 VNĐ"
+        android:text="Tổng Số Tiền Phải Trả Là: "
         android:textColor="@color/black" />
 </LinearLayout>

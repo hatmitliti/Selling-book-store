@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
 
-    private Spinner spnTKDHBHthang,spnTKDHBHnam;
+    private Spinner spnTKDHBHthang, spnTKDHBHnam;
     private ListView lvThongKeDonHang;
     private Context context;
     private ArrayList<DonHang> listDonHang;
@@ -40,6 +40,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
     private RadioButton rdbTKDHBHTheoNgay, rdbTKDHBHTheoThang;
     private EditText edtTKDHBHthongketheongay;
     private ArrayList<String> mKey = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
         setControl();
         setEvent();
     }
+
     private void setEvent() {
         // Định dạng số
         NumberFormat currentLocale = NumberFormat.getInstance();
@@ -61,11 +63,11 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
         };
         String[] dataspinnerNam = {
-                "2019", "2020","2021"
+                "2019", "2020", "2021"
         };
         //Gán Dữ liệu vào Adapter
-        ArrayAdapter<String> adapterThang = new ArrayAdapter<>(context,android.R.layout.simple_spinner_item,dataspinnerThang);
-        ArrayAdapter<String> adapterNam = new ArrayAdapter<>(context,android.R.layout.simple_spinner_item,dataspinnerNam);
+        ArrayAdapter<String> adapterThang = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, dataspinnerThang);
+        ArrayAdapter<String> adapterNam = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, dataspinnerNam);
         //
         adapterNam.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         adapterThang.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
@@ -77,7 +79,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
 
 
         listDonHang = new ArrayList<>();
-        DonhangAdapter donhangAdapter = new DonhangAdapter(context,R.layout.item_adapter_thongkedonhang,listDonHang);
+        DonhangAdapter donhangAdapter = new DonhangAdapter(context, R.layout.item_adapter_thongkedonhang, listDonHang);
         lvThongKeDonHang.setAdapter(donhangAdapter);
 
           /*
@@ -148,19 +150,37 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                                     String key = snapshot.getKey();
                                     int index = mKey.indexOf(key);
                                     // thay đổi dữ liệu trong gridview giống với dữ liệu trên firebase
-                                    if (snapshot.getValue(Bill.class).getStatus() != -1) {
-                                        listDonHang.remove(index);
-                                    }else
-                                    {
+                                    if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                            mKey.contains(snapshot.getKey()) == false) {
+                                        String MaDH = snapshot.getValue(Bill.class).getId();
+                                        double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
+                                        String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
+                                        String trangThaiDH = "Đã Xử Lý";
+                                        DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
+                                        listDonHang.add(donHang);
+                                        mKey.add(key);
+                                    } else if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                            mKey.contains(snapshot.getKey()) == true) {
                                         String MaDH = snapshot.getValue(Bill.class).getId();
                                         double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
                                         String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
                                         String trangThaiDH = "Đã Xử Lý";
                                         DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                         listDonHang.set(index, donHang);
+                                    } else if (snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
+                                            mKey.contains(snapshot.getKey()) == true ||
+                                            snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
+                                                    mKey.contains(snapshot.getKey()) == true ||
+                                            snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                                    mKey.contains(snapshot.getKey()) == true) {
+                                        listDonHang.remove(index);
+                                        mKey.remove(key);
+
                                     }
                                     donhangAdapter.notifyDataSetChanged();
+                                    Toast.makeText(context, "Đã có sự thay đổi dữ liệu từ hệ thống", Toast.LENGTH_SHORT).show();
                                 }
+
                                 @Override
                                 public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                                     String key = snapshot.getKey();
@@ -168,6 +188,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                                     listDonHang.remove(index);
                                     donhangAdapter.notifyDataSetChanged();
                                 }
+
                                 @Override
                                 public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
@@ -219,18 +240,35 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                                 String key = snapshot.getKey();
                                 int index = mKey.indexOf(key);
                                 // thay đổi dữ liệu trong gridview giống với dữ liệu trên firebase
-                                if (snapshot.getValue(Bill.class).getStatus() != -1) {
-                                    listDonHang.remove(index);
-                                }else
-                                {
+                                if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                        mKey.contains(snapshot.getKey()) == false) {
                                     String MaDH = snapshot.getValue(Bill.class).getId();
                                     double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
                                     String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
-                                    String trangThaiDH = "Đã Bị Hủy";
+                                    String trangThaiDH = "Đã Xử Lý";
+                                    DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
+                                    listDonHang.add(donHang);
+                                    mKey.add(key);
+                                } else if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                        mKey.contains(snapshot.getKey()) == true) {
+                                    String MaDH = snapshot.getValue(Bill.class).getId();
+                                    double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
+                                    String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
+                                    String trangThaiDH = "Đã Xử Lý";
                                     DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                     listDonHang.set(index, donHang);
+                                } else if (snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
+                                        mKey.contains(snapshot.getKey()) == true ||
+                                        snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
+                                                mKey.contains(snapshot.getKey()) == true ||
+                                        snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                                mKey.contains(snapshot.getKey()) == true) {
+                                    listDonHang.remove(index);
+                                    mKey.remove(key);
+
                                 }
                                 donhangAdapter.notifyDataSetChanged();
+                                Toast.makeText(context, "Đã có sự thay đổi dữ liệu từ hệ thống", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -264,7 +302,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
         spnTKDHBHnam = findViewById(R.id.spnTKDHBHnam);
         spnTKDHBHthang = findViewById(R.id.spnTKDHBHthang);
         lvThongKeDonHang = findViewById(R.id.lvthongkedonhangbihuy);
-        edtTKDHBHthongketheongay =findViewById(R.id.edtTKDHBHthongketheongay);
+        edtTKDHBHthongketheongay = findViewById(R.id.edtTKDHBHthongketheongay);
         rdbTKDHBHTheoNgay = findViewById(R.id.rdbTKDHBHthongketheongay);
         rdbTKDHBHTheoThang = findViewById(R.id.rdbTKDHBHthongketheothang);
         btnThongKe = findViewById(R.id.btnTKDHBHThongKe);

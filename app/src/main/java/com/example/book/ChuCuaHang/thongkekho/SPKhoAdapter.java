@@ -1,11 +1,15 @@
 package com.example.book.ChuCuaHang.thongkekho;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
 
 import com.example.book.R;
 
@@ -61,6 +65,16 @@ public class SPKhoAdapter extends BaseAdapter {
         viewHolder.tvMaSP.setText(listSPKho.get(position).getMaSP());
         viewHolder.tvTenSP.setText(listSPKho.get(position).getTenSP());
         viewHolder.tvSoLuong.setText(listSPKho.get(position).getSoLuong()+"");
+        if(listSPKho.get(position).getSoLuong() == 0)
+        {
+            viewHolder.tvMaSP.setBackgroundResource(R.drawable.vienkho);
+            viewHolder.tvTenSP.setBackgroundResource(R.drawable.vienkho);
+            viewHolder.tvSoLuong.setBackgroundResource(R.drawable.vienkho);
+        }else {
+            viewHolder.tvMaSP.setBackgroundResource(R.drawable.vien1);
+            viewHolder.tvTenSP.setBackgroundResource(R.drawable.vien1);
+            viewHolder.tvSoLuong.setBackgroundResource(R.drawable.vien1);
+        }
 
         return convertView;
     }

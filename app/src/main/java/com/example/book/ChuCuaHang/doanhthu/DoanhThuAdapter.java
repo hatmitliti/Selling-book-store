@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.example.book.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DoanhThuAdapter extends BaseAdapter {
     private int layout;
@@ -40,6 +42,11 @@ public class DoanhThuAdapter extends BaseAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        // Định dạng số
+        NumberFormat currentLocale = NumberFormat.getInstance();
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
+        //
         ViewHolder viewHolder;
         if (convertView == null)
         {
@@ -56,7 +63,7 @@ public class DoanhThuAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.tvMaDH.setText(listDoanhThu.get(position).getMaDH());
-        viewHolder.tvGiaTriDH.setText(listDoanhThu.get(position).getGiaTriDH()+"");
+        viewHolder.tvGiaTriDH.setText(en.format(listDoanhThu.get(position).getGiaTriDH())+" VNĐ");
 
         return convertView;
     }

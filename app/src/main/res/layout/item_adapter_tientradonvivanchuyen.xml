@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
     <TextView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="fill_parent"
         android:id="@+id/adapterSTPTDVVCtvMaDH"
         style="@style/styleTableData"
         android:text="Mã Đơn Hàng"
+        android:lines="3"
+        android:layout_weight="1"
         />
     <TextView
+        android:layout_height="fill_parent"
         android:id="@+id/adapterSTPTDVVCtvTriGia"
         style="@style/styleTableData"
         android:text="Trị Giá"
+
         />
     <TextView
+        android:layout_height="fill_parent"
         android:id="@+id/adapterSTPTDVVCtvSoTienPhaiTra"
         style="@style/styleTableData"
         android:text="Số Tiền Phải Trả"
