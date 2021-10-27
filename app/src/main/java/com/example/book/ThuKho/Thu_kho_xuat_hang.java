@@ -91,8 +91,8 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("exports");
                 for (int j = 0; j < productExport.size(); j++) {
-                    ProductExImport productExImport = new ProductExImport(productExport.get(j), qualityProduct.get(j),false);
-                    mDatabase.child(UUID.randomUUID().toString()).setValue(productExImport);
+                    ProductExImport productExImport = new ProductExImport(productExport.get(j), qualityProduct.get(j),UUID.randomUUID().toString(),false);
+                    mDatabase.child(productExImport.getId()).setValue(productExImport);
                 }
                 productExport.clear();
                 qualityProduct.clear();

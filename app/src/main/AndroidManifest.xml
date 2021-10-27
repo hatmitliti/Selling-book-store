@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.book">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,29 +16,31 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
+        <activity android:name=".ThuKho.Thu_kho_hang_ton" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_tong_hop"
+            android:name=".ThuKho.Thu_kho_tong_hop"
             android:exported="true" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_loai_sach"
+            android:name=".ThuKho.Thu_kho_loai_sach"
             android:exported="true" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_main"
+            android:name=".ThuKho.Thu_kho_main"
             android:exported="true" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_xuat_hang"
+            android:name=".ThuKho.Thu_kho_xuat_hang"
             android:exported="true" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_nhap_hang"
-            android:exported="true" /> <activity
-            android:name="com.example.book.ThuKho.Thu_kho_xem_lai"
+            android:name=".ThuKho.Thu_kho_nhap_hang"
             android:exported="true" />
-        <activity android:name="com.example.book.QuanLy.manage.UserActivity" />
-        <activity android:name="com.example.book.QuanLy.manage.ManageActivity" />
+        <activity
+            android:name=".ThuKho.Thu_kho_xem_lai"
+            android:exported="true" />
+        <activity android:name=".QuanLy.manage.UserActivity" />
+        <activity android:name=".QuanLy.manage.ManageActivity" />
         <activity android:name=".QuanLy.manage.BlacklistActivity" />
         <activity android:name=".QuanLy.manage.BlockActivity" />
         <activity android:name=".QuanLy.manage.MessageActivity" />
@@ -68,16 +71,15 @@
             android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
             android:exported="true" />
         <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang" />
-
         <activity android:name=".SoanDon.PackerActivity" />
+        <activity android:name=".SoanDon.PackagedActivityShipper" />
         <activity android:name=".SoanDon.UnpackedActivity" />
         <activity android:name=".SoanDon.OrderDetailActivity" />
         <activity android:name=".SoanDon.StorehouseActivity" />
         <activity android:name=".SoanDon.PackagedActivity" />
         <activity android:name=".SoanDon.InTransitActivity" />
         <activity android:name=".SoanDon.DeliveredActivity" />
-
-
+        <activity android:name=".SoanDon.ComfirmNhanHang" />
     </application>
 
 </manifest>
