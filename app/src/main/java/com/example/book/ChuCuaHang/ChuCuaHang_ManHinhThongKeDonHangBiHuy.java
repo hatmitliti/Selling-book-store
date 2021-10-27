@@ -155,7 +155,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                                         String MaDH = snapshot.getValue(Bill.class).getId();
                                         double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
                                         String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
-                                        String trangThaiDH = "Đã Xử Lý";
+                                        String trangThaiDH = "Đã Bị Hủy";
                                         DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                         listDonHang.add(donHang);
                                         mKey.add(key);
@@ -164,7 +164,7 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                                         String MaDH = snapshot.getValue(Bill.class).getId();
                                         double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
                                         String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
-                                        String trangThaiDH = "Đã Xử Lý";
+                                        String trangThaiDH = "Đã Bị Hủy";
                                         DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                         listDonHang.set(index, donHang);
                                     } else if (snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
@@ -240,28 +240,28 @@ public class ChuCuaHang_ManHinhThongKeDonHangBiHuy extends AppCompatActivity {
                                 String key = snapshot.getKey();
                                 int index = mKey.indexOf(key);
                                 // thay đổi dữ liệu trong gridview giống với dữ liệu trên firebase
-                                if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(time) == true &&
                                         mKey.contains(snapshot.getKey()) == false) {
                                     String MaDH = snapshot.getValue(Bill.class).getId();
                                     double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
                                     String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
-                                    String trangThaiDH = "Đã Xử Lý";
+                                    String trangThaiDH = "Đã Bị Hủy";
                                     DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                     listDonHang.add(donHang);
                                     mKey.add(key);
-                                } else if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                } else if (snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(time) == true &&
                                         mKey.contains(snapshot.getKey()) == true) {
                                     String MaDH = snapshot.getValue(Bill.class).getId();
                                     double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
                                     String giaTien = en.format(tongGiaTriDonHang) + " VNĐ";
-                                    String trangThaiDH = "Đã Xử Lý";
+                                    String trangThaiDH = "Đã Bị Hủy";
                                     DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                     listDonHang.set(index, donHang);
-                                } else if (snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
+                                } else if (snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(time) == false &&
                                         mKey.contains(snapshot.getKey()) == true ||
-                                        snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == false &&
+                                        snapshot.getValue(Bill.class).getStatus() == -1 && snapshot.getValue(Bill.class).getDate().contains(time) == false &&
                                                 mKey.contains(snapshot.getKey()) == true ||
-                                        snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(edtTKDHBHthongketheongay.getText()) == true &&
+                                        snapshot.getValue(Bill.class).getStatus() != -1 && snapshot.getValue(Bill.class).getDate().contains(time) == true &&
                                                 mKey.contains(snapshot.getKey()) == true) {
                                     listDonHang.remove(index);
                                     mKey.remove(key);

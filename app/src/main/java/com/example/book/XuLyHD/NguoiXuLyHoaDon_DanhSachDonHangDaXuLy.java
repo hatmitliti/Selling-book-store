@@ -274,11 +274,11 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
                                     String trangThaiDH = "Đã Xử Lý";
                                     DonHang donHang = new DonHang(MaDH, giaTien, trangThaiDH);
                                     listDonHangDXL.set(index, donHang);
-                                } else if (!testBillStatus(snapshot.getValue(Bill.class).getStatus()) && snapshot.getValue(Bill.class).getDate().contains(edtTKDHDXLthongketheongay.getText()) == false
+                                } else if (!testBillStatus(snapshot.getValue(Bill.class).getStatus()) && snapshot.getValue(Bill.class).getDate().contains(time) == false
                                         && mKey.contains(snapshot.getKey()) == true
-                                        || testBillStatus(snapshot.getValue(Bill.class).getStatus()) && snapshot.getValue(Bill.class).getDate().contains(edtTKDHDXLthongketheongay.getText()) == false
+                                        || testBillStatus(snapshot.getValue(Bill.class).getStatus()) && snapshot.getValue(Bill.class).getDate().contains(time) == false
                                         && mKey.contains(snapshot.getKey()) == true
-                                        || !testBillStatus(snapshot.getValue(Bill.class).getStatus()) && snapshot.getValue(Bill.class).getDate().contains(edtTKDHDXLthongketheongay.getText()) == true
+                                        || !testBillStatus(snapshot.getValue(Bill.class).getStatus()) && snapshot.getValue(Bill.class).getDate().contains(time) == true
                                         && mKey.contains(snapshot.getKey()) == true) {
                                     listDonHangDXL.remove(index);
                                     mKey.remove(snapshot.getKey());
