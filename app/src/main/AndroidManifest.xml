@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.book">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,22 +12,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
         <activity
+            android:name=".QuanLy.manage.BlackList_add"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".QuanLy.manage.Blacklist_List"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
-        <activity android:name="com.example.book.ThuKho.Thu_kho_hang_ton" />
+            android:exported="true" />
+        <activity android:name=".ThuKho.Thu_kho_hang_ton" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_tong_hop"
-            android:exported="true">
-
-        </activity>
+            android:name=".ThuKho.Thu_kho_tong_hop"
+            android:exported="true" />
         <activity
-            android:name="com.example.book.ThuKho.Thu_kho_main"
+            android:name=".ThuKho.Thu_kho_main"
+            android:exported="true" />
+        <activity
+            android:name=".QuanLy.manage.UserActivity"
             android:exported="true">
-
         </activity>
-        <activity android:name="com.example.book.QuanLy.manage.UserActivity" />
-        <activity android:name="com.example.book.QuanLy.manage.ManageActivity" />
-        <activity android:name=".QuanLy.manage.BlacklistActivity" />
+        <activity android:name=".QuanLy.manage.ManageActivity" />
+        <activity android:name=".QuanLy.manage.BlacklistActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".QuanLy.manage.BlockActivity" />
         <activity android:name=".QuanLy.manage.MessageActivity" />
         <activity android:name=".QuanLy.manage.ChatActivity" />
@@ -35,60 +51,36 @@
         <activity android:name=".QuanLy.manage.UpdateEmployeeActivity" />
         <activity android:name=".QuanLy.manage.AddEmployeeActivity" />
         <activity android:name=".QuanLy.manage.UpdateUserActivity" />
-        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhChinh" />
-        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh">
-
-        </activity>
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh" />
         <activity
             android:name=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang" />
         <activity
             android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaXau"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaTot"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhChinh" />
         <activity
             android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHangBiHuy"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeKho"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeTienTraDVVC"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhDoanhThu"
-            android:exported="true">
-
-        </activity>
-
-
-
-
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeKho"
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeTienTraDVVC"
+            android:exported="true" />
+        <activity
+            android:name=".ChuCuaHang.ChuCuaHang_ManHinhDoanhThu"
+            android:exported="true" />
         <activity android:name=".SoanDon.PackerActivity" />
         <activity android:name=".SoanDon.UnpackedActivity" />
         <activity android:name=".SoanDon.OrderDetailActivity" />
@@ -96,8 +88,6 @@
         <activity android:name=".SoanDon.PackagedActivity" />
         <activity android:name=".SoanDon.InTransitActivity" />
         <activity android:name=".SoanDon.DeliveredActivity" />
-
-
     </application>
 
 </manifest>

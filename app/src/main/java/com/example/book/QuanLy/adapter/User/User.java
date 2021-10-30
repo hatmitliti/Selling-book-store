@@ -1,4 +1,4 @@
-package com.example.book.ChuCuaHang.thongkedanhgia;
+package com.example.book.QuanLy.adapter.User;
 
 import java.io.Serializable;
 
@@ -21,14 +21,6 @@ public class User implements Serializable {
         this.name = name;
         this.phone = phone;
         this.rank = rank;
-        this.image = image;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
         this.image = image;
     }
 
@@ -79,5 +71,25 @@ public class User implements Serializable {
     public void setRank(String rank) {
         this.rank = rank;
     }
-}
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "address='" + address + '\'' +
+                ", birth='" + birth + '\'' +
+                ", moneyBuy=" + moneyBuy +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", rank='" + rank + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
+}
