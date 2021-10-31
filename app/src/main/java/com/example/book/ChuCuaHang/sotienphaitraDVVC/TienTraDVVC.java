@@ -3,9 +3,12 @@ package com.example.book.ChuCuaHang.sotienphaitraDVVC;
 public class TienTraDVVC {
 
     private String MaDH;
-    private int  TriGia, SoTienPhaiTra;
+    private double TriGia, SoTienPhaiTra;
 
-    public TienTraDVVC(String maDH, int triGia, int soTienPhaiTra) {
+    public TienTraDVVC() {
+    }
+
+    public TienTraDVVC(String maDH, double triGia, double soTienPhaiTra) {
         MaDH = maDH;
         TriGia = triGia;
         SoTienPhaiTra = soTienPhaiTra;
@@ -19,19 +22,19 @@ public class TienTraDVVC {
         MaDH = maDH;
     }
 
-    public int getTriGia() {
+    public double getTriGia() {
         return TriGia;
     }
 
-    public void setTriGia(int triGia) {
+    public void setTriGia(double triGia) {
         TriGia = triGia;
     }
 
-    public int getSoTienPhaiTra() {
+    public double getSoTienPhaiTra() {
         return SoTienPhaiTra;
     }
 
-    public void setSoTienPhaiTra(int soTienPhaiTra) {
+    public void setSoTienPhaiTra(double soTienPhaiTra) {
         SoTienPhaiTra = soTienPhaiTra;
     }
 }

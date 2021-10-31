@@ -6,16 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
 import com.example.book.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class TienTraDVVCAdapter extends BaseAdapter {
     private int layout;
     private Context context;
     private ArrayList<TienTraDVVC> listTienTraDVVC;
 
-    public TienTraDVVCAdapter(Context context,int layout,  ArrayList<TienTraDVVC> listTienTraDVVC) {
+    public TienTraDVVCAdapter(Context context, int layout, ArrayList<TienTraDVVC> listTienTraDVVC) {
         this.layout = layout;
         this.context = context;
         this.listTienTraDVVC = listTienTraDVVC;
@@ -35,31 +38,33 @@ public class TienTraDVVCAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
+
     private class ViewHolder {
-        TextView tvMaDH, tvTriGia,tvSoTienPhaiTra;
+        TextView tvMaDH, tvTriGia, tvSoTienPhaiTra;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        // Định dạng số
+        NumberFormat currentLocale = NumberFormat.getInstance();
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
         ViewHolder viewHolder;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(layout,parent,false);
+            convertView = inflater.inflate(layout, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.tvMaDH = convertView.findViewById(R.id.adapterSTPTDVVCtvMaDH);
             viewHolder.tvTriGia = convertView.findViewById(R.id.adapterSTPTDVVCtvTriGia);
             viewHolder.tvSoTienPhaiTra = convertView.findViewById(R.id.adapterSTPTDVVCtvSoTienPhaiTra);
 
             convertView.setTag(viewHolder);
-        }
-        else
-        {
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.tvMaDH.setText(listTienTraDVVC.get(position).getMaDH());
-        viewHolder.tvTriGia.setText(listTienTraDVVC.get(position).getTriGia()+"");
-        viewHolder.tvSoTienPhaiTra.setText(listTienTraDVVC.get(position).getSoTienPhaiTra()+"");
+        viewHolder.tvTriGia.setText(en.format(listTienTraDVVC.get(position).getTriGia()) + " VNĐ");
+        viewHolder.tvSoTienPhaiTra.setText(en.format(listTienTraDVVC.get(position).getSoTienPhaiTra()) + " VNĐ");
 
         return convertView;
     }

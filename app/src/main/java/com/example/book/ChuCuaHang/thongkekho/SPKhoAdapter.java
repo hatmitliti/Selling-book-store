@@ -61,6 +61,16 @@ public class SPKhoAdapter extends BaseAdapter {
         viewHolder.tvMaSP.setText(listSPKho.get(position).getMaSP());
         viewHolder.tvTenSP.setText(listSPKho.get(position).getTenSP());
         viewHolder.tvSoLuong.setText(listSPKho.get(position).getSoLuong()+"");
+        if(listSPKho.get(position).getSoLuong() == 0)
+        {
+            viewHolder.tvMaSP.setBackgroundResource(R.drawable.vienkho);
+            viewHolder.tvTenSP.setBackgroundResource(R.drawable.vienkho);
+            viewHolder.tvSoLuong.setBackgroundResource(R.drawable.vienkho);
+        }else {
+            viewHolder.tvMaSP.setBackgroundResource(R.drawable.vien1);
+            viewHolder.tvTenSP.setBackgroundResource(R.drawable.vien1);
+            viewHolder.tvSoLuong.setBackgroundResource(R.drawable.vien1);
+        }
 
         return convertView;
     }

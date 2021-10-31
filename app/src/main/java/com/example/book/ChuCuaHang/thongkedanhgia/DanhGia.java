@@ -1,15 +1,18 @@
 package com.example.book.ChuCuaHang.thongkedanhgia;
 
 public class DanhGia {
-    private String NguoiDG,TenSP,NoiDung;
+    private String NguoiDG,TenSP;
     private int SoSao;
 
-    public DanhGia(String nguoiDG, String tenSP, String noiDung, int soSao) {
+    public DanhGia(String nguoiDG, String tenSP, int soSao) {
         NguoiDG = nguoiDG;
         TenSP = tenSP;
-        NoiDung = noiDung;
         SoSao = soSao;
     }
+
+    public DanhGia() {
+    }
+
 
     public String getNguoiDG() {
         return NguoiDG;
@@ -27,13 +30,6 @@ public class DanhGia {
         TenSP = tenSP;
     }
 
-    public String getNoiDung() {
-        return NoiDung;
-    }
-
-    public void setNoiDung(String noiDung) {
-        NoiDung = noiDung;
-    }
 
     public int getSoSao() {
         return SoSao;

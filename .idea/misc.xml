@@ -34,10 +34,24 @@
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/layout/thu_kho_tong_hop_adapter_item.xml" value="0.3625" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/layout/thu_kho_xem_lai.xml" value="0.3625" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/layout/thu_kho_xuat_hang.xml" value="0.3625" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/drawable/imagenull.xml" value="0.25925925925925924" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/drawable/vienkho.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_chinh.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_danh_gia_khach_hang.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_doanh_thu.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_main.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/activity_nguoi_xu_ly_hoa_don__man_hinh_chinh.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/item_adapter_danhsachdonhangchoxuly.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/item_adapter_thongkekho.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_add_blacklist_items.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_black_list_add.xml" value="0.24230072463768115" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_blacklist_add_item.xml" value="0.24230072463768115" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_blacklist_layout.xml" value="0.24230072463768115" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_blacklist_list.xml" value="0.24230072463768115" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_blacklist_list_item.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_layout.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_update_user_layout.xml" value="0.24230072463768115" />
+        <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_user_items.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/manage_user_layout.xml" value="0.22644927536231885" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/packager_comfirm_nhan_hang.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/truon/Desktop/Store/app/src/main/res/layout/packager_comfirm_nhan_hang_item.xml" value="0.24139492753623187" />
