@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingRight="10dp">
+
+        <Button
+            android:id="@+id/btnXemLaiXuatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xem lại" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spTenSachXuatHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/loaisach" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lượng:" />
+
+            <EditText
+                android:id="@+id/txtSoLuongXuatHang"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnThemXuatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thêm" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvXuatHang"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <Spinner
+            android:id="@+id/spChonNguoiNhanXuatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/soan_don" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:paddingBottom="20dp">
+
+        <Button
+            android:id="@+id/btnXuatXuatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XUẤT" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/backChiTietDonHang"
+            style="@style/buttonBack"
+            android:text="Back" />
+        <TextView
+            style="@style/titleActivity"
+            android:text="Chi Tiết Đơn Hàng" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/vien1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image_NguoiXuLyHoaDon"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/squid_game_006"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/CTDHtvMaDH"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mã Đơn Hàng: DH01"
+                    android:lines="2"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/CTDHtvTenND"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên Người Đặt: Trần Văn A"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/CTDHtvSDT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số Điện Thoại: 123456789"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/CTDHtvDiaChi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Địa Chỉ Giao Hàng: Thủ Đức, TP.HCM"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/CTDHtvTrangThaiDonHang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trạng Thái Đơn Hàng: Đang Chờ Xử Lý"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh Sách Sản Phẩm Của Đơn Hàng"
+            android:textColor="@color/black"/>
+        <ListView
+            android:id="@+id/CTDHlvDanhSachSP"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/vien1"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/CTDHsotienduocgiam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số Tiền Mà Đơn Hàng Được Giảm Là: 450,000 VNĐ"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/CTDHtonggiatridonhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng Giá Trị Đơn Hàng Là: 450,000 VNĐ"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+
+                android:id="@+id/btnCTDHXacNhanDaXuLy"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Xác Nhận Đã Xử Lý"
+                />
+            <Button
+                android:layout_marginLeft="30dp"
+                android:id="@+id/btnCTDHXacNhanHuyDon"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Xác Nhận Hủy Đơn"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
