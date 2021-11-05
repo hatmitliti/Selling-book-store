@@ -153,6 +153,7 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
             }
         });
 
+        //set sự kiện hủy đơn
         btnHuyDonHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
