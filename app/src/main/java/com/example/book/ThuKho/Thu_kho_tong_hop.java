@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -35,6 +36,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.book.R;
+import com.example.book.ThuKho.TKQuanLiSanPham.Category;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
 import com.example.book.ThuKho.TKQuanLiSanPham.ProductAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -66,6 +68,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
     ProductAdapter adapterProduct;
     DatabaseReference dataProduct;
     ArrayList<String> mKey = new ArrayList<>();
+    ArrayList<String> mKeyCategory = new ArrayList<>();
     Context context;
     ListView lvProducts;
     ImageView ImgCamera, IMGThuVien;
@@ -91,6 +94,51 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
     }
 
     private void setEvent() {
+        context = this;
+        dataProduct = FirebaseDatabase.getInstance().getReference();
+        // đổ dữ liệu cho spinner
+        ArrayList<String> Categories = new ArrayList<>();
+        ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,Categories);
+        adapterCategory.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+        spnTheLoai.setAdapter(adapterCategory);
+        dataProduct.child("categorys").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Categories.add(snapshot.getValue(Category.class).getName());
+                adapterCategory.notifyDataSetChanged();
+                mKeyCategory.add(snapshot.getValue(Category.class).getId());
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                // lấy địa chỉ id của đối tượng vừa bị thay đổi bên trong mảng mkey
+                String key = snapshot.getKey();
+                int index = mKeyCategory.indexOf(key);
+                // thay đổi dữ liệu trong gridview giống với dữ liệu trên firebase
+                Categories.set(index,snapshot.getValue(Category.class).getName());
+                adapterCategory.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                String key = snapshot.getKey();
+                int index = mKeyCategory.indexOf(key);
+                Categories.remove(index);
+                adapterCategory.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         // set enable false cho các icon chọn ảnh
         ImgCamera.setEnabled(false);
         IMGThuVien.setEnabled(false);
@@ -120,8 +168,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
          *
          *
          * */
-        context = this;
-        dataProduct = FirebaseDatabase.getInstance().getReference();
         adapterProduct = new ProductAdapter(context, R.layout.thu_kho_tong_hop_adapter_item, listProduct);
         lvProducts.setAdapter(adapterProduct);
          /*
@@ -136,18 +182,19 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 edtTacGia.setText(productCLick.getAuthor());
                 edtMota.setText(productCLick.getDescription());
                 if (productCLick.getCategory().equals("Truyện")) {
-                    spnTheLoai.setSelection(1);
+                    spnTheLoai.setSelection(0);
                 } else if (productCLick.getCategory().equals("Học Sinh")) {
-                    spnTheLoai.setSelection(2);
+                    spnTheLoai.setSelection(1);
                 } else if (productCLick.getCategory().equals("Tài Liệu")) {
-                    spnTheLoai.setSelection(3);
+                    spnTheLoai.setSelection(2);
                 } else if (productCLick.getCategory().equals("Khoa Học")) {
-                    spnTheLoai.setSelection(4);
+                    spnTheLoai.setSelection(3);
                 } else if (productCLick.getCategory().equals("Kinh Dị")) {
-                    spnTheLoai.setSelection(5);
+                    spnTheLoai.setSelection(4);
                 } else if (productCLick.getCategory().equals("Tiểu Thuyết")) {
-                    spnTheLoai.setSelection(6);
+                    spnTheLoai.setSelection(5);
                 }
+                Toast.makeText(context,productCLick.getCategory()+"" , Toast.LENGTH_SHORT).show();
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(IMGThuVien);
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(ImgCamera);
                 Set set = idProducts.keySet();
@@ -275,7 +322,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (edtTenSP.getText().toString().equals("") || edtGiaSP.getText().toString().equals("") || edtTacGia.getText().toString().equals("") || edtMota.getText().toString().equals("")
-                        || spnTheLoai.getSelectedItem().toString().equals("Lựa chọn loại sách")
                 ) {
                     Toast.makeText(context, "Thiếu Dữ Liệu Vui Lòng Kiểm Tra Lại", Toast.LENGTH_SHORT).show();
                 } else if (rdbChonAnhTuCamera.isChecked() == true && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
@@ -555,8 +601,8 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     setTextEmpty();
                 }
             }
-    });
-}
+        });
+    }
 
 
     private void setTextEmpty() {

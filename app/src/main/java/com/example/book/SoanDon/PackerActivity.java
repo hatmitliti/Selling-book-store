@@ -15,7 +15,8 @@ public class PackerActivity extends AppCompatActivity {
     ImageView btnDaDongGoi;
     ImageView btnDangVanChuyen;
     ImageView btnDaGiao;
-    Button btnNhapHangSoanDon;
+    ImageView btnNhapHangSoanDon;
+    ImageView btnDonBiHuy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,14 @@ public class PackerActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ComfirmNhanHang.class));
             }
         });
+
+
+        btnDonBiHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void setControl() {
@@ -64,5 +73,6 @@ public class PackerActivity extends AppCompatActivity {
         btnDangVanChuyen = findViewById(R.id.btnDangVanChuyen);
         btnDaGiao = findViewById(R.id.btnDaGiao);
         btnNhapHangSoanDon = findViewById(R.id.btnNhapHangSoanDon);
+        btnDonBiHuy = findViewById(R.id.btnDonBiHuy);
     }
 }
