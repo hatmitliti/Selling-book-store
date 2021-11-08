@@ -22,7 +22,7 @@ public class PackerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.packager_packer_layout);
-        setTitle("Quản lý đóng gói");
+        // setTitle("Quản lý đóng gói");
 
         setControl();
 
@@ -62,7 +62,7 @@ public class PackerActivity extends AppCompatActivity {
         btnDonBiHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getApplicationContext(), DeliverCancelActivity.class));
             }
         });
     }

@@ -96,6 +96,7 @@
         <activity android:name=".SoanDon.StorehouseActivity" />
         <activity android:name=".SoanDon.PackagedActivity" />
         <activity android:name=".SoanDon.InTransitActivity" />
+        <activity android:name=".SoanDon.DeliverCancelActivity" />
         <activity android:name=".SoanDon.DeliveredActivity" />
         <activity android:name=".SoanDon.ComfirmNhanHang" />
     </application>

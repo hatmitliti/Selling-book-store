@@ -62,8 +62,11 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
         databill.child("users").child(bill.getId_user()).child("image").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                Picasso.get().load(task.getResult().getValue(String.class)).into(imgUser);
+                try {
+                    Picasso.get().load(task.getResult().getValue(String.class)).into(imgUser);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         SanPhamAdapter sanPhamAdapter = new SanPhamAdapter(R.layout.item_adapter_sanphamtrongdonhangchitietdonhang, context, listSanPhamTrongDonHang);
@@ -141,9 +144,10 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                 databill.child("bills").child(bill.getId()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
-                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this,NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
-                                        startActivity(i);
+//                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
+//                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
+//                                        startActivity(i);
+                                        onBackPressed();
                                     }
                                 });
                             }
@@ -164,7 +168,7 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Object o) {
                                         Toast.makeText(context, "Hủy Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this,NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
+                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
                                         startActivity(i);
                                     }
                                 });
