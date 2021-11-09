@@ -23,7 +23,7 @@ public class ComfirmNhanHang extends AppCompatActivity {
     ListView lvComfirm;
     ComfirmAdapter adapter;
     ArrayList<ProductExImport> list;
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
