@@ -61,14 +61,12 @@ public class AdapterEmployee extends ArrayAdapter {
             @Override
             public void onClick(View v) {
                 deleteEmploee.deleteEmploee(employee);
-
-
             }
         });
         viewHolder.btnEditEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(getContext(), UpdateEmployeeActivity.class));
+              deleteEmploee.updateEmploee(employee);
             }
         });
         viewHolder.txtEmployee.setText(employee.getName());
