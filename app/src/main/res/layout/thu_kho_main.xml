@@ -2,12 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -37,6 +38,7 @@
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_format_list_bulleted_24"
                 android:padding="16dp"
+                android:backgroundTint="@color/teal_200"
                 android:text="1" />
 
             <TextView
@@ -57,6 +59,7 @@
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_horizontal_split_24"
                 android:padding="16dp"
+                android:backgroundTint="@color/teal_200"
                 android:text="1"
                 android:textSize="24sp" />
 
@@ -78,6 +81,7 @@
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_menu_book_24"
                 android:padding="16dp"
+                android:backgroundTint="@color/teal_200"
                 android:text="1"
                 android:textSize="24sp" />
 
@@ -105,6 +109,7 @@
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_north_24"
                 android:padding="16dp"
+                android:backgroundTint="@color/teal_200"
                 android:text="1"
                 android:textSize="24sp" />
 
@@ -125,6 +130,7 @@
                 android:layout_width="69dp"
                 android:layout_height="66dp"
                 android:drawableTop="@drawable/ic_baseline_addchart_24"
+                android:backgroundTint="@color/teal_200"
                 android:padding="16dp"
                 android:text="1"
                 android:textSize="24sp" />

@@ -162,6 +162,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/lime"
             android:text="Thêm"
             android:layout_weight="1"
             android:textColor="@color/black" />
@@ -172,6 +173,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
             android:text="Sửa"
             android:layout_weight="1"
             android:textColor="@color/black" />
@@ -181,6 +183,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
             android:text="Xoa"
             android:layout_weight="1"
             android:textColor="@color/black" />
