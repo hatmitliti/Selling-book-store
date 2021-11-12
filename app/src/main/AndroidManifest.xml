@@ -11,12 +11,15 @@
         android:theme="@style/Theme.Store">
         <activity android:name="com.example.store.ThuKho.Thu_kho_hang_ton"></activity>
         <activity android:name="com.example.store.ThuKho.Thu_kho_main"></activity>
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhChinh"></activity>
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"></activity>
+        <activity android:name=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"></activity>
+        <activity android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHangBiHuy"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.store.ThuKho.Thu_kho_hang_ton;
 import com.example.store.ThuKho.Thu_kho_main;
+import com.example.store.XuLyHD.NguoiXuLyHoaDon_ManHinhChinh;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     case 1: // người soạn đơn
                         break;
                     case 2: // Xử lý hóa đơn
+                        startActivity(new Intent(getApplicationContext(), NguoiXuLyHoaDon_ManHinhChinh.class));
                         break;
                     case 3: // Chủ cửa hàng
                         break;

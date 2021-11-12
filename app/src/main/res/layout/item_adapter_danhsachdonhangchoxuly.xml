@@ -5,6 +5,7 @@
     android:orientation="horizontal"
     android:background="@drawable/vien1">
     <ImageView
+        android:id="@+id/imgBlacklistIconDHCXL"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_baseline_inventory_24" />
