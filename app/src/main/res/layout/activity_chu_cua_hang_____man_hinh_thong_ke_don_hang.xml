@@ -62,10 +62,10 @@
                 <EditText
                     android:id="@+id/edtTKDHthongketheongay"
                     android:layout_width="130dp"
-                    android:layout_height="50dp"
+                    android:layout_height="25dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/vien1"
-                    android:hint="Năm/Tháng/Ngày"
+                    android:hint="dd/mm/yy"
                     android:enabled="false"/>
 
                 <ImageView

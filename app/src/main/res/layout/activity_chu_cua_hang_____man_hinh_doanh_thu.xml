@@ -63,10 +63,10 @@
                 <EditText
                     android:id="@+id/edtDTthongketheongay"
                     android:layout_width="130dp"
-                    android:layout_height="50dp"
+                    android:layout_height="25dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/vien1"
-                    android:hint="Năm/Tháng/Ngày"
+                    android:hint="dd/mm/yy"
                     android:enabled="false"/>
 
                 <ImageView
@@ -154,7 +154,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:text="Tổng Doanh Thu Là:"
+        android:text="Tổng Doanh Thu Là: 125,500,000 VNĐ"
         android:textColor="@color/black"/>
 
 </LinearLayout>

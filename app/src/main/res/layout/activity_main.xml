@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
         android:gravity="center">
 
         <TextView
@@ -36,11 +38,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/username"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txtUsername"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -53,11 +57,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/password"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
+                android:inputType="textPassword"
                 android:id="@+id/txtPassword"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -65,12 +72,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Lựa chọn quyền truy cập của bạn"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spQuyenTruyCap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#FF5722" />
         </LinearLayout>
 
         <Button
@@ -79,6 +97,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:text="@string/dangNhap" />
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:gravity="center|bottom"
+                android:text="Hãy đăng nhập bằng tài khoản mà admin đã cấp cho bạn"
+                android:textColor="@color/black" />
+        </LinearLayout>
     </LinearLayout>
 
 

@@ -1,9 +1,5 @@
 package com.example.book.QuanLy.manage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +9,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.book.QuanLy.adapter.BlackList.BlackListAdapter;
-import com.example.book.QuanLy.adapter.BlackList.BlackListAddAdapter;
 import com.example.book.QuanLy.adapter.User.User;
 import com.example.book.R;
 import com.google.firebase.database.ChildEventListener;

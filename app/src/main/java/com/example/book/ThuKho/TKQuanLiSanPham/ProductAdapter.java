@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.example.book.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductAdapter extends BaseAdapter {
     Context context;
@@ -41,13 +43,16 @@ public class ProductAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-
+        // Định dạng số
+        NumberFormat currentLocale = NumberFormat.getInstance();
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
+        //
         ViewHolder viewHolder;
 
-        if (view == null)
-        {
+        if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            view = inflater.inflate(resource,viewGroup,false);
+            view = inflater.inflate(resource, viewGroup, false);
             viewHolder = new ViewHolder();
             viewHolder.imgAnhSP = view.findViewById(R.id.TKTHImageitemViewSanPham);
             viewHolder.tvTenSP = view.findViewById(R.id.TKTHTextviewitemTenSanPham);
@@ -57,21 +62,20 @@ public class ProductAdapter extends BaseAdapter {
             viewHolder.tvMoTa = view.findViewById(R.id.TKTHTextviewitemMoTa);
 
             view.setTag(viewHolder);
-        }
-        else
-        {
+        } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.tvTenSP.setText(data.get(i).getTenSanPham());
-        viewHolder.tvGiaSP.setText(data.get(i).getGiaTien()+ "VNĐ");
-        viewHolder.tvTacGia.setText(data.get(i).getAuthor());
-        viewHolder.tvTheLoai.setText(data.get(i).getCategory());
-        viewHolder.tvMoTa.setText(data.get(i).getDescription());
+        viewHolder.tvTenSP.setText("Tên Sản Phẩm: "+data.get(i).getTenSanPham());
+        viewHolder.tvGiaSP.setText("Giá Sản Phẩm: "+en.format(data.get(i).getGiaTien()) + " VNĐ");
+        viewHolder.tvTacGia.setText("Tác Giả: "+data.get(i).getAuthor());
+        viewHolder.tvTheLoai.setText("Thể Loại:  "+data.get(i).getCategory());
+        viewHolder.tvMoTa.setText("Mô Tả:   "+data.get(i).getDescription());
         Picasso.get().load(data.get(i).getHinhAnh()).into(viewHolder.imgAnhSP);
         return view;
     }
-    private  static  class ViewHolder{
+
+    private static class ViewHolder {
         ImageView imgAnhSP;
-        TextView tvTenSP,tvGiaSP,tvTheLoai,tvTacGia,tvMoTa;
+        TextView tvTenSP, tvGiaSP, tvTheLoai, tvTacGia, tvMoTa;
     }
 }

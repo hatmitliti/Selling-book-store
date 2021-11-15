@@ -1,8 +1,6 @@
 package com.example.book.XuLyHD.DonHangChoXuLy;
 
 import java.io.Serializable;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Bill implements Serializable {
     private String address;

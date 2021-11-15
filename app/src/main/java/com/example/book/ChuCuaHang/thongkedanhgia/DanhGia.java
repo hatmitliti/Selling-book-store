@@ -1,7 +1,5 @@
 package com.example.book.ChuCuaHang.thongkedanhgia;
 
-import java.util.Date;
-
 public class DanhGia {
     private String NguoiDG,TenSP;
     private int SoSao;

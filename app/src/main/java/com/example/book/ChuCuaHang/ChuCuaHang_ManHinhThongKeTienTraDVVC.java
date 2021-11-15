@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.book.ChuCuaHang.sotienphaitraDVVC.TienTraDVVC;
 import com.example.book.ChuCuaHang.sotienphaitraDVVC.TienTraDVVCAdapter;
-import com.example.book.ChuCuaHang.thongkedonhang.DonHang;
 import com.example.book.R;
 import com.example.book.XuLyHD.DonHangChoXuLy.Bill;
 import com.google.firebase.database.ChildEventListener;

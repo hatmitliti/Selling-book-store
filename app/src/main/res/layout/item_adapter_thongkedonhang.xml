@@ -1,31 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal">
     <TextView
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_height="fill_parent"
         android:id="@+id/adapterTKDHtvMaDH"
         style="@style/styleTableData"
         android:text="Mã"
-        android:layout_weight="1"
-        android:lines="3"
         />
     <TextView
-        android:layout_height="fill_parent"
         android:id="@+id/adapterTKDHtvTriGia"
         style="@style/styleTableData"
         android:text="Trị Giá"
-        android:layout_weight="1"
         />
     <TextView
-        android:layout_height="fill_parent"
         android:id="@+id/adapterTKDHtvTinhTrang"
         style="@style/styleTableData"
         android:text="Tình Trạng"
-        android:layout_weight="1"
         />
 
 </LinearLayout>

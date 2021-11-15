@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NguoiXuLyHoaDon.NguoiXuLyHoaDon_ManHinhChinh"
     android:orientation="vertical">
     <LinearLayout
         android:gravity="center"
@@ -51,6 +50,7 @@
             android:text="Danh Sách Đơn Hàng Đã Bị Hủy" />
 
         <Button
+            android:id="@+id/btnDangXuatXuLyHD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

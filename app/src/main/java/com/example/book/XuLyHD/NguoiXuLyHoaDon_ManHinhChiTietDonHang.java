@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,10 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.book.R;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
 import com.example.book.XuLyHD.ChiTietSanPhamTrongDonHang.SanPham;
 import com.example.book.XuLyHD.ChiTietSanPhamTrongDonHang.SanPhamAdapter;
-import com.example.book.R;
 import com.example.book.XuLyHD.DonHangChoXuLy.Bill;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,7 +29,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -64,8 +62,11 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
         databill.child("users").child(bill.getId_user()).child("image").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                Picasso.get().load(task.getResult().getValue(String.class)).into(imgUser);
+                try {
+                    Picasso.get().load(task.getResult().getValue(String.class)).into(imgUser);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         SanPhamAdapter sanPhamAdapter = new SanPhamAdapter(R.layout.item_adapter_sanphamtrongdonhangchitietdonhang, context, listSanPhamTrongDonHang);
@@ -143,9 +144,10 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                 databill.child("bills").child(bill.getId()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
-                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this,NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
-                                        startActivity(i);
+//                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
+//                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
+//                                        startActivity(i);
+                                        onBackPressed();
                                     }
                                 });
                             }
@@ -153,7 +155,6 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
             }
         });
 
-        //set sự kiện hủy đơn
         btnHuyDonHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,7 +168,7 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Object o) {
                                         Toast.makeText(context, "Hủy Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this,NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
+                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
                                         startActivity(i);
                                     }
                                 });

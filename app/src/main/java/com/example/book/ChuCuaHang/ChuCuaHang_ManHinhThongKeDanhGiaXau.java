@@ -2,7 +2,6 @@ package com.example.book.ChuCuaHang;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,20 +16,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.book.ChuCuaHang.doanhthu.DoanhThu;
 import com.example.book.ChuCuaHang.thongkedanhgia.DanhGia;
 import com.example.book.ChuCuaHang.thongkedanhgia.DanhGiaAdapter;
 import com.example.book.ChuCuaHang.thongkedanhgia.User;
 import com.example.book.ChuCuaHang.thongkedanhgia.evaluteFireBase;
 import com.example.book.R;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
-import com.example.book.XuLyHD.DonHangChoXuLy.Bill;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
