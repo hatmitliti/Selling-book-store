@@ -52,7 +52,15 @@ public class AdapterProductHangTon extends ArrayAdapter {
         txtTenSachThuKhoHangTon.setText(product.getTenSanPham());
         txtHangTonThuKhoHangTon.setText("Kho: " + product.getStock() + "");
         txtBanRaThuKhoHangTon.setText("Đã bán: " + product.getSold() + "");
-        double tyleBan = ((product.getSold()) / (product.getStock())) * 100;
+        double tyleBan = 100;
+        try {
+            tyleBan = ((double) (product.getSold()) / ((double) product.getStock())) * 100;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (product.getStock() == 0) {
+            tyleBan = 100;
+        }
         txtTiLeThuKhoHangTon.setText("Tỷ lệ bán ra: " + tyleBan + "%");
         return convertView;
     }
