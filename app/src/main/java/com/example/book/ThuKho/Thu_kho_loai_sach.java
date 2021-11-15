@@ -32,6 +32,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
     EditText edtLoaiSach;
     GridView lvLoaiSach;
     Button btnXoaLoaiSach;
+    private String MESSAGE_UPDATE_FAIL="Không thể sửa!";
 
     ArrayList<Category> list;
     ArrayList<Integer> listNumber;
@@ -103,7 +104,6 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String categoryStr = snapshot.child("category").getValue(String.class);
                 listCategoryProduct.add(categoryStr);
-                //   Toast.makeText(getApplicationContext(), categoryStr, Toast.LENGTH_SHORT).show();
                 adapterCategory.notifyDataSetChanged();
             }
 
@@ -147,7 +147,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edtLoaiSach.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Không thể sửa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), MESSAGE_UPDATE_FAIL, Toast.LENGTH_SHORT).show();
                 } else {
                     String str = category.getName();
                     category = null;
@@ -158,7 +158,6 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                         public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                             if (snapshot.child("category").getValue(String.class).equals(str)) {
                                 String str = edtLoaiSach.getText().toString();
-
                                 mDatabaseProduct.child(snapshot.getKey()).child("category").setValue(str);
 
                             }
