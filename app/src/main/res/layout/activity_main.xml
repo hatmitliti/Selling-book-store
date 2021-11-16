@@ -39,6 +39,7 @@
                 android:textColor="@color/black" />
 
             <EditText
+
                 android:id="@+id/txtUsername"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content" />
