@@ -32,7 +32,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
     EditText edtLoaiSach;
     GridView lvLoaiSach;
     Button btnXoaLoaiSach;
-    private String MESSAGE_UPDATE_FAIL="Không thể sửa!";
+    private String MESSAGE_UPDATE_FAIL = "Không thể sửa!";
 
     ArrayList<Category> list;
     ArrayList<Integer> listNumber;
@@ -46,6 +46,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thu_kho_loai_sach);
         setControl();
+
         list = new ArrayList<>();
         listNumber = new ArrayList<>();
         listCategoryProduct = new ArrayList<>();
@@ -127,10 +128,8 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
 
             }
         });
-
         adapterCategory = new AdapterCategory(this, R.layout.thu_kho_loai_sach_item, list, listCategoryProduct);
         lvLoaiSach.setAdapter(adapterCategory);
-
 
         lvLoaiSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -159,7 +158,6 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                             if (snapshot.child("category").getValue(String.class).equals(str)) {
                                 String str = edtLoaiSach.getText().toString();
                                 mDatabaseProduct.child(snapshot.getKey()).child("category").setValue(str);
-
                             }
                         }
 
@@ -217,9 +215,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                     btnThemLoaiSach.setEnabled(true);
                     btnSuaLoaiSach.setEnabled(false);
                     btnXoaLoaiSach.setEnabled(false);
-
                 }
-
             }
         });
         btnXoaLoaiSach.setOnClickListener(new View.OnClickListener() {
@@ -235,11 +231,11 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                     listNumber.add(dem);
                 }
                 if (listNumber.get(viTri) != 0) {
-                    Toast.makeText(getApplicationContext(), "Không thể xóa !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Không thể xóa!", Toast.LENGTH_SHORT).show();
                 } else {
                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("categorys");
                     mDatabase.child(category.getId()).removeValue();
-                    Toast.makeText(getApplicationContext(), "Đã xóa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Xoá thành công!", Toast.LENGTH_SHORT).show();
                     category = null;
                     edtLoaiSach.setText("");
                     btnThemLoaiSach.setEnabled(true);

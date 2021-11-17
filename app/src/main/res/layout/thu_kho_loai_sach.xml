@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7"
-            android:text="Tên loại sách"
+            android:text="@string/book_category"
             android:textColor="@color/black"
             android:textSize="15dp" />
 
@@ -34,21 +34,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Thêm" />
+            android:text="@string/btnAdd" />
 
         <Button
             android:id="@+id/btnSuaLoaiSach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Sửa" />
+            android:text="@string/btnUpdate" />
 
         <Button
             android:id="@+id/btnXoaLoaiSachItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Xóa" />
+            android:text="@string/Delete" />
     </LinearLayout>
 
     <GridView
