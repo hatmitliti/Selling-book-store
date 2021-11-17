@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.ChuCuaHang.doanhthu.DoanhThu;
 import com.example.book.ChuCuaHang.doanhthu.DoanhThuAdapter;
@@ -48,6 +49,17 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
         setContentView(R.layout.activity_chu_cua_hang_____man_hinh_doanh_thu);
         setControl();
         setEvent();
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setEvent() {

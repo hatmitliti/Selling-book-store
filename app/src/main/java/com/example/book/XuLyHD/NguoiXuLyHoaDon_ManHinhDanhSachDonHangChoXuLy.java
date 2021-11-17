@@ -10,6 +10,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.R;
 import com.example.book.XuLyHD.DonHangChoXuLy.Bill;
@@ -34,6 +35,19 @@ public class NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy extends AppCompatActi
         setContentView(R.layout.activity_nguoi_xu_ly_hoa_don_____man_hinh_danh_sach_don_hang_cho_xu_ly);
         setControl();
         setEvent();
+
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     private void setEvent() {
         context = this;

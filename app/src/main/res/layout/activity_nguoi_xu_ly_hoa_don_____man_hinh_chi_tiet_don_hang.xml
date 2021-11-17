@@ -6,18 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".XuLyHD.NguoiXuLyHoaDon_ManHinhChiTietDonHang"
     android:orientation="vertical">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/backChiTietDonHang"
-            style="@style/buttonBack"
-            android:text="Back" />
-        <TextView
-            style="@style/titleActivity"
-            android:text="Chi Tiết Đơn Hàng" />
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Chi tiết đơn hàng" />
     <LinearLayout
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"

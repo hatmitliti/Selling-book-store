@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent" android:orientation="horizontal">
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/adapterDTtvMaDH"
         style="@style/styleTableData"
         android:text="Mã Đơn Hàng"
         />
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterDTtvTriGia"
         style="@style/styleTableData"
         android:text="Trị Giá"

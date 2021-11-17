@@ -6,20 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang"
     android:orientation="vertical">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/backThongKeDonHang"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:text="Thống Kê Đơn Hàng" />
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Thống kê đơn hàng" />
 
     <LinearLayout
         android:layout_width="match_parent"
