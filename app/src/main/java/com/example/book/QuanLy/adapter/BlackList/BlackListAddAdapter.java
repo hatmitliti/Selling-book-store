@@ -81,7 +81,7 @@ public class BlackListAddAdapter extends BaseAdapter {
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                         if (snapshot.getValue(User.class).toString().equals(user.toString())) {
                             dataUser.child("blacklist").child(snapshot.getKey()).setValue(user);
-                            listUser.clear();
+                            listUser.remove(user);
                             BlackListAddAdapter.this.notifyDataSetChanged();
                         }
                     }
