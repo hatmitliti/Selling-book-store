@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.store.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -60,11 +61,10 @@ public class SanPhamAdapter  extends BaseAdapter {
         {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tvTenSP.setText(listSanPham.get(position).getTenSP());
-        viewHolder.tvSoLuong.setText("Số Lượng: "+listSanPham.get(position).getSoLuongSP());
-        viewHolder.tvGiaSP.setText("Giá: "+listSanPham.get(position).getGiaSP() + "VNĐ");
-        viewHolder.imgAnhSP.setImageResource(listSanPham.get(position).getImgAnhSP());
-
+        viewHolder.tvTenSP.setText(listSanPham.get(position).getName());
+        viewHolder.tvSoLuong.setText("Số Lượng: "+listSanPham.get(position).getQuality());
+        viewHolder.tvGiaSP.setText("Giá: "+listSanPham.get(position).getPrice() + "VNĐ");
+        Picasso.get().load(listSanPham.get(position).getImage()).into(viewHolder.imgAnhSP);
         return convertView;
     }
 }

@@ -1,45 +1,52 @@
 package com.example.store.XuLyHD.ChiTietSanPhamTrongDonHang;
 
 public class SanPham {
-    private String TenSP;
-    private int SoLuongSP, GiaSP, imgAnhSP;
+    private String name;
+    private int price;
+    private int quality;
+    private String image;
 
-    public SanPham(String tenSP, int soLuongSP, int giaSP, int imgAnhSP) {
-        TenSP = tenSP;
-        SoLuongSP = soLuongSP;
-        GiaSP = giaSP;
-        this.imgAnhSP = imgAnhSP;
+
+    public SanPham() {
     }
 
-    public String getTenSP() {
-        return TenSP;
+    public SanPham(String name, int price, int quality, String image) {
+        this.name = name;
+        this.price = price;
+        this.quality = quality;
+        this.image = image;
     }
 
-    public void setTenSP(String tenSP) {
-        TenSP = tenSP;
+
+    public String getName() {
+        return name;
     }
 
-    public int getSoLuongSP() {
-        return SoLuongSP;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setSoLuongSP(int soLuongSP) {
-        SoLuongSP = soLuongSP;
+    public int getPrice() {
+        return price;
     }
 
-    public int getGiaSP() {
-        return GiaSP;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setGiaSP(int giaSP) {
-        GiaSP = giaSP;
+    public int getQuality() {
+        return quality;
     }
 
-    public int getImgAnhSP() {
-        return imgAnhSP;
+    public void setQuality(int quality) {
+        this.quality = quality;
     }
 
-    public void setImgAnhSP(int imgAnhSP) {
-        this.imgAnhSP = imgAnhSP;
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.store.XuLyHD.DonHangChoXuLy.Bill;
 import com.example.store.XuLyHD.DonHangChoXuLy.DonHangChoXuLy;
@@ -26,9 +27,9 @@ import java.util.ArrayList;
 
 public class NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy extends AppCompatActivity {
     private ListView lvDonHangChoXuLy;
-    Button btnBackDanhSachDHChoXuLy;
     private Context context;
     private ArrayList<Bill> listDonHangChoXuLy = new ArrayList<>();
+    ArrayList<String> mKey = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,18 @@ public class NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy extends AppCompatActi
         setContentView(R.layout.activity_nguoi_xu_ly_hoa_don_____man_hinh_danh_sach_don_hang_cho_xu_ly);
         setControl();
         setEvent();
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setEvent() {
@@ -50,17 +63,37 @@ public class NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy extends AppCompatActi
                 if (bill.getStatus() == 0) {
                     listDonHangChoXuLy.add(bill);
                     donHangChoXuLyAdapter.notifyDataSetChanged();
+                    String key = snapshot.getKey();
+                    mKey.add(key);
                 }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                // lấy địa chỉ id của đối tượng vừa bị thay đổi bên trong mảng mkey
+                String key = snapshot.getKey();
+                int index = mKey.indexOf(key);
+                // thay đổi dữ liệu trong gridview giống với dữ liệu trên firebase
+                listDonHangChoXuLy.set(index, snapshot.getValue(Bill.class));
+                donHangChoXuLyAdapter.notifyDataSetChanged();
+//                Toast.makeText(context, listDonHangChoXuLy.get(index).getStatus()+"", Toast.LENGTH_SHORT).show();
+                if(listDonHangChoXuLy.get(index).getStatus() != 0)
+                {
+                    listDonHangChoXuLy.remove(index);
+                    donHangChoXuLyAdapter.notifyDataSetChanged();
+                }else
+                {
+                    listDonHangChoXuLy.add(listDonHangChoXuLy.get(index));
+                    donHangChoXuLyAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
+                String key = snapshot.getKey();
+                int index = mKey.indexOf(key);
+                listDonHangChoXuLy.remove(index);
+                donHangChoXuLyAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -88,6 +121,5 @@ public class NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy extends AppCompatActi
 
     private void setControl() {
         lvDonHangChoXuLy = findViewById(R.id.lvDanhSachDonHangChoXuLy);
-        btnBackDanhSachDHChoXuLy = findViewById(R.id.backDanhSachDHChoXuLy);
     }
 }

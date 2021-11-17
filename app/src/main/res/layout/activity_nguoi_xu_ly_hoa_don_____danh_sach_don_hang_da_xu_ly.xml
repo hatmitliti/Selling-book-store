@@ -4,22 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NguoiXuLyHoaDon.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
+    tools:context=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
     android:orientation="vertical">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/backThongKeDonHangDaXuLy"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:text="Thống Kê Đơn Hàng Đã Xử Lý" />
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Đơn hàng đã xử lý" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -135,14 +130,6 @@
         <TextView
             style="@style/styleTableData2"
             android:text="Mã"
-            />
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Người Đặt"
-            />
-        <TextView
-            style="@style/styleTableData2"
-            android:text="Địa Chỉ"
             />
         <TextView
             style="@style/styleTableData2"
