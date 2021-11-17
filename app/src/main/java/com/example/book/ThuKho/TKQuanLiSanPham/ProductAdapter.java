@@ -63,7 +63,7 @@ public class ProductAdapter extends BaseAdapter {
         viewHolder.tvGiaSP.setText(data.get(i).getGiaTien() + "VNĐ");
         viewHolder.tvTacGia.setText(data.get(i).getAuthor());
         viewHolder.tvTheLoai.setText(data.get(i).getCategory());
-        viewHolder.tvMoTa.setText(data.get(i).getDescription());
+        viewHolder.tvMoTa.setText(data.get(i).getDescription().substring(0, 100));
         Picasso.get().load(data.get(i).getHinhAnh()).into(viewHolder.imgAnhSP);
         return view;
     }

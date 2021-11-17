@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.R;
 import com.example.book.ThuKho.Adapter.AdapterCategory;
@@ -51,6 +52,21 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
 
         btnSuaLoaiSach.setEnabled(false);
         btnXoaLoaiSach.setEnabled(false);
+
+
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         // lấy danh sách loại:
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("categorys");
