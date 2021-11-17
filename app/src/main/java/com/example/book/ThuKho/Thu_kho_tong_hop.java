@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -274,6 +273,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 IMGThuVien.setEnabled(false);
                 ImgCamera.setBackground(null);
                 IMGThuVien.setBackground(getDrawable(R.drawable.backgroundimage));
+
             }
         });
         rdbChonAnhTuThuVien.setOnClickListener(new View.OnClickListener() {
@@ -602,14 +602,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 }
             }
         });
-
-        lvProducts.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                view.getParent().requestDisallowInterceptTouchEvent(true);
-                return false;
-            }
-        });
     }
 
 
@@ -636,7 +628,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         //
         if (rdbChonAnhTuCamera.isChecked()) {
             rdbChonAnhTuCamera.setChecked(false);
-        }else if (rdbChonAnhTuThuVien.isChecked()) {
+        } else if (rdbChonAnhTuThuVien.isChecked()) {
             rdbChonAnhTuThuVien.setChecked(false);
         }
 

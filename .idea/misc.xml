@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/thu_kho_tong_hop.xml" value="0.2896500372300819" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/drawable/backgroundimage.xml" value="0.21875" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.21875" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.3728205128205128" />
@@ -91,7 +90,11 @@
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_message_items.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_message_layout.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/drawable-v24/bg_circle_solid_green.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/drawable/vien1.xml" value="0.2611111111111111" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_kho.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/item_adapter_thongkekho.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_add_employee_layout.xml" value="0.24456521739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_black_list_add.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_chat_layout.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_employee_items.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_employee_layout.xml" value="0.24456521739130435" />
@@ -99,6 +102,25 @@
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_record_employee_layout.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_update_employee_layout.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/manage_update_user_layout.xml" value="0.24456521739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/package_bill_cancel_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_cancel_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_chi_tiet_don_dang_giao.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_comfirm_nhan_hang.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_comfirm_nhan_hang_item.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_delivered_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_delivered_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_in_transit_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_in_transit_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_order_detail_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_order_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_packaged_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_packaged_shipper_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_packer_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_shipper_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_storehouse_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_storehouse_layout.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_unpacked_items.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store_/app/src/main/res/layout/packager_unpacked_layout.xml" value="0.20923913043478262" />
       </map>
     </option>
   </component>

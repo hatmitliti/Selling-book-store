@@ -27,6 +27,7 @@ public class BlackListAddAdapter extends BaseAdapter {
     private int layout;
 
     public BlackListAddAdapter(Context context, ArrayList<User> listUser, int layout) {
+
         this.context = context;
         this.listUser = listUser;
         this.layout = layout;
@@ -81,7 +82,7 @@ public class BlackListAddAdapter extends BaseAdapter {
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                         if (snapshot.getValue(User.class).toString().equals(user.toString())) {
                             dataUser.child("blacklist").child(snapshot.getKey()).setValue(user);
-                            listUser.clear();
+                            listUser.remove(user);
                             BlackListAddAdapter.this.notifyDataSetChanged();
                         }
                     }
