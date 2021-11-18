@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.R;
 import com.example.book.ThuKho.Adapter.AdapterCategory;
@@ -63,6 +64,23 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
         setSpinnerProduct();
         getDataTenNguoiXuatHang();
         setSpinnerAdmin();
+
+
+
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
 
         AdapterProductExport adapterProductExportImport = new AdapterProductExport(this, R.layout.thu_kho_xuat_hang_item, productExport, qualityProduct);
         lvXuatHang.setAdapter(adapterProductExportImport);

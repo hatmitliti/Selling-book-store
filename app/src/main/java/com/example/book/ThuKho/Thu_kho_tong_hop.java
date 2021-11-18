@@ -34,6 +34,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.R;
 import com.example.book.ThuKho.TKQuanLiSanPham.Category;
@@ -89,8 +90,26 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         setContentView(R.layout.thu_kho_tong_hop);
 
 
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         setControll();
         setEvent();
+
+        btnSua.setEnabled(false);
+        btnThem.setEnabled(true);
+        btnXoa.setEnabled(false);
+
+
     }
 
     private void setEvent() {
@@ -98,7 +117,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         dataProduct = FirebaseDatabase.getInstance().getReference();
         // đổ dữ liệu cho spinner
         ArrayList<String> Categories = new ArrayList<>();
-        ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,Categories);
+        ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Categories);
         adapterCategory.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         spnTheLoai.setAdapter(adapterCategory);
         dataProduct.child("categorys").addChildEventListener(new ChildEventListener() {
@@ -115,7 +134,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 String key = snapshot.getKey();
                 int index = mKeyCategory.indexOf(key);
                 // thay đổi dữ liệu trong gridview giống với dữ liệu trên firebase
-                Categories.set(index,snapshot.getValue(Category.class).getName());
+                Categories.set(index, snapshot.getValue(Category.class).getName());
                 adapterCategory.notifyDataSetChanged();
             }
 
@@ -155,12 +174,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://selling-books-ba602.appspot.com/");
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
-
-        /*
-         *
-         *
-         * */
-
         /**
          *
          *
@@ -194,7 +207,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 } else if (productCLick.getCategory().equals("Tiểu Thuyết")) {
                     spnTheLoai.setSelection(5);
                 }
-                Toast.makeText(context,productCLick.getCategory()+"" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, productCLick.getCategory() + "", Toast.LENGTH_SHORT).show();
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(IMGThuVien);
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(ImgCamera);
                 Set set = idProducts.keySet();
@@ -213,6 +226,12 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     IMGThuVien.setBackground(getDrawable(R.drawable.backgroundimage));
 
                 }
+
+
+                btnSua.setEnabled(true);
+                btnThem.setEnabled(false);
+                btnXoa.setEnabled(true);
+
 
             }
         });
@@ -363,7 +382,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                         result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                String idProduct = "s" +( mKey.size()+1);
+                                                String idProduct = "s" + (mKey.size() + 1);
                                                 String tenSP = edtTenSP.getText().toString();
                                                 int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                                                 String theLoai = spnTheLoai.getSelectedItem().toString();
@@ -412,7 +431,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                         result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                String idProduct = "s" +( mKey.size()+1);
+                                                String idProduct = "s" + (mKey.size() + 1);
                                                 String tenSP = edtTenSP.getText().toString();
                                                 int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                                                 String theLoai = spnTheLoai.getSelectedItem().toString();
@@ -451,8 +470,13 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                 StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
                                 desertRef.delete();
                                 setTextEmpty();
+
+                                btnSua.setEnabled(false);
+                                btnThem.setEnabled(true);
+                                btnXoa.setEnabled(false);
                             }
                         }).setNegativeButton("Không", null).show();
+
             }
         });
 
@@ -510,11 +534,17 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                             StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
                                             desertRef.delete();
                                             HashMap hashMap = new HashMap();
-                                            hashMap.put(idProduct,pd);
+                                            hashMap.put(idProduct, pd);
                                             dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                                 @Override
                                                 public void onSuccess(Object o) {
                                                     Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+
+
+                                                    btnSua.setEnabled(false);
+                                                    btnThem.setEnabled(true);
+                                                    btnXoa.setEnabled(false);
+
                                                 }
                                             });
                                             setTextEmpty();
@@ -566,7 +596,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                             StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
                                             desertRef.delete();
                                             HashMap hashMap = new HashMap();
-                                            hashMap.put(idProduct,pd);
+                                            hashMap.put(idProduct, pd);
                                             dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                                 @Override
                                                 public void onSuccess(Object o) {
@@ -580,8 +610,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                             }
                         }
                     });
-                }
-                else {
+                } else {
                     String tenSP = edtTenSP.getText().toString();
                     int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                     String theLoai = spnTheLoai.getSelectedItem().toString();
@@ -591,7 +620,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     //tạo đối tượng Product và thêm đối tượng vào firsebase
                     Product pd = new Product(imageURL, productCLick.getTenHinhAnh(), productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
                     HashMap hashMap = new HashMap();
-                    hashMap.put(idProduct,pd);
+                    hashMap.put(idProduct, pd);
                     dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                         @Override
                         public void onSuccess(Object o) {

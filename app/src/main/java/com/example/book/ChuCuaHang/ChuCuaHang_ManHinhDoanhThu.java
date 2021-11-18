@@ -232,7 +232,7 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
                                         //
                                         String key = snapshot.getKey();
                                         mKey.add(key);
-                                        tvTongSoDoanhThu.setText("Tổng Số Tiền Phải Trả Là: " + tongDoanhThu(listDoanhThu));
+                                        tvTongSoDoanhThu.setText("Tổng Doanh Thu Là: " + tongDoanhThu(listDoanhThu));
                                     }
                                 }
 
@@ -265,7 +265,7 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
                                 }
                                 doanhThuAdapter.notifyDataSetChanged();
                                 Toast.makeText(context, "Đã có sự thay đổi dữ liệu từ hệ thống", Toast.LENGTH_SHORT).show();
-                                tvTongSoDoanhThu.setText("Tổng Số Tiền Phải Trả Là: " + tongDoanhThu(listDoanhThu));
+                                tvTongSoDoanhThu.setText("Tổng Doanh Thu Là: " + tongDoanhThu(listDoanhThu));
                             }
 
                             @Override

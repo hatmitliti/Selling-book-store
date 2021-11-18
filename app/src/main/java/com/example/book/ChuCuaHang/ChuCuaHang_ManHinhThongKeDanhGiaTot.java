@@ -294,7 +294,6 @@ public class ChuCuaHang_ManHinhThongKeDanhGiaTot extends AppCompatActivity {
                                         int soSao = snapshot.getValue(evaluteFireBase.class).getStar();
                                         String userName = listUser.get(snapshot.getValue(evaluteFireBase.class).getId_user());
                                         String productName = getProductName(snapshot.getValue(evaluteFireBase.class).getId_product());
-                                        Toast.makeText(context, snapshot.getValue(evaluteFireBase.class).getId_product() + "", Toast.LENGTH_SHORT).show();
                                         DanhGia dg = new DanhGia(userName,productName,soSao);
                                         listDanhGiaTot.add(dg);
                                         danhGiaAdapter.notifyDataSetChanged();

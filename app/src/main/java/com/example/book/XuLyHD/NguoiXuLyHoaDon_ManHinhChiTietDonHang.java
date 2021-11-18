@@ -158,7 +158,7 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                 databill.child("bills").child(bill.getId()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
-                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
 //                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
 //                                        startActivity(i);
                                         onBackPressed();
@@ -181,7 +181,7 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                 databill.child("bills").child(bill.getId()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
-                                        Toast.makeText(context, "Hủy Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(context, "Hủy Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
 //                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
 //                                        startActivity(i);
                                         onBackPressed();
