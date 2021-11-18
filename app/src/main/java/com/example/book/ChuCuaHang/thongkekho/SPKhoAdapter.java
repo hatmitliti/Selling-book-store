@@ -40,33 +40,30 @@ public class SPKhoAdapter extends BaseAdapter {
     private class ViewHolder {
         TextView tvMaSP, tvTenSP, tvSoLuong;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(layout,parent,false);
+            convertView = inflater.inflate(layout, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.tvMaSP = convertView.findViewById(R.id.adapterTKKtvMaSP);
             viewHolder.tvTenSP = convertView.findViewById(R.id.adapterTKKtvTenSP);
             viewHolder.tvSoLuong = convertView.findViewById(R.id.adapterTKKtvSoLuong);
 
             convertView.setTag(viewHolder);
-        }
-        else
-        {
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.tvMaSP.setText(listSPKho.get(position).getMaSP());
         viewHolder.tvTenSP.setText(listSPKho.get(position).getTenSP());
-        viewHolder.tvSoLuong.setText(listSPKho.get(position).getSoLuong()+"");
-        if(listSPKho.get(position).getSoLuong() == 0)
-        {
+        viewHolder.tvSoLuong.setText(listSPKho.get(position).getSoLuong() + "");
+        if (listSPKho.get(position).getSoLuong() <= 20) {
             viewHolder.tvMaSP.setBackgroundResource(R.drawable.vienkho);
             viewHolder.tvTenSP.setBackgroundResource(R.drawable.vienkho);
             viewHolder.tvSoLuong.setBackgroundResource(R.drawable.vienkho);
-        }else {
+        } else {
             viewHolder.tvMaSP.setBackgroundResource(R.drawable.vien1);
             viewHolder.tvTenSP.setBackgroundResource(R.drawable.vien1);
             viewHolder.tvSoLuong.setBackgroundResource(R.drawable.vien1);
