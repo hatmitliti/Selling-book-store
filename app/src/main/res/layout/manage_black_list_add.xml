@@ -7,24 +7,16 @@
     android:orientation="vertical"
     tools:context=".QuanLy.manage.BlackList_add">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Thêm tài khoản vào danh sách đen" />
 
-        <Button
-            android:id="@+id/backThemTKBlackList"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Thêm Tài Khoản Vào BlackList" />
-    </LinearLayout>
 
     <LinearLayout
 

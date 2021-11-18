@@ -109,12 +109,26 @@
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/item_adapter_tientradonvivanchuyen.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_add_blacklist_items.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_add_blacklist_layout.xml" value="0.2513586956521739" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_add_employee_layout.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_black_list_add.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_blacklist_add_item.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_blacklist_layout.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_blacklist_list.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_block_layout.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_chat_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_employee_layout.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_item_nhan_tin.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_layout.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_login_layout.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_message_items.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_message_layout.xml" value="0.21965579710144928" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_record_employee_layout.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_update_employee_layout.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_update_user_layout.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_user_layout.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_delivered_layout.xml" value="0.2513586956521739" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_in_transit_layout.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_order_items.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_shipper_layout.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/thu_kho_hang_ton.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/thu_kho_hang_ton_item.xml" value="0.25181159420289856" />
