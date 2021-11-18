@@ -2,17 +2,17 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKDGTXNguoiDG"
         style="@style/styleTableData"
         android:text="Người Đánh Giá"
         />
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKDGTXTenSP"
         style="@style/styleTableData"
         android:text="Sản Phẩm"
         />
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKDGTXSoSao"
         style="@style/styleTableData"
         android:text="Số Sao"

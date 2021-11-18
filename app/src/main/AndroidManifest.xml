@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
         <activity
+            android:name=".SoanDon.DetailBillShipper"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -57,7 +60,6 @@
         <activity
             android:name=".XuLyHD.NguoiXuLyHoaDon_DanhSachDonHangDaXuLy"
             android:exported="true" />
-
         <activity
             android:name=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaXau"
             android:exported="true" />

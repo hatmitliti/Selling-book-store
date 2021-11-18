@@ -4,49 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy"
-    android:orientation="vertical">
-    <LinearLayout
+    android:orientation="vertical"
+    tools:context=".XuLyHD.NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Đơn hàng chờ xác nhận" />
 
-        <Button
-            android:id="@+id/backDanhSachDHChoXuLy"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:text="Xử Lý Đơn Hàng" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/vien1"
         android:orientation="vertical">
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Danh Sách Đơn Hàng Chờ Xử Lý"
-            android:textColor="@color/black"/>
 
         <ListView
             android:id="@+id/lvDanhSachDonHangChoXuLy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </LinearLayout>

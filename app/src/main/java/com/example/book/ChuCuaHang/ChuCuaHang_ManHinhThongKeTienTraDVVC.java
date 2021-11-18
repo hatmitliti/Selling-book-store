@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.ChuCuaHang.sotienphaitraDVVC.TienTraDVVC;
 import com.example.book.ChuCuaHang.sotienphaitraDVVC.TienTraDVVCAdapter;
@@ -49,6 +50,19 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
         setContentView(R.layout.activity_chu_cua_hang_____man_hinh_thong_ke_tien_tra_d_v_v_c);
         setControl();
         setEvent();
+
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setEvent() {

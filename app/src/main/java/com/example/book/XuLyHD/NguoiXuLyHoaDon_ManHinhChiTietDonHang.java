@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.R;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
@@ -51,6 +52,19 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
         setContentView(R.layout.activity_nguoi_xu_ly_hoa_don_____man_hinh_chi_tiet_don_hang);
         setControl();
         setEvent();
+
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setEvent() {
@@ -144,7 +158,7 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                 databill.child("bills").child(bill.getId()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                     @Override
                                     public void onSuccess(Object o) {
-//                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Xác Nhận Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
 //                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
 //                                        startActivity(i);
                                         onBackPressed();
@@ -168,8 +182,9 @@ public class NguoiXuLyHoaDon_ManHinhChiTietDonHang extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Object o) {
                                         Toast.makeText(context, "Hủy Đơn Hàng Thành Công", Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
-                                        startActivity(i);
+//                                        Intent i = new Intent(NguoiXuLyHoaDon_ManHinhChiTietDonHang.this, NguoiXuLyHoaDon_ManHinhDanhSachDonHangChoXuLy.class);
+//                                        startActivity(i);
+                                        onBackPressed();
                                     }
                                 });
                             }

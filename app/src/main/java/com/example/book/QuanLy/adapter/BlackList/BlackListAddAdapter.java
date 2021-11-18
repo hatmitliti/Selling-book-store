@@ -27,6 +27,7 @@ public class BlackListAddAdapter extends BaseAdapter {
     private int layout;
 
     public BlackListAddAdapter(Context context, ArrayList<User> listUser, int layout) {
+
         this.context = context;
         this.listUser = listUser;
         this.layout = layout;
