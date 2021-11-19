@@ -547,6 +547,9 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
 
                                                 }
                                             });
+                                            btnSua.setEnabled(false);
+                                            btnThem.setEnabled(true);
+                                            btnXoa.setEnabled(false);
                                             setTextEmpty();
                                         }
                                     });
