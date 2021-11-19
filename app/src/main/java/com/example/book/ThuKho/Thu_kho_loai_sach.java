@@ -232,10 +232,29 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Category category = snapshot.getValue(Category.class);
                 for (int j = 0; j < list.size(); j++) {
                     if (list.get(j).getId().equals(snapshot.child("id").getValue(String.class))) {
+
+                        // lấy lại tên loại cũ
+                        String name = list.get(j).getName();
+                        //set lại tên loại trong ds loại:
                         list.get(j).setName(snapshot.child("name").getValue(String.class));
+
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        for (int k = 0; k < listCategoryProduct.size(); k++) {
+                            if (listCategoryProduct.get(k).equals(name)) {
+                                listCategoryProduct.set(k, category.getName());
+                            }
+                        }
+
                         adapterCategory.notifyDataSetChanged();
+
                     }
                 }
             }
