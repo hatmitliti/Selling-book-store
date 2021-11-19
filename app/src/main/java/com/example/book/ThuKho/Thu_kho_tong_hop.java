@@ -560,9 +560,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
 
                                                 }
                                             });
-                                            btnSua.setEnabled(false);
-                                            btnThem.setEnabled(true);
-                                            btnXoa.setEnabled(false);
                                             setTextEmpty();
                                         }
                                     });
@@ -617,6 +614,11 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                                 @Override
                                                 public void onSuccess(Object o) {
                                                     Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+
+                                                    btnSua.setEnabled(false);
+                                                    btnThem.setEnabled(true);
+                                                    btnXoa.setEnabled(false);
+
                                                 }
                                             });
                                             setTextEmpty();
@@ -641,6 +643,9 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                         @Override
                         public void onSuccess(Object o) {
                             Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                            btnSua.setEnabled(false);
+                            btnThem.setEnabled(true);
+                            btnXoa.setEnabled(false);
                         }
                     });
                     setTextEmpty();
