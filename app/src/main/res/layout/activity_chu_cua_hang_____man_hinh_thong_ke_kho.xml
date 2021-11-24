@@ -33,6 +33,9 @@
         <TextView
             style="@style/styleTableData2"
             android:text="Số Lượng" />
+        <TextView
+            style="@style/styleTableData2"
+            android:text="Tỉ Lệ" />
     </LinearLayout>
 
     <ListView

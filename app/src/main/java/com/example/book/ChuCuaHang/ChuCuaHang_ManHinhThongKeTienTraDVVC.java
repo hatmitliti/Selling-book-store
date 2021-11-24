@@ -1,12 +1,16 @@
 package com.example.book.ChuCuaHang;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -29,7 +33,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
@@ -42,6 +48,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
     private EditText edtTKSTPTDVVCthongketheongay;
     private ArrayList<String> mKey = new ArrayList<>();
     private TextView tvTongTienPhaiTraDVVC;
+    private ImageView dateTimePickerTienTraDVVC;
 
 
     @Override
@@ -91,7 +98,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
         spnSTPTDVVCnam.setAdapter(adapterNam);
         spnSTPTDVVCthang.setEnabled(false);
         spnSTPTDVVCnam.setEnabled(false);
-
+        dateTimePickerTienTraDVVC.setEnabled(false);
         //set dữ liệu cho ListView Thống Kê và Dữ Liệu Cho Adapter
         listTienPhaiTraDVVC = new ArrayList<>();
         TienTraDVVCAdapter tienTraDVVCAdapter = new TienTraDVVCAdapter(context, R.layout.item_adapter_tientradonvivanchuyen, listTienPhaiTraDVVC);
@@ -106,8 +113,10 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (rdbTKSTPTDVVCTheoNgay.isChecked() == true) {
                     edtTKSTPTDVVCthongketheongay.setEnabled(true);
+                    dateTimePickerTienTraDVVC.setEnabled(true);
                 } else {
                     edtTKSTPTDVVCthongketheongay.setEnabled(false);
+                    dateTimePickerTienTraDVVC.setEnabled(false);
                 }
             }
         });
@@ -124,11 +133,25 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
             }
         });
 
+
+
+        //
+        dateTimePickerTienTraDVVC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
+            }
+        });
+
+
+
          /*
 
         Xử Lý Sự Kiện Cho Button Thống Kê
 
          */
+
+
 
         btnThongKe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +170,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
                                         if (snapshot.getValue(Bill.class).getStatus() == 7) {
                                             String MaDH = snapshot.getValue(Bill.class).getId();
                                             double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
-                                            Double tienPhaiTra = tongGiaTriDonHang / 10;
+                                            Double tienPhaiTra = 15000.0;
                                             listTienPhaiTraDVVC.add(new TienTraDVVC(MaDH, tongGiaTriDonHang, tienPhaiTra));
                                             tienTraDVVCAdapter.notifyDataSetChanged();
                                             //
@@ -168,7 +191,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
                                             && mKey.contains(snapshot.getKey()) == false) {
                                         String MaDH = snapshot.getValue(Bill.class).getId();
                                         double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
-                                        Double tienPhaiTra = tongGiaTriDonHang / 10;
+                                        Double tienPhaiTra = 15000.0;
                                         TienTraDVVC tienTraDVVC = new TienTraDVVC(MaDH, tongGiaTriDonHang, tienPhaiTra);
 
                                         listTienPhaiTraDVVC.add(tienTraDVVC);
@@ -177,7 +200,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
                                             && mKey.contains(snapshot.getKey()) == true) {
                                         String MaDH = snapshot.getValue(Bill.class).getId();
                                         double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
-                                        Double tienPhaiTra = tongGiaTriDonHang / 10;
+                                        Double tienPhaiTra = 15000.0;
                                         TienTraDVVC tienTraDVVC = new TienTraDVVC(MaDH, tongGiaTriDonHang, tienPhaiTra);
                                         listTienPhaiTraDVVC.set(index, tienTraDVVC);
 
@@ -237,7 +260,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
                                     if (snapshot.getValue(Bill.class).getStatus() == 7) {
                                         String MaDH = snapshot.getValue(Bill.class).getId();
                                         double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
-                                        Double tienPhaiTra = tongGiaTriDonHang / 10;
+                                        Double tienPhaiTra = 15000.0;
                                         listTienPhaiTraDVVC.add(new TienTraDVVC(MaDH, tongGiaTriDonHang, tienPhaiTra));
                                         tienTraDVVCAdapter.notifyDataSetChanged();
                                         //
@@ -258,7 +281,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
                                         && mKey.contains(snapshot.getKey()) == false) {
                                     String MaDH = snapshot.getValue(Bill.class).getId();
                                     double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
-                                    Double tienPhaiTra = tongGiaTriDonHang / 10;
+                                    Double tienPhaiTra = 15000.0;
                                     TienTraDVVC tienTraDVVC = new TienTraDVVC(MaDH, tongGiaTriDonHang, tienPhaiTra);
                                     listTienPhaiTraDVVC.add(tienTraDVVC);
                                     mKey.add(snapshot.getKey());
@@ -267,7 +290,7 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
                                         && mKey.contains(snapshot.getKey()) == true) {
                                     String MaDH = snapshot.getValue(Bill.class).getId();
                                     double tongGiaTriDonHang = snapshot.getValue(Bill.class).getTotalMoney() - snapshot.getValue(Bill.class).getDiscount();
-                                    Double tienPhaiTra = tongGiaTriDonHang / 10;
+                                    Double tienPhaiTra = 15000.0;
                                     TienTraDVVC tienTraDVVC = new TienTraDVVC(MaDH, tongGiaTriDonHang, tienPhaiTra);
                                     listTienPhaiTraDVVC.set(index, tienTraDVVC);
                                 } else if (snapshot.getValue(Bill.class).getStatus() != 7 && snapshot.getValue(Bill.class).getDate().contains(edtTKSTPTDVVCthongketheongay.getText()) == false && mKey.contains(snapshot.getKey()) == true ||
@@ -320,6 +343,22 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
         }
         return en.format(tongTien) + "VNĐ";
     }
+    private void showDateDialog(){
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener(){
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                edtTKSTPTDVVCthongketheongay.setText("");
+                edtTKSTPTDVVCthongketheongay.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+        DatePickerDialog datePickerDialog = new DatePickerDialog(ChuCuaHang_ManHinhThongKeTienTraDVVC.this, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
 
     private void setControl() {
         spnSTPTDVVCnam = findViewById(R.id.spnTKSTPTDVVCnam);
@@ -330,5 +369,6 @@ public class ChuCuaHang_ManHinhThongKeTienTraDVVC extends AppCompatActivity {
         rdbTKSTPTDVVCTheoThang = findViewById(R.id.rdbTKSTPTDVVCthongketheothang);
         edtTKSTPTDVVCthongketheongay = findViewById(R.id.edtTKSTPTDVVCthongketheongay);
         tvTongTienPhaiTraDVVC = findViewById(R.id.tvTongSoTienPhaiTraDVVC);
+        dateTimePickerTienTraDVVC = findViewById(R.id.dateTimePickerTienTraDVVC);
     }
 }

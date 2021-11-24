@@ -1,12 +1,15 @@
 package com.example.book.ChuCuaHang;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -29,7 +32,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
@@ -42,6 +47,7 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
     private Button btnThongKeDoanhThu;
     private ArrayList<String> mKey = new ArrayList<>();
     private TextView tvTongSoDoanhThu;
+    private ImageView dateTimePickerDoanhThu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +95,7 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
         spnDTnam.setAdapter(adapterNam);
         spnDTnam.setEnabled(false);
         spnDTthang.setEnabled(false);
+        dateTimePickerDoanhThu.setEnabled(false);
         //
         listDoanhThu = new ArrayList<>();
         DoanhThuAdapter doanhThuAdapter = new DoanhThuAdapter(R.layout.item_adapter_doanhthu, context, listDoanhThu);
@@ -103,8 +110,10 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (rdbTKDTTheoNgay.isChecked() == true) {
                     edtTKDTTheoNgay.setEnabled(true);
+                    dateTimePickerDoanhThu.setEnabled(true);
                 } else {
                     edtTKDTTheoNgay.setEnabled(false);
+                    dateTimePickerDoanhThu.setEnabled(false);
                 }
             }
         });
@@ -118,6 +127,13 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
                     spnDTthang.setEnabled(false);
                     spnDTnam.setEnabled(false);
                 }
+            }
+        });
+        //
+        dateTimePickerDoanhThu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
             }
         });
 
@@ -304,6 +320,22 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
         }
         return en.format(tongTien) + "VNĐ";
     }
+    private void showDateDialog(){
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener(){
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                edtTKDTTheoNgay.setText("");
+                edtTKDTTheoNgay.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+        DatePickerDialog datePickerDialog = new DatePickerDialog(ChuCuaHang_ManHinhDoanhThu.this, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
     private void setControl() {
         spnDTnam = findViewById(R.id.spnDTnam);
         spnDTthang = findViewById(R.id.spnDTthang);
@@ -313,5 +345,6 @@ public class ChuCuaHang_ManHinhDoanhThu extends AppCompatActivity {
         edtTKDTTheoNgay = findViewById(R.id.edtDTthongketheongay);
         btnThongKeDoanhThu = findViewById(R.id.btnDTThongKe);
         tvTongSoDoanhThu = findViewById(R.id.tvTongSoDoanhThu);
+        dateTimePickerDoanhThu = findViewById(R.id.dateTimePickerDoanhThu);
     }
 }

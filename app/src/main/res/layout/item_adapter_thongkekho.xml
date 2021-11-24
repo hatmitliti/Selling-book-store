@@ -18,5 +18,8 @@
         android:id="@+id/adapterTKKtvSoLuong"
         style="@style/styleTableData"
         android:text="Số Lượng" />
-
+    <TextView android:textColor="@color/black"
+        android:id="@+id/adapterTKKtvTiLe"
+        style="@style/styleTableData"
+        android:text="Tỉ Lệ" />
 </LinearLayout>
