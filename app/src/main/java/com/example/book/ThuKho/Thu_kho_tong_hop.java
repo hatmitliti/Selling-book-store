@@ -207,20 +207,28 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 edtGiaSP.setText(productCLick.getGiaTien() + "");
                 edtTacGia.setText(productCLick.getAuthor());
                 edtMota.setText(productCLick.getDescription());
-                if (productCLick.getCategory().equals("Truyện")) {
-                    spnTheLoai.setSelection(0);
-                } else if (productCLick.getCategory().equals("Học Sinh")) {
-                    spnTheLoai.setSelection(1);
-                } else if (productCLick.getCategory().equals("Tài Liệu")) {
-                    spnTheLoai.setSelection(2);
-                } else if (productCLick.getCategory().equals("Khoa Học")) {
-                    spnTheLoai.setSelection(3);
-                } else if (productCLick.getCategory().equals("Kinh Dị")) {
-                    spnTheLoai.setSelection(4);
-                } else if (productCLick.getCategory().equals("Tiểu Thuyết")) {
-                    spnTheLoai.setSelection(5);
+
+                for(int selection = 0;selection<Categories.size();selection++)
+                {
+                    if(productCLick.getCategory().equals(Categories.get(selection)))
+                    {
+                        spnTheLoai.setSelection(selection);
+                    }
                 }
-                Toast.makeText(context, productCLick.getCategory() + "", Toast.LENGTH_SHORT).show();
+//                if (productCLick.getCategory().equals("Truyện")) {
+//                    spnTheLoai.setSelection(0);
+//                } else if (productCLick.getCategory().equals("Học Sinh")) {
+//                    spnTheLoai.setSelection(1);
+//                } else if (productCLick.getCategory().equals("Tài Liệu")) {
+//                    spnTheLoai.setSelection(2);
+//                } else if (productCLick.getCategory().equals("Khoa Học")) {
+//                    spnTheLoai.setSelection(3);
+//                } else if (productCLick.getCategory().equals("Kinh Dị")) {
+//                    spnTheLoai.setSelection(4);
+//                } else if (productCLick.getCategory().equals("Tiểu Thuyết")) {
+//                    spnTheLoai.setSelection(5);
+//                }
+//                Toast.makeText(context, productCLick.getCategory() + "", Toast.LENGTH_SHORT).show();
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(IMGThuVien);
                 Picasso.get().load(productCLick.getHinhAnh().toString()).into(ImgCamera);
                 Set set = idProducts.keySet();
@@ -542,8 +550,11 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                             String moTa = edtMota.getText().toString();
                                             String tacGia = edtTacGia.getText().toString();
                                             String imageURL = uri.toString();
+                                            int stock = productCLick.getStock();
+                                            int sold = productCLick.getSold();
+                                            Double star = productCLick.getStar();
                                             //tạo đối tượng Product và thêm đối tượng vào firsebase
-                                            Product pd = new Product(imageURL, imageName, productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                                            Product pd = new Product(imageURL, imageName, productCLick.getId(), tenSP, giaSP, theLoai, star, stock, sold, moTa, tacGia);
                                             StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
                                             desertRef.delete();
                                             HashMap hashMap = new HashMap();
@@ -604,8 +615,11 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                             String moTa = edtMota.getText().toString();
                                             String tacGia = edtTacGia.getText().toString();
                                             String imageURL = uri.toString();
-                                            //createNewPost(imageUrl);
-                                            Product pd = new Product(imageURL, imageName, productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                                            int stock = productCLick.getStock();
+                                            int sold = productCLick.getSold();
+                                            Double star = productCLick.getStar();
+                                            //tạo đối tượng Product và thêm đối tượng vào firsebase
+                                            Product pd = new Product(imageURL, imageName, productCLick.getId(), tenSP, giaSP, theLoai, star, stock, sold, moTa, tacGia);
                                             StorageReference desertRef = storageRef.child("ImagesProducts/" + productCLick.getTenHinhAnh());
                                             desertRef.delete();
                                             HashMap hashMap = new HashMap();
@@ -635,8 +649,11 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     String moTa = edtMota.getText().toString();
                     String tacGia = edtTacGia.getText().toString();
                     String imageURL = productCLick.getHinhAnh();
+                    int stock = productCLick.getStock();
+                    int sold = productCLick.getSold();
+                    Double star = productCLick.getStar();
                     //tạo đối tượng Product và thêm đối tượng vào firsebase
-                    Product pd = new Product(imageURL, productCLick.getTenHinhAnh(), productCLick.getId(), tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
+                    Product pd = new Product(imageURL, productCLick.getTenHinhAnh(), productCLick.getId(), tenSP, giaSP, theLoai, star, stock, sold, moTa, tacGia);
                     HashMap hashMap = new HashMap();
                     hashMap.put(idProduct, pd);
                     dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
