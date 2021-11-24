@@ -1,12 +1,15 @@
 package com.example.book.ChuCuaHang;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -28,7 +31,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
@@ -40,6 +45,7 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
     private RadioButton rdbTKDHTheoNgay, rdbTKDHTheoThang;
     private EditText edtTKDHthongketheongay;
     private ArrayList<String> mKey = new ArrayList<>();
+    private ImageView dateTimePickerDonHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +95,7 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
         spnTKDHnam.setAdapter(adapterNam);
         spnTKDHthang.setEnabled(false);
         spnTKDHnam.setEnabled(false);
-
+        dateTimePickerDonHang.setEnabled(false);
 
         listDonHang = new ArrayList<>();
         DonhangAdapter donhangAdapter = new DonhangAdapter(context, R.layout.item_adapter_thongkedonhang, listDonHang);
@@ -105,8 +111,10 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (rdbTKDHTheoNgay.isChecked() == true) {
                     edtTKDHthongketheongay.setEnabled(true);
+                    dateTimePickerDonHang.setEnabled(true);
                 } else {
                     edtTKDHthongketheongay.setEnabled(false);
+                    dateTimePickerDonHang.setEnabled(false);
                 }
             }
         });
@@ -120,6 +128,12 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
                     spnTKDHnam.setEnabled(false);
                     spnTKDHthang.setEnabled(false);
                 }
+            }
+        });
+        dateTimePickerDonHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
             }
         });
         /*
@@ -333,6 +347,22 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
                 return null;
         }
     }
+    private void showDateDialog(){
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener(){
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                edtTKDHthongketheongay.setText("");
+                edtTKDHthongketheongay.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+        DatePickerDialog datePickerDialog = new DatePickerDialog(ChuCuaHang_ManHinhThongKeDonHang.this, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
 
     private void setControl() {
         spnTKDHnam = findViewById(R.id.spnTKDHnam);
@@ -345,5 +375,6 @@ public class ChuCuaHang_ManHinhThongKeDonHang extends AppCompatActivity {
         rdbTKDHTheoNgay = findViewById(R.id.rdbTKDHthongketheongay);
         rdbTKDHTheoThang = findViewById(R.id.rdbTKDHthongketheothang);
         btnThongKe = findViewById(R.id.btnTKDHThongKe);
+        dateTimePickerDonHang = findViewById(R.id.dateTimePickerDonHang);
     }
 }

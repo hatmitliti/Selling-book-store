@@ -22,13 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:padding="10dp"
         android:background="@drawable/vien1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <ListView
             android:id="@+id/lvDanhSachDonHangChoXuLy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 </LinearLayout>

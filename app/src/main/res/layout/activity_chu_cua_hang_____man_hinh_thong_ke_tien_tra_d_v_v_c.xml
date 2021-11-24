@@ -62,10 +62,11 @@
                     android:background="@drawable/vien1"
                     android:hint="yy/mm/dd"
                     android:enabled="false"/>
-
                 <ImageView
+                    android:id="@+id/dateTimePickerTienTraDVVC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_calendar_today_24" />
             </LinearLayout>
 

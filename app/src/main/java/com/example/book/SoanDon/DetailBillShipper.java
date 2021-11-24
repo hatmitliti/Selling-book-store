@@ -38,7 +38,7 @@ public class DetailBillShipper extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.packager_chi_tiet_don_dang_giao);
         list = new ArrayList<>();
-        adapter= new OrderAdapter(this, R.layout.packager_order_items, list);
+        adapter = new OrderAdapter(this, R.layout.packager_order_items, list);
         ImageView imgUserOrderDetail = findViewById(R.id.imgUserOrderDetail);
         TextView txtNameOrderDetail = findViewById(R.id.txtNameOrderDetail);
         TextView txtPhoneOrderDetail = findViewById(R.id.txtPhoneOrderDetail);
@@ -53,10 +53,14 @@ public class DetailBillShipper extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if (snapshot.getKey().equals(intent.getStringExtra("id_user"))) {
-
-                    Picasso.get().load(snapshot.getValue(User.class).getImage()).into(imgUserOrderDetail);
-                    User user = snapshot.getValue(User.class);
-                    txtNameOrderDetail.setText(user.getName());
+                    try {
+                        Picasso.get().load(snapshot.getValue(User.class).getImage()).into(imgUserOrderDetail);
+                        User user = snapshot.getValue(User.class);
+                        txtNameOrderDetail.setText(user.getName());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        imgUserOrderDetail.setImageResource(R.drawable.user);
+                    }
                 }
             }
 

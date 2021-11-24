@@ -54,7 +54,6 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
         btnXoaLoaiSach.setEnabled(false);
 
 
-
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
         setSupportActionBar(toolbar);
@@ -66,83 +65,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
-        // lấy danh sách loại:
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("categorys");
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            int num = 0;
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Category category = snapshot.getValue(Category.class);
-                list.add(category);
-                adapterCategory.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                for (int j = 0; j < list.size(); j++) {
-                    if (list.get(j).getId().equals(snapshot.child("id").getValue(String.class))) {
-                        list.get(j).setName(snapshot.child("name").getValue(String.class));
-                        adapterCategory.notifyDataSetChanged();
-                    }
-                }
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                for (int j = 0; j < list.size(); j++) {
-                    if (snapshot.getKey().equals(list.get(j).getId())) {
-                        list.remove(j);
-                        listNumber.remove(j);
-                        adapterCategory.notifyDataSetChanged();
-                    }
-                }
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        // lấy danh sách loại trong product
-        DatabaseReference mDatabaseProduct = FirebaseDatabase.getInstance().getReference("products");
-        mDatabaseProduct.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String categoryStr = snapshot.child("category").getValue(String.class);
-                listCategoryProduct.add(categoryStr);
-                //   Toast.makeText(getApplicationContext(), categoryStr, Toast.LENGTH_SHORT).show();
-                adapterCategory.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        getData();
 
         adapterCategory = new AdapterCategory(this, R.layout.thu_kho_loai_sach_item, list, listCategoryProduct);
         lvLoaiSach.setAdapter(adapterCategory);
@@ -174,9 +97,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                         public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                             if (snapshot.child("category").getValue(String.class).equals(str)) {
                                 String str = edtLoaiSach.getText().toString();
-
                                 mDatabaseProduct.child(snapshot.getKey()).child("category").setValue(str);
-
                             }
                         }
 
@@ -235,6 +156,11 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                     btnSuaLoaiSach.setEnabled(false);
                     btnXoaLoaiSach.setEnabled(false);
 
+                    // gọi lại và set lại list
+                    list.clear();
+                    listCategoryProduct.clear();
+                    getData();
+                    adapterCategory.notifyDataSetChanged();
                 }
 
             }
@@ -242,6 +168,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
         btnXoaLoaiSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                listNumber.clear();
                 for (int j = 0; j < list.size(); j++) {
                     int dem = 0;
                     for (int k = 0; k < listCategoryProduct.size(); k++) {
@@ -265,7 +192,6 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                 }
             }
         });
-
         btnThemLoaiSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -291,4 +217,100 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
         btnXoaLoaiSach = findViewById(R.id.btnXoaLoaiSachItem);
     }
 
+    public void getData() {
+        // lấy danh sách loại:
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("categorys");
+        mDatabase.addChildEventListener(new ChildEventListener() {
+            int num = 0;
+
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Category category = snapshot.getValue(Category.class);
+                list.add(category);
+                adapterCategory.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Category category = snapshot.getValue(Category.class);
+                for (int j = 0; j < list.size(); j++) {
+                    if (list.get(j).getId().equals(snapshot.child("id").getValue(String.class))) {
+
+                        // lấy lại tên loại cũ
+                        String name = list.get(j).getName();
+                        //set lại tên loại trong ds loại:
+                        list.get(j).setName(snapshot.child("name").getValue(String.class));
+
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        for (int k = 0; k < listCategoryProduct.size(); k++) {
+                            if (listCategoryProduct.get(k).equals(name)) {
+                                listCategoryProduct.set(k, category.getName());
+                            }
+                        }
+
+                        adapterCategory.notifyDataSetChanged();
+
+                    }
+                }
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                for (int j = 0; j < list.size(); j++) {
+                    if (snapshot.getKey().equals(list.get(j).getId())) {
+                        list.remove(j);
+                        // listNumber.remove(j);
+                        adapterCategory.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        // lấy danh sách loại trong product
+        DatabaseReference mDatabaseProduct = FirebaseDatabase.getInstance().getReference("products");
+        mDatabaseProduct.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String categoryStr = snapshot.child("category").getValue(String.class);
+                listCategoryProduct.add(categoryStr);
+                //   Toast.makeText(getApplicationContext(), categoryStr, Toast.LENGTH_SHORT).show();
+                adapterCategory.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
 }

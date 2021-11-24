@@ -59,7 +59,7 @@ public class AdapterProductHangTon extends ArrayAdapter {
             e.printStackTrace();
         }
         if (product.getStock() == 0) {
-            tyleBan = 100;
+            tyleBan = 0;
         }
         txtTiLeThuKhoHangTon.setText("Tỷ lệ bán ra: " + tyleBan + "%");
         return convertView;

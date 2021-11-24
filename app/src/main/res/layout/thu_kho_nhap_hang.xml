@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         android:layout_width="match_parent"
@@ -13,51 +14,64 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Nhập hàng" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:gravity="center|left"
+        android:orientation="vertical">
 
         <LinearLayout
-
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chọn sách: "
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spTenSachNhapHang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:entries="@array/tensach" />
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Số lượng:" />
+                android:layout_weight="5"
+                android:text="Số lượng:"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <EditText
-                android:inputType="number"
                 android:id="@+id/edtSoLuongNhapHang"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:hint="Nhập số lượng"
+                android:inputType="number"
+                android:textColor="@color/black" />
 
         </LinearLayout>
     </LinearLayout>
@@ -65,7 +79,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:gravity="center">
 
         <Button
@@ -75,14 +88,14 @@
             android:text="Thêm" />
     </LinearLayout>
 
-   <ListView
-       android:id="@+id/lvNhapHang"
-       android:layout_width="match_parent"
-       android:layout_height="400dp"/>
+    <ListView
+        android:id="@+id/lvNhapHang"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:gravity="center">
 
         <EditText

@@ -3,17 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_danh_gia_khach_hang.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_danh_gia_tot.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_danh_gia_xau.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_doanh_thu.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_don_hang.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_don_hang_bi_huy.xml" value="0.3625" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_doanh_thu.xml" value="0.2515625" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_danh_gia_tot.xml" value="0.19746376811594202" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_danh_gia_xau.xml" value="0.19746376811594202" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_doanh_thu.xml" value="0.20260416666666667" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_don_hang.xml" value="0.19746376811594202" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_don_hang_bi_huy.xml" value="0.19746376811594202" />
         <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_kho.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_tien_tra_d_v_v_c.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_nguoi_xu_ly_hoa_don_____danh_sach_don_hang_da_xu_ly.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_nguoi_xu_ly_hoa_don_____man_hinh_chi_tiet_don_hang.xml" value="0.3625" />
-        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_nguoi_xu_ly_hoa_don_____man_hinh_danh_sach_don_hang_cho_xu_ly.xml" value="0.3625" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_chu_cua_hang_____man_hinh_thong_ke_tien_tra_d_v_v_c.xml" value="0.19746376811594202" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/activity_nguoi_xu_ly_hoa_don_____danh_sach_don_hang_da_xu_ly.xml" value="0.19746376811594202" />
+        <entry key="..\:/Genymotion/Genymotion/Project/DoAnNhom6/master/Selling-book-store/app/src/main/res/layout/item_adapter_thongkekho.xml" value="0.3625" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/drawable/backgroundimage.xml" value="0.21875" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.21875" />
         <entry key="..\:/Genymotion/Genymotion/Project/UD2Project/selling_book_store/Selling-book-store/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.3728205128205128" />
@@ -137,9 +136,11 @@
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_update_employee_layout.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_update_user_layout.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/manage_user_layout.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_chi_tiet_don_dang_giao.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_delivered_layout.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_in_transit_layout.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_order_items.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_packer_layout.xml" value="0.1621376811594203" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/packager_shipper_layout.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/thu_kho_hang_ton.xml" value="0.15534420289855072" />
         <entry key="..\:/Users/truon/OneDrive/Máy tính/Selling-book-store/app/src/main/res/layout/thu_kho_hang_ton_item.xml" value="0.25181159420289856" />
