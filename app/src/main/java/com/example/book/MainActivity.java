@@ -47,11 +47,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setControl();
-
         setAction();
-
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference myRef = database.getReference("message");
     }
@@ -61,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraypinner);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
         spQuyenTruyCap.setAdapter(spinnerArrayAdapter);
-
 
         // Khi bấm spinner:
         spQuyenTruyCap.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        //khi bấm quên passs:
+        findViewById(R.id.btnFogotPass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ForgotPass.class));
             }
         });
 

@@ -91,12 +91,20 @@
                 android:background="#FF5722" />
         </LinearLayout>
 
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:text="@string/dangNhap" />
+
+        <Button
+            android:id="@+id/btnFogotPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="Quên mật khẩu" />
 
         <LinearLayout
             android:layout_width="match_parent"

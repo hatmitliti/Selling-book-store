@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
         <activity
+            android:name=".ForgotPass"
+            android:exported="true" />
+        <activity
             android:name=".SoanDon.DetailBillShipper"
             android:exported="true" />
         <activity
