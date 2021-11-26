@@ -4,55 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhChinh"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhChinh">
+
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="vertical"
-        >
+        android:layout_height="@dimen/_170"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image_ChuCuaHang"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/_120"
+            android:layout_height="@dimen/_120"
             android:src="@drawable/chucuahang"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
+            app:civ_border_color="@color/black"
+            app:civ_border_width="@dimen/_2" />
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chủ Cửa Hàng"
-            android:textSize="30dp"
+            android:gravity="center"
+            android:text="@string/ch_c_a_h_ng"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/_30"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="@dimen/_70"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/CCCthongkedoanhthu"
             style="@style/buttonStyle"
-            android:text="Thống Kê Doanh Thu" />
+            android:text="@string/th_ng_k_doanh_thu" />
+
         <Button
             android:id="@+id/CCCthongkedanhgia"
             style="@style/buttonStyle"
-            android:text="Thống Kê Đánh Giá Của Khách" />
+            android:text="@string/th_ng_k_nh_gi_c_a_kh_ch" />
+
         <Button
             android:id="@+id/CCCthongkehangtrongkho"
             style="@style/buttonStyle"
-            android:text="Thống Kê Hàng Trong Kho" />
+            android:text="@string/th_ng_k_h_ng_trong_kho" />
+
         <Button
             android:id="@+id/btnLoout"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đăng Xuất"/>
+            android:layout_gravity="center"
+            android:text="@string/ng_xu_t" />
     </LinearLayout>
 
 </LinearLayout>

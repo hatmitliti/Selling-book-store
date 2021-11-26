@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/_30"
         android:layout_marginBottom="100dp"
         android:gravity="center">
 
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="@dimen/_20"
                 android:textStyle="bold" />
 
             <EditText
@@ -58,20 +58,20 @@
                 android:layout_height="wrap_content"
                 android:text="@string/password"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="@dimen/_20"
                 android:textStyle="bold" />
 
             <EditText
-                android:inputType="textPassword"
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/_40"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -99,9 +99,9 @@
             android:text="@string/dangNhap" />
 
         <LinearLayout
-            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
             android:gravity="bottom">
 
             <TextView

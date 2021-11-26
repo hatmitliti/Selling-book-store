@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Thống kê kho" />
+        app:title="@string/thong_ke_kho" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,18 +24,18 @@
 
         <TextView
             style="@style/styleTableData2"
-            android:text="Mã Sản Phẩm" />
+            android:text="@string/m_s_n_ph_m" />
 
         <TextView
             style="@style/styleTableData2"
-            android:text="Tên Sản Phẩm" />
+            android:text="@string/t_n_s_n_ph_m" />
 
         <TextView
             style="@style/styleTableData2"
-            android:text="Số Lượng" />
+            android:text="@string/s_l_ng" />
         <TextView
             style="@style/styleTableData2"
-            android:text="Tỉ Lệ" />
+            android:text="@string/t_l" />
     </LinearLayout>
 
     <ListView
