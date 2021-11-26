@@ -40,7 +40,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
     Spinner spTenSachXuatHang;
     EditText txtSoLuongXuatHang;
     Button btnThemXuatHang;
-    Spinner spChonNguoiNhanXuatHang;
     Button btnXuatHang;
 
     ArrayList<Product> listProductFull;
@@ -63,10 +62,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
         getDataProduct();
         setSpinnerProduct();
         getDataTenNguoiXuatHang();
-        setSpinnerAdmin();
-
-
-
 
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
@@ -127,11 +122,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void setSpinnerAdmin() {
-        adapterAdmin = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listAdminsString);
-        spChonNguoiNhanXuatHang.setAdapter(adapterAdmin);
     }
 
     private void getDataTenNguoiXuatHang() {
@@ -219,7 +209,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
         spTenSachXuatHang = findViewById(R.id.spTenSachXuatHang);
         txtSoLuongXuatHang = findViewById(R.id.txtSoLuongXuatHang);
         btnThemXuatHang = findViewById(R.id.btnThemXuatHang);
-        spChonNguoiNhanXuatHang = findViewById(R.id.spChonNguoiNhanXuatHang);
         btnXuatHang = findViewById(R.id.btnXuatXuatHang);
     }
 }
