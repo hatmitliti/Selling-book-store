@@ -35,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="@dimen/_70"
+        android:gravity="center|top"
         android:orientation="vertical">
 
         <Button
@@ -51,6 +52,12 @@
             android:id="@+id/CCCthongkehangtrongkho"
             style="@style/buttonStyle"
             android:text="@string/th_ng_k_h_ng_trong_kho" />
+
+        <Button
+            android:id="@+id/btnChangepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu" />
 
         <Button
             android:id="@+id/btnLoout"

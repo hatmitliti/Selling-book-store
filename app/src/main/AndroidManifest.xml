@@ -14,6 +14,25 @@
         <activity
             android:name=".ForgotPass"
             android:exported="true" />
+
+
+        <activity
+            android:name=".ChuCuaHang.ChangePassChuCuaHang"
+            android:exported="true" />
+        <activity
+            android:name=".QuanLy.manage.ChangePassQuanLy"
+            android:exported="true" />
+        <activity
+            android:name=".SoanDon.ChangePassSoanDon"
+            android:exported="true" />
+        <activity
+            android:name=".ThuKho.ChangePassThuKho"
+            android:exported="true" />
+        <activity
+            android:name=".XuLyHD.ChangePassXuLyHD"
+            android:exported="true" />
+
+
         <activity
             android:name=".SoanDon.DetailBillShipper"
             android:exported="true" />

@@ -88,4 +88,9 @@
     <string name="tien_tra_shipper">Tiền trả shipper</string>
     <string name="s_ti_n_ph_i_tr">Số Tiền Phải Trả</string>
     <string name="t_ng_s_ti_n_ph_i_tr_l_0_vn">Tổng Số Tiền Phải Trả Là: 0 VNĐ</string>
+    <string name="doi_mk">Đổi mật khẩu</string>
+    <string name="m_t_kh_u_hi_n_t_i">Mật khẩu hiện tại</string>
+    <string name="m_t_kh_u_m_i">Mật khẩu mới</string>
+    <string name="nh_p_l_i_m_t_kh_u">Nhập lại mật khẩu mới</string>
+    <string name="i_m_t_kh_u">Đổi mật khẩu</string>
 </resources>

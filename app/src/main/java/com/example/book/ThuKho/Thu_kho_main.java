@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.book.ChuCuaHang.ChangePassChuCuaHang;
 import com.example.book.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -65,6 +66,13 @@ public class Thu_kho_main extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 finish();
+            }
+        });
+
+        findViewById(R.id.btnChangepass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ChangePassThuKho.class));
             }
         });
     }

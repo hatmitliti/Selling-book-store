@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.book.ChuCuaHang.ChangePassChuCuaHang;
 import com.example.book.ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHangBiHuy;
 import com.example.book.R;
 
@@ -44,7 +45,13 @@ public class NguoiXuLyHoaDon_ManHinhChinh extends AppCompatActivity {
         btnDangXuatXuLyHD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-onBackPressed();
+                onBackPressed();
+            }
+        });
+        findViewById(R.id.btnChangepass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ChangePassXuLyHD.class));
             }
         });
     }

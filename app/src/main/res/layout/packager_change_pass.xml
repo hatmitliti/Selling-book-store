@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/doi_mk" />
+
+    <EditText
+        android:id="@+id/edt_current_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_50"
+        android:layout_marginTop="@dimen/_200"
+        android:layout_marginEnd="@dimen/_50"
+        android:focusable="true"
+        android:hint="@string/m_t_kh_u_hi_n_t_i"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword"
+        android:minHeight="@dimen/_48"
+        android:paddingStart="@dimen/_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_50"
+        android:layout_marginTop="@dimen/_20"
+        android:layout_marginEnd="@dimen/_50"
+        android:hint="@string/m_t_kh_u_m_i"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword"
+        android:minHeight="@dimen/_48"
+        android:paddingStart="@dimen/_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_current_password" />
+
+    <EditText
+        android:id="@+id/edt_re_enter_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_50"
+        android:layout_marginTop="@dimen/_20"
+        android:layout_marginEnd="@dimen/_50"
+        android:hint="@string/nh_p_l_i_m_t_kh_u"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:minHeight="@dimen/_48"
+        android:paddingStart="@dimen/_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_change_password" />
+
+    <Button
+        android:id="@+id/btnChangePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40"
+        android:text="@string/i_m_t_kh_u"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_re_enter_password" />
+</androidx.constraintlayout.widget.ConstraintLayout>
