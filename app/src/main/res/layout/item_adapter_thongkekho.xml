@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
     android:orientation="horizontal">
-    <TextView
+
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKKtvMaSP"
         style="@style/styleTableData"
-        android:text="Mã Sản Phẩm"
-        />
-    <TextView
+        android:text="Mã Sản Phẩm" />
+
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKKtvTenSP"
         style="@style/styleTableData"
-        android:text="Tên Sản Phẩm"
-        />
-    <TextView
+        android:text="Tên Sản Phẩm" />
+
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKKtvSoLuong"
         style="@style/styleTableData"
-        android:text="Số Lượng"
-        />
-
+        android:text="Số Lượng" />
+    <TextView android:textColor="@color/black"
+        android:id="@+id/adapterTKKtvTiLe"
+        style="@style/styleTableData"
+        android:text="Tỉ Lệ" />
 </LinearLayout>

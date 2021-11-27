@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.QuanLy.adapter.BlackList.BlackListAdapter;
 import com.example.book.QuanLy.adapter.User.User;
@@ -39,6 +40,19 @@ public class Blacklist_List extends AppCompatActivity {
 
         setControll();
         setEvent();
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 
     private void setEvent() {
@@ -116,19 +130,13 @@ public class Blacklist_List extends AppCompatActivity {
                 }
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent inten = new Intent(context,BlacklistActivity.class);
-                startActivity(inten);
-            }
-        });
+
     }
 
     private void setControll() {
         lvBlackListList = findViewById(R.id.listDSTKBlackList);
         edtSearch = findViewById(R.id.searchDSTKBlackList);
         btnSearch = findViewById(R.id.btnDSTKTimBackList);
-        back = findViewById(R.id.backDSTKBlackList);
+      //  back = findViewById(R.id.backDSTKBlackList);
     }
 }

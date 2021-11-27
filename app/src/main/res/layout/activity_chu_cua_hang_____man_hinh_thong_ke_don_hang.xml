@@ -4,45 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang"
-    android:orientation="vertical">
-    <LinearLayout
+    android:orientation="vertical"
+    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHang">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/backThongKeDonHang"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:text="Thống Kê Đơn Hàng" />
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/th_ng_k_n_h_ng" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/rdbTKDHthongketheongay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thống Kê Theo Ngày" />
+                android:text="@string/th_ng_k_theo_ng_y" />
+
             <RadioButton
-                android:layout_marginLeft="20dp"
                 android:id="@+id/rdbTKDHthongketheothang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thống Kê Theo Tháng" />
+                android:layout_marginLeft="@dimen/_20"
+                android:text="@string/th_ng_k_theo_th_ng" />
         </RadioGroup>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,14 +61,15 @@
 
                 <EditText
                     android:id="@+id/edtTKDHthongketheongay"
-                    android:layout_width="130dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="@dimen/_130"
+                    android:layout_height="@dimen/_25"
+                    android:layout_marginLeft="@dimen/_10"
                     android:background="@drawable/vien1"
-                    android:hint="dd/mm/yy"
-                    android:enabled="false"/>
+                    android:enabled="false"
+                    android:hint="@string/yy_mm_dd" />
 
                 <ImageView
+                    android:id="@+id/dateTimePickerDonHang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_calendar_today_24" />
@@ -83,11 +84,10 @@
             android:orientation="vertical">
 
 
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_20"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -98,7 +98,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tháng" />
+                        android:text="@string/th_ng" />
 
                     <Spinner
                         android:id="@+id/spnTKDHthang"
@@ -110,13 +110,13 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="@dimen/_20"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Năm" />
+                        android:text="@string/n_m" />
 
                     <Spinner
                         android:id="@+id/spnTKDHnam"
@@ -131,25 +131,26 @@
     <Button
         android:id="@+id/btnTKDHThongKe"
         style="@style/styleButtonThongKe" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:background="@color/cardview_shadow_start_color"
             style="@style/styleTableData2"
-            android:text="Mã"
-            />
+            android:background="@color/cardview_shadow_start_color"
+            android:text="@string/m" />
+
         <TextView
-            android:background="@color/cardview_shadow_start_color"
             style="@style/styleTableData2"
-            android:text="Trị Giá"
-            />
+            android:background="@color/cardview_shadow_start_color"
+            android:text="@string/tr_gi" />
+
         <TextView
-            android:background="@color/cardview_shadow_start_color"
             style="@style/styleTableData2"
-            android:text="Tình Trạng"
-            />
+            android:background="@color/cardview_shadow_start_color"
+            android:text="@string/t_nh_tr_ng" />
     </LinearLayout>
 
     <ListView

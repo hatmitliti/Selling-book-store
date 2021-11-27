@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.book.R;
 import com.example.book.ThuKho.Adapter.AdapterCategory;
@@ -39,7 +40,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
     Spinner spTenSachXuatHang;
     EditText txtSoLuongXuatHang;
     Button btnThemXuatHang;
-    Spinner spChonNguoiNhanXuatHang;
     Button btnXuatHang;
 
     ArrayList<Product> listProductFull;
@@ -62,7 +62,20 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
         getDataProduct();
         setSpinnerProduct();
         getDataTenNguoiXuatHang();
-        setSpinnerAdmin();
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
 
         AdapterProductExport adapterProductExportImport = new AdapterProductExport(this, R.layout.thu_kho_xuat_hang_item, productExport, qualityProduct);
         lvXuatHang.setAdapter(adapterProductExportImport);
@@ -109,11 +122,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void setSpinnerAdmin() {
-        adapterAdmin = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listAdminsString);
-        spChonNguoiNhanXuatHang.setAdapter(adapterAdmin);
     }
 
     private void getDataTenNguoiXuatHang() {
@@ -201,7 +209,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
         spTenSachXuatHang = findViewById(R.id.spTenSachXuatHang);
         txtSoLuongXuatHang = findViewById(R.id.txtSoLuongXuatHang);
         btnThemXuatHang = findViewById(R.id.btnThemXuatHang);
-        spChonNguoiNhanXuatHang = findViewById(R.id.spChonNguoiNhanXuatHang);
         btnXuatHang = findViewById(R.id.btnXuatXuatHang);
     }
 }

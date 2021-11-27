@@ -6,24 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".QuanLy.manage.Blacklist_List"
     android:orientation="vertical">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Danh sách đen" />
 
-        <Button
-            android:id="@+id/backDSTKBlackList"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Danh Sách BlackList" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp">

@@ -1,12 +1,15 @@
 package com.example.book.XuLyHD;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -15,7 +18,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.example.book.ChuCuaHang.ChuCuaHang_ManHinhThongKeTienTraDVVC;
 import com.example.book.ChuCuaHang.thongkedonhang.DonHang;
 import com.example.book.ChuCuaHang.thongkedonhang.DonhangAdapter;
 import com.example.book.R;
@@ -27,7 +32,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
@@ -39,13 +46,26 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
     private RadioButton rdbTKDHDXLTheoNgay, rdbTKDHDXLTheoThang;
     private EditText edtTKDHDXLthongketheongay;
     private ArrayList<String> mKey = new ArrayList<>();
-
+    private ImageView dateTimePickerDHDXL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nguoi_xu_ly_hoa_don_____danh_sach_don_hang_da_xu_ly);
         setControl();
         setEvent();
+
+
+        // toolbarr
+        Toolbar toolbar = findViewById(R.id.toobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setEvent() {
@@ -75,6 +95,7 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
         spnTKDHDXLnam.setAdapter(adapterNam);
         spnTKDHDXLthang.setEnabled(false);
         spnTKDHDXLnam.setEnabled(false);
+        dateTimePickerDHDXL.setEnabled(false);
 
         listDonHangDXL = new ArrayList<>();
         DonhangAdapter donhangAdapter = new DonhangAdapter(context, R.layout.item_adapter_thongkedonhang, listDonHangDXL);
@@ -90,8 +111,10 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (rdbTKDHDXLTheoNgay.isChecked() == true) {
                     edtTKDHDXLthongketheongay.setEnabled(true);
+                    dateTimePickerDHDXL.setEnabled(true);
                 } else {
                     edtTKDHDXLthongketheongay.setEnabled(false);
+                    dateTimePickerDHDXL.setEnabled(false);
                 }
             }
         });
@@ -107,7 +130,13 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
                 }
             }
         });
-
+        //
+        dateTimePickerDHDXL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
+            }
+        });
         /*
 
         Xử Lý Sự Kiện Cho Button Thống Kê
@@ -323,7 +352,22 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
         }
         return false;
     }
-
+    private void showDateDialog(){
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener(){
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                calendar.set(Calendar.YEAR, i);
+                calendar.set(Calendar.MONTH, i1);
+                calendar.set(Calendar.DAY_OF_MONTH, i2);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                edtTKDHDXLthongketheongay.setText("");
+                edtTKDHDXLthongketheongay.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+        DatePickerDialog datePickerDialog = new DatePickerDialog(NguoiXuLyHoaDon_DanhSachDonHangDaXuLy.this, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
     private void setControl() {
         spnTKDHDXLnam = findViewById(R.id.spnTKDHDXLnam);
         spnTKDHDXLthang = findViewById(R.id.spnTKDHDXLthang);
@@ -332,5 +376,6 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
         rdbTKDHDXLTheoNgay = findViewById(R.id.rdbTKDHDXLthongketheongay);
         rdbTKDHDXLTheoThang = findViewById(R.id.rdbTKDHDXLthongketheothang);
         edtTKDHDXLthongketheongay = findViewById(R.id.edtTKDHDXLthongketheongay);
+        dateTimePickerDHDXL = findViewById(R.id.dateTimePickerDonHangDaXuLy);
     }
 }

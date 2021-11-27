@@ -6,20 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeTienTraDVVC"
     android:orientation="vertical">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/backThongKeSoTienTraDVVC"
-            style="@style/buttonBack"
-            android:text="Back" />
-
-        <TextView
-            style="@style/titleActivity"
-            android:text="Thống Kê Số Tiền Phải Trả Cho Đơn Vị Vận Chuyển" />
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/tien_tra_shipper" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,13 +28,13 @@
                 android:id="@+id/rdbTKSTPTDVVCthongketheongay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thống Kê Theo Ngày" />
+                android:text="@string/th_ng_k_theo_ng_y" />
             <RadioButton
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_20"
                 android:id="@+id/rdbTKSTPTDVVCthongketheothang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thống Kê Theo Tháng" />
+                android:text="@string/th_ng_k_theo_th_ng" />
         </RadioGroup>
     </LinearLayout>
 
@@ -61,16 +56,17 @@
 
                 <EditText
                     android:id="@+id/edtTKSTPTDVVCthongketheongay"
-                    android:layout_width="130dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="@dimen/_130"
+                    android:layout_height="@dimen/_25"
+                    android:layout_marginLeft="@dimen/_10"
                     android:background="@drawable/vien1"
-                    android:hint="dd/mm/yy"
+                    android:hint="@string/yy_mm_dd"
                     android:enabled="false"/>
-
                 <ImageView
+                    android:id="@+id/dateTimePickerTienTraDVVC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_calendar_today_24" />
             </LinearLayout>
 
@@ -87,7 +83,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_20"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -98,7 +94,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tháng" />
+                        android:text="@string/th_ng" />
 
                     <Spinner
                         android:id="@+id/spnTKSTPTDVVCthang"
@@ -110,13 +106,13 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="@dimen/_20"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Năm" />
+                        android:text="@string/n_m" />
 
                     <Spinner
                         android:id="@+id/spnTKSTPTDVVCnam"
@@ -139,27 +135,27 @@
 
         <TextView
             style="@style/styleTableData2"
-            android:text="Mã" />
+            android:text="@string/m" />
 
         <TextView
             style="@style/styleTableData2"
-            android:text="Trị Giá" />
+            android:text="@string/tr_gi" />
 
         <TextView
             style="@style/styleTableData2"
-            android:text="Số Tiền Phải Trả" />
+            android:text="@string/s_ti_n_ph_i_tr" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvthongkesotienphaitraDVVC"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="@dimen/_350" />
 
     <TextView
         android:id="@+id/tvTongSoTienPhaiTraDVVC"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
-        android:text="Tổng Số Tiền Phải Trả Là: 125,500,000 VNĐ"
+        android:text="@string/t_ng_s_ti_n_ph_i_tr_l_0_vn"
         android:textColor="@color/black" />
 </LinearLayout>

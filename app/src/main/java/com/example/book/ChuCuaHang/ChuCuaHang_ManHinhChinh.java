@@ -42,6 +42,12 @@ public class ChuCuaHang_ManHinhChinh extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btnChangepass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ChangePassChuCuaHang.class));
+            }
+        });
 
     }
 }

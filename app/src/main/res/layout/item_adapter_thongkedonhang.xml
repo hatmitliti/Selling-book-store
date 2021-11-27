@@ -3,17 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKDHtvMaDH"
         style="@style/styleTableData"
         android:text="Mã"
         />
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKDHtvTriGia"
         style="@style/styleTableData"
         android:text="Trị Giá"
         />
-    <TextView
+    <TextView android:textColor="@color/black"
         android:id="@+id/adapterTKDHtvTinhTrang"
         style="@style/styleTableData"
         android:text="Tình Trạng"

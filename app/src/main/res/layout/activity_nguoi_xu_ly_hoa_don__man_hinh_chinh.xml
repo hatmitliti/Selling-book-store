@@ -29,6 +29,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:gravity="center|top"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="70dp"
@@ -49,6 +50,11 @@
             style="@style/buttonStyle"
             android:text="Danh Sách Đơn Hàng Đã Bị Hủy" />
 
+        <Button
+            android:id="@+id/btnChangepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu" />
         <Button
             android:id="@+id/btnDangXuatXuLyHD"
             android:layout_width="wrap_content"
