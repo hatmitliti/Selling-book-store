@@ -23,6 +23,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.book.ChuCuaHang.ChuCuaHang_ManHinhThongKeTienTraDVVC;
 import com.example.book.ChuCuaHang.thongkedonhang.DonHang;
 import com.example.book.ChuCuaHang.thongkedonhang.DonhangAdapter;
+import com.example.book.Dialog.NotificationDialog;
 import com.example.book.R;
 import com.example.book.XuLyHD.DonHangChoXuLy.Bill;
 import com.google.firebase.database.ChildEventListener;
@@ -47,14 +48,14 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
     private EditText edtTKDHDXLthongketheongay;
     private ArrayList<String> mKey = new ArrayList<>();
     private ImageView dateTimePickerDHDXL;
+    private NotificationDialog notificationDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nguoi_xu_ly_hoa_don_____danh_sach_don_hang_da_xu_ly);
+        notificationDialog = new NotificationDialog(this);
         setControl();
         setEvent();
-
-
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
         setSupportActionBar(toolbar);
@@ -213,7 +214,6 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
                                         mKey.remove(snapshot.getKey());
                                     }
                                     donhangAdapter.notifyDataSetChanged();
-                                    Toast.makeText(context, "Đã có sự thay đổi dữ liệu từ hệ thống", Toast.LENGTH_SHORT).show();
                                 }
 
                                 @Override
@@ -237,7 +237,7 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
                         } else {
                             listDonHangDXL.clear();
                             donhangAdapter.notifyDataSetChanged();
-                            Toast.makeText(context, "Vui Lòng Nhập Ngày Để Thống Kê", Toast.LENGTH_SHORT).show();
+                            notificationDialog.startErrorDialog(getResources().getString(R.string.nhap_ngay_de_thong_ke));
                         }
                     } else if (rdbTKDHDXLTheoThang.isChecked() == true) {
                         String time;
@@ -313,7 +313,6 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
                                     mKey.remove(snapshot.getKey());
                                 }
                                 donhangAdapter.notifyDataSetChanged();
-                                Toast.makeText(context, "Đã có sự thay đổi dữ liệu từ hệ thống", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -336,7 +335,7 @@ public class NguoiXuLyHoaDon_DanhSachDonHangDaXuLy extends AppCompatActivity {
                         });
                     }
                 } else {
-                    Toast.makeText(context, "Vui Lòng Chọn Phương Thức Để Thống Kê.", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.chon_phuong_thuc_de_thong_ke));
                 }
             }
         });

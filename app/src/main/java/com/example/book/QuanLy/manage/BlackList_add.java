@@ -203,7 +203,7 @@ public class BlackList_add extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (edtSearch.getText().toString().equals("")) {
-                    Toast.makeText(context, "Vui Lòng Nhập Dữ Liệu Trước Khi Tìm Kiếm", Toast.LENGTH_SHORT).show();
+                    edtSearch.setError(getResources().getString(R.string.empty_field));
                 } else {
                     dataUser.child("users").addChildEventListener(new ChildEventListener() {
                         @Override
@@ -213,7 +213,6 @@ public class BlackList_add extends AppCompatActivity {
                                 userList.add(snapshot.getValue(User.class));
                                 blackListAddAdapter.notifyDataSetChanged();
                             }
-
                         }
 
                         @Override

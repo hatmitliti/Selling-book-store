@@ -1,34 +1,23 @@
 package com.example.book.ThuKho;
 
-import static com.example.book.R.color.common_google_signin_btn_text_dark_disabled;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,11 +26,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.book.Dialog.NotificationDialog;
 import com.example.book.R;
 import com.example.book.ThuKho.TKQuanLiSanPham.Category;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
 import com.example.book.ThuKho.TKQuanLiSanPham.ProductAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -50,8 +39,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -82,6 +69,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
     int RESULT_LOAD_IMAGE = 2;
     Product productCLick;
     String idProduct;
+    private NotificationDialog notificationDialog;
     Map<String, Product> idProducts = new HashMap<String, Product>();
 
 
@@ -89,7 +77,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thu_kho_tong_hop);
-
 
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
@@ -102,6 +89,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        notificationDialog = new NotificationDialog(this);
 
         setControll();
         setEvent();
@@ -247,17 +235,11 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     IMGThuVien.setBackground(getDrawable(R.drawable.backgroundimage));
 
                 }
-
-
                 btnSua.setEnabled(true);
                 btnThem.setEnabled(false);
                 btnXoa.setEnabled(true);
-
-
             }
         });
-
-
         /*
          tiến hành lấy dữ liệu đổ vào array list từ firebase
          */
@@ -334,7 +316,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, REQUEST_CODE_IMAGE);
-                Toast.makeText(context, "Lấy Ảnh Từ Camera", Toast.LENGTH_SHORT).show();
             }
         });
         IMGThuVien.setOnClickListener(new View.OnClickListener() {
@@ -351,8 +332,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 intent.putExtra("aspectY", 1);
                 intent.putExtra("return-data", true);
                 startActivityForResult(intent, RESULT_LOAD_IMAGE);
-
-                Toast.makeText(context, "Lấy Ảnh Từ Thư Viện", Toast.LENGTH_SHORT).show();
             }
         });
         /*
@@ -363,12 +342,12 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
             public void onClick(View view) {
                 if (edtTenSP.getText().toString().equals("") || edtGiaSP.getText().toString().equals("") || edtTacGia.getText().toString().equals("") || edtMota.getText().toString().equals("")
                 ) {
-                    Toast.makeText(context, "Thiếu Dữ Liệu Vui Lòng Kiểm Tra Lại", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.enter_text));
                 } else if (rdbChonAnhTuCamera.isChecked() == true && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
                         || rdbChonAnhTuThuVien.isChecked() == true && IMGThuVien.getTag().toString().equals(R.drawable.ic_baseline_image_24 + "") == true ||
                         rdbChonAnhTuCamera.isChecked() == false && rdbChonAnhTuThuVien.isChecked() == false && ImgCamera.getTag().toString().equals(R.drawable.ic_baseline_camera_alt_24 + "") == true
                                 && IMGThuVien.getTag().toString().equals(R.drawable.ic_baseline_image_24 + "") == true) {
-                    Toast.makeText(context, "Bạn Chưa Chọn Ảnh", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.non_select_picture));
                 } else {
                     if (rdbChonAnhTuCamera.isChecked() == true) {
 
@@ -388,7 +367,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                         uploadTask.addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception exception) {
-                                Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Thêm Sản Phẩm", Toast.LENGTH_SHORT).show();
+                                notificationDialog.startErrorDialog(getResources().getString(R.string.add_failed));
                                 // Handle unsuccessful uploads
                             }
                         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -413,7 +392,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                                 //tạo đối tượng Product và thêm đối tượng vào firsebase
                                                 Product pd = new Product(imageURL, imageName, idProduct, tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
                                                 dataProduct.child("products").child(idProduct).setValue(pd);
-                                                Toast.makeText(context, "Thêm Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                                                notificationDialog.startSuccessfulDialog(getResources().getString(R.string.add_product_success));
                                                 setTextEmpty();
                                             }
                                         });
@@ -438,7 +417,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                         uploadTask.addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception exception) {
-                                Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Thêm Sản Phẩm", Toast.LENGTH_SHORT).show();
+                                notificationDialog.startErrorDialog(getResources().getString(R.string.add_failed));
                                 // Handle unsuccessful uploads
                             }
                         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -462,7 +441,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                                 //createNewPost(imageUrl);
                                                 Product pd = new Product(imageURL, imageName, idProduct, tenSP, giaSP, theLoai, 0, 0, 0, moTa, tacGia);
                                                 dataProduct.child("products").child(idProduct).setValue(pd);
-                                                Toast.makeText(context, "Thêm Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                                                notificationDialog.startSuccessfulDialog(getResources().getString(R.string.add_product_success));
                                                 setTextEmpty();
                                             }
                                         });
@@ -510,7 +489,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                 if (edtTenSP.getText().toString().equals("") || edtGiaSP.getText().toString().equals("") || edtTacGia.getText().toString().equals("") || edtMota.getText().toString().equals("")
                         || spnTheLoai.getSelectedItem().toString().equals("Lựa chọn loại sách")
                 ) {
-                    Toast.makeText(context, "Thiếu Dữ Liệu Vui Lòng Kiểm Tra Lại", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.enter_text));
                 } else if (rdbChonAnhTuCamera.isChecked() == true) {
 
                     Calendar calendar = Calendar.getInstance();
@@ -529,7 +508,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     uploadTask.addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
-                            Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Sửa Sản Phẩm", Toast.LENGTH_SHORT).show();
+                            notificationDialog.startErrorDialog(getResources().getString(R.string.update_product_failed));
                             // Handle unsuccessful uploads
                         }
                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -562,13 +541,10 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                             dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                                 @Override
                                                 public void onSuccess(Object o) {
-                                                    Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
-
-
+                                                    notificationDialog.startSuccessfulDialog(getResources().getString(R.string.update_product_success));
                                                     btnSua.setEnabled(false);
                                                     btnThem.setEnabled(true);
                                                     btnXoa.setEnabled(false);
-
                                                 }
                                             });
                                             setTextEmpty();
@@ -595,7 +571,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     uploadTask.addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
-                            Toast.makeText(context, "Đã Xảy Ra Lỗi Không Thể Thêm Sản Phẩm", Toast.LENGTH_SHORT).show();
+                            notificationDialog.startErrorDialog(getResources().getString(R.string.add_failed));
                             // Handle unsuccessful uploads
                         }
                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -627,8 +603,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                             dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                                                 @Override
                                                 public void onSuccess(Object o) {
-                                                    Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
-
+                                                    notificationDialog.startSuccessfulDialog(getResources().getString(R.string.update_product_success));
                                                     btnSua.setEnabled(false);
                                                     btnThem.setEnabled(true);
                                                     btnXoa.setEnabled(false);
@@ -659,7 +634,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                     dataProduct.child("products").updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                         @Override
                         public void onSuccess(Object o) {
-                            Toast.makeText(context, "Sửa Sản Phẩm Thành Công", Toast.LENGTH_SHORT).show();
+                            notificationDialog.startSuccessfulDialog(getResources().getString(R.string.update_product_success));
                             btnSua.setEnabled(false);
                             btnThem.setEnabled(true);
                             btnXoa.setEnabled(false);
@@ -698,7 +673,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         } else if (rdbChonAnhTuThuVien.isChecked()) {
             rdbChonAnhTuThuVien.setChecked(false);
         }
-
     }
 
     /*
@@ -710,7 +684,6 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
             ImgCamera.setTag("");
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             ImgCamera.setImageBitmap(bitmap);
-
         }
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
             IMGThuVien.setTag("");
@@ -735,6 +708,5 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
         btnXoa = findViewById(R.id.btnTKTHXoa);
         rdbChonAnhTuCamera = findViewById(R.id.TKTHrdbChonAnhTuCamera);
         rdbChonAnhTuThuVien = findViewById(R.id.TKTHrdbChonAnhTuThuVien);
-
     }
 }

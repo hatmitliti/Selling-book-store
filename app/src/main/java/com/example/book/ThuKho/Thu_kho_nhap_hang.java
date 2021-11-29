@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.book.Dialog.NotificationDialog;
 import com.example.book.R;
 import com.example.book.ThuKho.Adapter.AdapterImportProduct;
 import com.example.book.ThuKho.TKQuanLiSanPham.Product;
@@ -38,14 +39,15 @@ public class Thu_kho_nhap_hang extends AppCompatActivity {
     Button btnNhapHang;
     ListView lvNhapHang;
     EditText TenCongTyNhapHang;
+    private NotificationDialog notificationDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thu_kho_nhap_hang);
+        notificationDialog = new NotificationDialog(this);
         setControl();
         getDataProduct();
-
 
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
@@ -58,8 +60,6 @@ public class Thu_kho_nhap_hang extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listProductString);
         spTenSachNhapHang.setAdapter(adapter);
@@ -74,10 +74,10 @@ public class Thu_kho_nhap_hang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (spTenSachNhapHang.getSelectedItem().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Bạn chưa chọn", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.non_select));
                 } else {
                     if (edtSoLuongNhapHang.getText().toString().equals("")) {
-                        Toast.makeText(getApplicationContext(), "Bạn chưa nhập số lượng", Toast.LENGTH_SHORT).show();
+                        edtSoLuongNhapHang.setError(getResources().getString(R.string.empty_field));
                     } else {
                         int quality = Integer.parseInt(edtSoLuongNhapHang.getText().toString());
                         Product product = listProductFull.get(spTenSachNhapHang.getSelectedItemPosition());
@@ -94,10 +94,10 @@ public class Thu_kho_nhap_hang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (listProductStringImport.size() == 0) {
-                    Toast.makeText(getApplicationContext(), "Chưa điền", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.non_select_product));
                 } else {
                     if (TenCongTyNhapHang.getText().toString().equals("")) {
-                        Toast.makeText(getApplicationContext(), "Chưa nhập tên cty", Toast.LENGTH_SHORT).show();
+                        TenCongTyNhapHang.setError(getResources().getString(R.string.empty_field));
                     } else {
                         // nhập hàng
 
@@ -110,7 +110,6 @@ public class Thu_kho_nhap_hang extends AppCompatActivity {
                                 mDatabase.child(listProductIDImport.get(j)).child("stock").setValue(quality + listProductQualityImport.get(j));
                             }
                         }
-                        Toast.makeText(getApplicationContext(), "Xong", Toast.LENGTH_SHORT).show();
                         listProductQualityImport.clear();
                         listProductIDImport.clear();
                         listProductStringImport.clear();

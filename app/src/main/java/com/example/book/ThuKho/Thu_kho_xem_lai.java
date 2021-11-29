@@ -33,8 +33,6 @@ public class Thu_kho_xem_lai extends AppCompatActivity {
         AdapterXemLai adapterXemLai = new AdapterXemLai(this, R.layout.thu_kho_xem_lai_item, list);
         lvXemLai.setAdapter(adapterXemLai);
 
-
-
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
         setSupportActionBar(toolbar);

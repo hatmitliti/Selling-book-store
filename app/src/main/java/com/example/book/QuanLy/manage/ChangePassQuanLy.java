@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.book.Dialog.NotificationDialog;
 import com.example.book.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,6 +26,7 @@ public class ChangePassQuanLy extends AppCompatActivity {
     Button btnChangPassword;
     FirebaseUser user;
     FirebaseAuth auth;
+    private NotificationDialog notificationDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,46 +61,41 @@ public class ChangePassQuanLy extends AppCompatActivity {
 
     private void reAuthenticationPassword() {
         String email = user.getEmail();
-        String password = edtCurrentPassword.getText().toString().trim();
+        user = auth.getCurrentUser();
+        String password = edtNewPassword.getText().toString().trim();
+        String repassword = edtRePassword.getText().toString().trim();
+        String curpassword = edtCurrentPassword.getText().toString().trim();
 
-        if (password.isEmpty()) {
-            edtCurrentPassword.setError("Trường mật khẩu trống!");
+        if (curpassword.isEmpty()) {
+            edtCurrentPassword.setError(getResources().getString(R.string.empty_field));
+        } else if (password.isEmpty()) {
+            edtNewPassword.setError(getResources().getString(R.string.empty_field));
+        } else if (repassword.isEmpty()) {
+            edtRePassword.setError(getResources().getString(R.string.empty_field));
+        } else if (!repassword.equalsIgnoreCase(password)) {
+            edtRePassword.setError(getResources().getString(R.string.confirm_pass));
         } else {
+            notificationDialog.startLoadingDialog();
             AuthCredential credential = EmailAuthProvider
                     .getCredential(email, password);
             user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        changePassword();
+                        user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    notificationDialog.endLoadingDialog();
+                                    notificationDialog.startSuccessfulDialog(getResources().getString(R.string.change_pass_success));
+                                } else {
+                                    notificationDialog.endLoadingDialog();
+                                    notificationDialog.startErrorDialog(getResources().getString(R.string.change_pass_failed));                                }
+                            }
+                        });
                     } else {
-                        Toast.makeText(getApplicationContext(), "Mật khẩu hiện tại không đúng!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-    }
-
-    private void changePassword() {
-        user = auth.getCurrentUser();
-        String password = edtNewPassword.getText().toString().trim();
-        String repassword = edtRePassword.getText().toString().trim();
-        if (password.isEmpty()) {
-            edtNewPassword.setError("Trường mật khẩu trống!");
-        } else if (repassword.isEmpty()) {
-            edtRePassword.setError("Trường nhập lại mật khẩu trống!");
-        } else if (!repassword.equalsIgnoreCase(password)) {
-            edtRePassword.setError("Nhập lại mật khẩu không khớp!");
-        } else {
-            user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(getApplicationContext(), "Đổi mật khẩu thành công!", Toast.LENGTH_SHORT).show();
-                        onBackPressed();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Đổi mật khẩu không thành công!", Toast.LENGTH_SHORT).show();
-                    }
+                        notificationDialog.endLoadingDialog();
+                        notificationDialog.startErrorDialog(getResources().getString(R.string.pass_hientai));                    }
                 }
             });
         }

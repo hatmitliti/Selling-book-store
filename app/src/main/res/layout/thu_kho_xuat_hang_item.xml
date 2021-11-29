@@ -10,22 +10,23 @@
 
         <TextView
             android:id="@+id/nameProductExportItem"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="7"
             android:text="Toán - Lớp 12"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:paddingStart="10dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/qualityProductExportItem"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="3"
             android:text="100"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="18sp"
+            android:gravity="center"/>
     </LinearLayout>
 </LinearLayout>

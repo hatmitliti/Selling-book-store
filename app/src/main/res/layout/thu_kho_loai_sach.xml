@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Loại sách" />
+        app:title="Loại Sách" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,14 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7"
-            android:text="Tên loại sách"
+            android:text="@string/name_category"
+            android:paddingStart="10dp"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/edtLoaiSach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:imeOptions="actionDone"
+            android:inputType="text"
             android:layout_weight="3" />
     </LinearLayout>
 

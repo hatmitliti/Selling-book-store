@@ -4,20 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.book.ChuCuaHang.ChangePassChuCuaHang;
+import com.example.book.MainActivity;
 import com.example.book.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Thu_kho_main extends AppCompatActivity {
 
-    Button btntongHop;
-    Button btnhangTon;
-    Button btnloaiSach;
-    Button btnxuatHang;
-    Button btnnhapHang;
+   private ImageView imgTongHop,imgLoaiSach,imgNhapHang,imgXuatHang,imgHangTon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,31 +27,31 @@ public class Thu_kho_main extends AppCompatActivity {
     }
 
     private void setAction() {
-        btntongHop.setOnClickListener(new View.OnClickListener() {
+        imgTongHop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Thu_kho_tong_hop.class));
             }
         });
-        btnhangTon.setOnClickListener(new View.OnClickListener() {
+        imgHangTon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Thu_kho_hang_ton.class));
             }
         });
-        btnloaiSach.setOnClickListener(new View.OnClickListener() {
+        imgLoaiSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Thu_kho_loai_sach.class));
             }
         });
-        btnnhapHang.setOnClickListener(new View.OnClickListener() {
+        imgNhapHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Thu_kho_nhap_hang.class));
             }
         });
-        btnxuatHang.setOnClickListener(new View.OnClickListener() {
+        imgXuatHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Thu_kho_xuat_hang.class));
@@ -65,7 +63,8 @@ public class Thu_kho_main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finishAffinity();
             }
         });
 
@@ -78,10 +77,10 @@ public class Thu_kho_main extends AppCompatActivity {
     }
 
     private void setControl() {
-        btntongHop = findViewById(R.id.btntongHop);
-        btnhangTon = findViewById(R.id.btnhangTon);
-        btnloaiSach = findViewById(R.id.btnloaiSach);
-        btnxuatHang = findViewById(R.id.btnxuatHang);
-        btnnhapHang = findViewById(R.id.btnnhapHang);
+        imgTongHop = findViewById(R.id.btntongHop);
+        imgHangTon = findViewById(R.id.btnhangTon);
+        imgLoaiSach = findViewById(R.id.btnloaiSach);
+        imgXuatHang = findViewById(R.id.btnxuatHang);
+        imgNhapHang = findViewById(R.id.btnnhapHang);
     }
 }

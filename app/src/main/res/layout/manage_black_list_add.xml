@@ -16,31 +16,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Thêm tài khoản vào danh sách đen" />
-
-
     <LinearLayout
 
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/searchAddUserBlackList"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:imeOptions="actionDone"
             android:layout_marginLeft="10sp"
+            android:hint="@string/search"
             android:layout_marginRight="10sp" />
 
         <Button
             android:id="@+id/btnTimAddUserBlackList"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:text="Tìm" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:text="@string/search_btn" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/listUserBlackList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="11"/>
 </LinearLayout>
