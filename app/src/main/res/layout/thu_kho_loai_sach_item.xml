@@ -19,7 +19,7 @@
             android:paddingLeft="20dp"
             android:text="Truyện tranh"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView

@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.book.Dialog.NotificationDialog;
 import com.example.book.R;
 import com.example.book.ThuKho.Adapter.AdapterCategory;
 import com.example.book.ThuKho.Adapter.AdapterProductExport;
@@ -44,6 +45,7 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
 
     ArrayList<Product> listProductFull;
     ArrayList<String> listProductString;
+    private NotificationDialog notificationDialog;
 
     ArrayAdapter adapterProduct;
     ArrayAdapter adapterAdmin;
@@ -58,6 +60,7 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thu_kho_xuat_hang);
+        notificationDialog = new NotificationDialog(this);
         setControl();
         getDataProduct();
         setSpinnerProduct();
@@ -83,10 +86,10 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (spTenSachXuatHang.getSelectedItem().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Bạn chưa chọn", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.non_select_product));
                 } else {
                     if (txtSoLuongXuatHang.getText().toString().equals("")) {
-                        Toast.makeText(getApplicationContext(), "Bạn chưa nhập số lượng", Toast.LENGTH_SHORT).show();
+                        txtSoLuongXuatHang.setError(getResources().getString(R.string.empty_field));
                     } else {
                         productExport.add(spTenSachXuatHang.getSelectedItem().toString());
                         qualityProduct.add(Integer.parseInt(txtSoLuongXuatHang.getText().toString()));
@@ -110,7 +113,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
                 productExport.clear();
                 qualityProduct.clear();
                 adapterProductExportImport.notifyDataSetChanged();
-                Toast.makeText(getApplicationContext(), "Xong", Toast.LENGTH_SHORT).show();
             }
         });
 

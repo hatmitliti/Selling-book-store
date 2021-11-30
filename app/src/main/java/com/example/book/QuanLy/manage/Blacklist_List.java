@@ -97,7 +97,7 @@ public class Blacklist_List extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (edtSearch.getText().toString().equals("")) {
-                    Toast.makeText(context, "Vui Lòng Nhập Dữ Liệu Trước Khi Tìm Kiếm", Toast.LENGTH_SHORT).show();
+                    edtSearch.setError(getResources().getString(R.string.empty_field));
                 } else {
                     dataBlackList.child("blacklist").addChildEventListener(new ChildEventListener() {
                         @Override

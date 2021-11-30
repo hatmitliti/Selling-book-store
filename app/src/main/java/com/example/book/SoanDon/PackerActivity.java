@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.book.ChuCuaHang.ChangePassChuCuaHang;
+import com.example.book.MainActivity;
 import com.example.book.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -73,7 +74,8 @@ public class PackerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finishAffinity();
             }
         });
 
@@ -81,6 +83,14 @@ public class PackerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ChangePassSoanDon.class));
+            }
+        });
+
+
+        findViewById(R.id.btnRankUser).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RankUser.class));
             }
         });
     }

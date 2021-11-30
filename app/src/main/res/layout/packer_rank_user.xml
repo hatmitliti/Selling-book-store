@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".SoanDon.RankUser">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Các hạng thành viên" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50"
+        android:layout_marginTop="@dimen/_10"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center|left"
+            android:text="Tên hạng: "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtNameRank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@drawable/vien"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50"
+        android:layout_marginTop="@dimen/_10"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center|left"
+            android:text="Tiền mua: "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtMoneyRank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@drawable/vien"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btnThemRank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Thêm" />
+
+        <Button
+            android:id="@+id/btnSuaRank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="3"
+            android:text="Sửa" />
+
+        <Button
+            android:id="@+id/btnXoaRank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="3"
+            android:text="Xóa" />
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/lvRankUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10"
+        android:padding="5dp" />
+
+</LinearLayout>

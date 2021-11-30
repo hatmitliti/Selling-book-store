@@ -6,16 +6,18 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
-        android:text="SOẠN ĐƠN"
+        android:text="Soạn Đơn"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -37,9 +39,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="CHƯA ĐÓNG GÓI"
+                android:text="@string/unpacked"
+                android:textSize="18sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -63,18 +65,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="ĐÃ ĐÓNG GÓI"
+                android:text="@string/packaged"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -96,10 +98,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="ĐANG VẬN CHUYỂN"
+                android:text="@string/InTransit"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -122,10 +124,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="ĐÃ GIAO"
+                android:text="@string/delivered"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -133,8 +135,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -156,10 +158,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="ĐƠN BỊ HỦY"
+                android:text="@string/cancel"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -183,23 +185,40 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="NHẬN HÀNG TỪ THỦ KHO"
+                android:text="@string/NhanHangTuKhoa"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-<Button
-    android:id="@+id/btnLogout"
-    android:text="Đăng xuất"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btnChangepass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đổi mật khẩu" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/btnChangepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chang_password" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/logout" />
+
+        <Button
+            android:id="@+id/btnRankUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hạng thành viên" />
+    </LinearLayout>
+
 </LinearLayout>
 

@@ -4,7 +4,7 @@
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
     </style>
     <style name="buttonBack">
         <item name="android:layout_width">wrap_content</item>
@@ -37,12 +37,14 @@
         <item name="android:background">@drawable/vien2</item>
     </style>
     <style name="styleButtonThongKe">
-        <item name="android:layout_gravity">right</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
-        <item name="android:text">Thống Kê</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginStart">100dp</item>
+        <item name="android:layout_marginEnd">100dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/statictis</item>
     </style>
     <style name="employeeStyle">
         <item name="android:layout_weight">1</item>

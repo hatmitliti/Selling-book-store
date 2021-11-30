@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.book.R;
 import com.example.book.SoanDon.adapter.AdapterChuaDongGoi;
 import com.example.book.SoanDon.adapter.OrderAdapter;
+import com.example.book.SoanDon.adapter.OrderAdapterShipper;
 import com.example.book.SoanDon.models.User;
 import com.example.book.XuLyHD.DonHangChoXuLy.Bill;
 import com.example.book.XuLyHD.DonHangChoXuLy.Bill_Product;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 
 public class DetailBillShipper extends AppCompatActivity {
 
-    OrderAdapter adapter;
+    OrderAdapterShipper adapter;
     ArrayList<Bill_Product> list;
 
 
@@ -38,7 +39,7 @@ public class DetailBillShipper extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.packager_chi_tiet_don_dang_giao);
         list = new ArrayList<>();
-        adapter = new OrderAdapter(this, R.layout.packager_order_items, list);
+        adapter = new OrderAdapterShipper(this, R.layout.packager_chi_tiet_don_dang_giao_item, list);
         ImageView imgUserOrderDetail = findViewById(R.id.imgUserOrderDetail);
         TextView txtNameOrderDetail = findViewById(R.id.txtNameOrderDetail);
         TextView txtPhoneOrderDetail = findViewById(R.id.txtPhoneOrderDetail);

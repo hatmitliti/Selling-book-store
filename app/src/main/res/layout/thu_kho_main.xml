@@ -6,7 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="vertical">
@@ -15,82 +16,59 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/user" />
-
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
+            <ImageView
                 android:id="@+id/btntongHop"
-                android:layout_width="69dp"
-                android:layout_height="66dp"
-                android:drawableTop="@drawable/ic_baseline_format_list_bulleted_24"
-                android:padding="16dp"
-                android:text="1" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_warehouse"
+                android:clickable="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TỔNG HỢP"
+                android:paddingTop="10dp"
+                android:text="TỔng Hơp"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnhangTon"
-                android:layout_width="69dp"
-                android:layout_height="66dp"
-                android:drawableTop="@drawable/ic_baseline_horizontal_split_24"
-                android:padding="16dp"
-                android:text="1"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HÀNG TỒN"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
+            <ImageView
                 android:id="@+id/btnloaiSach"
-                android:layout_width="69dp"
-                android:layout_height="66dp"
-                android:drawableTop="@drawable/ic_baseline_menu_book_24"
-                android:padding="16dp"
-                android:text="1"
-                android:textSize="24sp" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:src="@drawable/ic_book_category"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LOẠI SÁCH"
+                android:text="Loại Sách"
+                android:paddingTop="10dp"
+                android:textSize="18sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -98,67 +76,101 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
+            <ImageView
                 android:id="@+id/btnxuatHang"
-                android:layout_width="69dp"
-                android:layout_height="66dp"
-                android:drawableTop="@drawable/ic_baseline_north_24"
-                android:padding="16dp"
-                android:text="1"
-                android:textSize="24sp" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:src="@drawable/ic_export"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XUẤT HÀNG"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:text="Xuất Hàng"
+                android:paddingTop="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
+            <ImageView
                 android:id="@+id/btnnhapHang"
-                android:layout_width="69dp"
-                android:layout_height="66dp"
-                android:drawableTop="@drawable/ic_baseline_addchart_24"
-                android:padding="16dp"
-                android:text="1"
-                android:textSize="24sp" />
+                android:layout_width="100dp"
+                android:src="@drawable/ic_import_goods"
+                android:clickable="true"
+                android:layout_height="100dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NHẬP HÀNG"
+                android:text="Nhập Hàng"
+                android:paddingTop="10dp"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng xuất" />
+            <ImageView
+                android:id="@+id/btnhangTon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:src="@drawable/ic_inventory"/>
 
-    <Button
-        android:id="@+id/btnChangepass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đổi mật khẩu" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hàng Tồn Kho"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:paddingTop="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnChangepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chang_password" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/logout" />
+    </LinearLayout>
 </LinearLayout>

@@ -14,7 +14,9 @@
         <activity
             android:name=".ForgotPass"
             android:exported="true" />
-
+        <activity
+            android:name=".SoanDon.RankUser"
+            android:exported="true" />
 
         <activity
             android:name=".ChuCuaHang.ChangePassChuCuaHang"
