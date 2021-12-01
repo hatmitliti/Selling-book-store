@@ -7,8 +7,11 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.book.ChuCuaHang.ChangePassChuCuaHang;
 import com.example.book.ChuCuaHang.ChuCuaHang_ManHinhThongKeDonHangBiHuy;
+import com.example.book.MainActivity;
 import com.example.book.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class NguoiXuLyHoaDon_ManHinhChinh extends AppCompatActivity {
 
@@ -44,7 +47,15 @@ public class NguoiXuLyHoaDon_ManHinhChinh extends AppCompatActivity {
         btnDangXuatXuLyHD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-onBackPressed();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finishAffinity();
+            }
+        });
+        findViewById(R.id.btnChangepass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ChangePassXuLyHD.class));
             }
         });
     }

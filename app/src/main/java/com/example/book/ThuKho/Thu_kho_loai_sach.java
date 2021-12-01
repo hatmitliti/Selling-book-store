@@ -86,7 +86,7 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edtLoaiSach.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Không thể sửa", Toast.LENGTH_SHORT).show();
+                    edtLoaiSach.setError(getResources().getString(R.string.empty_field));
                 } else {
                     String str = category.getName();
                     category = null;
@@ -183,7 +183,6 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                 } else {
                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("categorys");
                     mDatabase.child(category.getId()).removeValue();
-                    Toast.makeText(getApplicationContext(), "Đã xóa", Toast.LENGTH_SHORT).show();
                     category = null;
                     edtLoaiSach.setText("");
                     btnThemLoaiSach.setEnabled(true);
@@ -201,9 +200,8 @@ public class Thu_kho_loai_sach extends AppCompatActivity {
                     Category category = new Category(id, str);
                     DatabaseReference mDatabaseCategory = FirebaseDatabase.getInstance().getReference("categorys");
                     mDatabaseCategory.child(category.getId()).setValue(category);
-                    Toast.makeText(getApplicationContext(), "Đã thêm", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Vui lòng nhập", Toast.LENGTH_SHORT).show();
+                    edtLoaiSach.setError(getResources().getString(R.string.empty_field));
                 }
             }
         });

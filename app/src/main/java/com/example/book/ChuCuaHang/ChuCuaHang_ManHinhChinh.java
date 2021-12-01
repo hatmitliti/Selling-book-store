@@ -7,7 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.book.MainActivity;
 import com.example.book.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ChuCuaHang_ManHinhChinh extends AppCompatActivity {
 
@@ -38,10 +40,18 @@ public class ChuCuaHang_ManHinhChinh extends AppCompatActivity {
         findViewById(R.id.btnLoout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finishAffinity();
             }
         });
 
+        findViewById(R.id.btnChangepass).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ChangePassChuCuaHang.class));
+            }
+        });
 
     }
 }

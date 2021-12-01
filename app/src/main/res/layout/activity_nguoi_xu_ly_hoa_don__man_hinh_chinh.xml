@@ -8,13 +8,15 @@
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="vertical"
-        >
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image_NguoiXuLyHoaDon"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/nhanvien"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
@@ -24,14 +26,16 @@
             android:layout_height="wrap_content"
             android:text="Nhân Viên Xử Lý Hóa Đơn"
             android:textSize="30dp"
+            android:layout_marginTop="50dp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
+        android:gravity="center|top"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="70dp"
+        android:layout_height="0dp"
+        android:layout_weight="6"
         android:orientation="vertical">
 
         <Button
@@ -50,10 +54,17 @@
             android:text="Danh Sách Đơn Hàng Đã Bị Hủy" />
 
         <Button
+            android:id="@+id/btnChangepass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Đổi mật khẩu" />
+        <Button
             android:id="@+id/btnDangXuatXuLyHD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:text="Đăng Xuất" />
     </LinearLayout>
 </LinearLayout>

@@ -4,146 +4,147 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaTot"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ChuCuaHang.ChuCuaHang_ManHinhThongKeDanhGiaTot">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FF9800"
+        android:background="@color/cam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Thống kê đánh giá tốt" />
+        app:title="@string/th_ng_k_nh_gi_t_t" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/rdbTKDGTthongketheongay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thống Kê Theo Ngày" />
+                android:text="@string/th_ng_k_theo_ng_y" />
+
             <RadioButton
-                android:layout_marginLeft="20dp"
                 android:id="@+id/rdbTKDGTthongketheothang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thống Kê Theo Tháng" />
+                android:layout_marginLeft="30dp"
+                android:text="@string/th_ng_k_theo_th_ng" />
         </RadioGroup>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edtTKDGTthongketheongay"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="8"
+                android:background="@drawable/vien1"
+                android:enabled="false"
+                android:gravity="center"
+                android:hint="@string/yy_mm_dd"
+                android:layout_marginStart="10dp"
+                android:inputType="date"/>
 
-                <EditText
-                    android:id="@+id/edtTKDGTthongketheongay"
-                    android:layout_width="130dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/vien1"
-                    android:hint="yy/mm/dd"
-                    android:enabled="false"/>
-
-                <ImageView
-                    android:id="@+id/dateTimePickerDanhGiaTot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_calendar_today_24" />
-            </LinearLayout>
-
+            <ImageView
+                android:id="@+id/dateTimePickerDanhGiaTot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_baseline_calendar_today_24" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:orientation="horizontal">
+                android:text="@string/th_ng" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <Spinner
+                android:id="@+id/spnTKDGTthang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vien1" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tháng" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/n_m" />
 
-                    <Spinner
-                        android:id="@+id/spnTKDGTthang"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/vien1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Năm" />
-
-                    <Spinner
-                        android:id="@+id/spnTKDGTnam"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/vien1" />
-                </LinearLayout>
-            </LinearLayout>
+            <Spinner
+                android:id="@+id/spnTKDGTnam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vien1" />
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnTKDGTThongKe"
-        style="@style/styleButtonThongKe" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnTKDGTThongKe"
+           style="@style/styleButtonThongKe"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:orientation="horizontal">
+
         <TextView
             style="@style/styleTableData2"
-            android:text="Người Đ.Giá"
-            />
+            android:text="@string/ng_i_gi" />
+
         <TextView
             style="@style/styleTableData2"
-            android:text="Sản Phẩm"
-            />
+            android:text="@string/s_n_ph_m" />
+
         <TextView
             style="@style/styleTableData2"
-            android:text="Số Sao"
-            />
+            android:text="@string/s_sao" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvthongkedanhgiatot"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="9" />
 
 </LinearLayout>

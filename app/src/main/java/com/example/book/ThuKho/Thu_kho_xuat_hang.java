@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.book.Dialog.NotificationDialog;
 import com.example.book.R;
 import com.example.book.ThuKho.Adapter.AdapterCategory;
 import com.example.book.ThuKho.Adapter.AdapterProductExport;
@@ -40,11 +41,11 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
     Spinner spTenSachXuatHang;
     EditText txtSoLuongXuatHang;
     Button btnThemXuatHang;
-    Spinner spChonNguoiNhanXuatHang;
     Button btnXuatHang;
 
     ArrayList<Product> listProductFull;
     ArrayList<String> listProductString;
+    private NotificationDialog notificationDialog;
 
     ArrayAdapter adapterProduct;
     ArrayAdapter adapterAdmin;
@@ -59,14 +60,11 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thu_kho_xuat_hang);
+        notificationDialog = new NotificationDialog(this);
         setControl();
         getDataProduct();
         setSpinnerProduct();
         getDataTenNguoiXuatHang();
-        setSpinnerAdmin();
-
-
-
 
         // toolbarr
         Toolbar toolbar = findViewById(R.id.toobar);
@@ -88,10 +86,10 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (spTenSachXuatHang.getSelectedItem().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Bạn chưa chọn", Toast.LENGTH_SHORT).show();
+                    notificationDialog.startErrorDialog(getResources().getString(R.string.non_select_product));
                 } else {
                     if (txtSoLuongXuatHang.getText().toString().equals("")) {
-                        Toast.makeText(getApplicationContext(), "Bạn chưa nhập số lượng", Toast.LENGTH_SHORT).show();
+                        txtSoLuongXuatHang.setError(getResources().getString(R.string.empty_field));
                     } else {
                         productExport.add(spTenSachXuatHang.getSelectedItem().toString());
                         qualityProduct.add(Integer.parseInt(txtSoLuongXuatHang.getText().toString()));
@@ -115,7 +113,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
                 productExport.clear();
                 qualityProduct.clear();
                 adapterProductExportImport.notifyDataSetChanged();
-                Toast.makeText(getApplicationContext(), "Xong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -127,11 +124,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void setSpinnerAdmin() {
-        adapterAdmin = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listAdminsString);
-        spChonNguoiNhanXuatHang.setAdapter(adapterAdmin);
     }
 
     private void getDataTenNguoiXuatHang() {
@@ -219,7 +211,6 @@ public class Thu_kho_xuat_hang extends AppCompatActivity {
         spTenSachXuatHang = findViewById(R.id.spTenSachXuatHang);
         txtSoLuongXuatHang = findViewById(R.id.txtSoLuongXuatHang);
         btnThemXuatHang = findViewById(R.id.btnThemXuatHang);
-        spChonNguoiNhanXuatHang = findViewById(R.id.spChonNguoiNhanXuatHang);
         btnXuatHang = findViewById(R.id.btnXuatXuatHang);
     }
 }

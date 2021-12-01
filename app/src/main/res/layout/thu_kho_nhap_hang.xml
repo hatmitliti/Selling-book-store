@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,18 +10,11 @@
         android:id="@+id/toobar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FF9800"
+        android:background="@color/cam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Nhập hàng" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:paddingRight="10dp" />
-
+        app:title="@string/inport_goods" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,23 +23,23 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chọn sách: "
                 android:textColor="@color/black"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spTenSachNhapHang"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/_50"
+                android:background="#4CAF50"
                 android:entries="@array/tensach" />
         </LinearLayout>
 
@@ -56,24 +50,89 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
+                android:layout_weight="3"
+                android:paddingStart="10dp"
                 android:text="Số lượng:"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtSoLuongNhapHang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30"
+                android:layout_weight="7"
+                android:background="@drawable/vien"
+                android:gravity="center"
                 android:hint="Nhập số lượng"
                 android:inputType="number"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/TenCongTyNhapHang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên công ty nhập sách"
+            android:minHeight="48dp"
+            android:paddingStart="10dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/_10"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Công ty nhập sách:"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nhà sách HCM" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="000502146" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8.5"
+            android:background="#F44336"
+            android:gravity="center"
+            android:text="Chọn cty"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -83,27 +142,17 @@
 
         <Button
             android:id="@+id/btnThemNhapHang"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thêm" />
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:text="@string/add" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvNhapHang"
         android:layout_width="match_parent"
-        android:layout_height="400dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <EditText
-            android:id="@+id/TenCongTyNhapHang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tên công ty nhập sách" />
-    </LinearLayout>
+        android:layout_height="@dimen/_350" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -112,8 +161,11 @@
 
         <Button
             android:id="@+id/btnNhapHang"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NHẬP HÀNG" />
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:gravity="center"
+            android:text="@string/inport_goods" />
     </LinearLayout>
 </LinearLayout>
