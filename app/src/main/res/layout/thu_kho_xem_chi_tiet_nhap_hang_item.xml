@@ -2,48 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lnItemCtySach"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="@drawable/vien1"
+    android:layout_margin="@dimen/_2"
+    android:background="@drawable/vien"
     android:orientation="vertical"
-    android:paddingLeft="10dp">
+    android:paddingLeft="@dimen/_20"
+    tools:context=".ThuKho.Thu_kho_xem_chi_tiet_nhap_hang">
 
     <TextView
-        android:id="@+id/txtnameCompany"
+        android:id="@+id/txtname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nhà sách HCM"
+        android:text="Tên sách"
         android:textColor="@color/black"
         android:textSize="@dimen/_20"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtPhoneCompany"
+        android:id="@+id/txtquality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="022202568211"
-        android:textColor="@color/black" />
-
-
-    <TextView
-        android:id="@+id/txtAddressCompany"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Linh chiểu - thủ đức - HCM"
+        android:text="x100"
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/txtMailCompany"
+        android:id="@+id/txtprice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0392876336" />
-
-    <TextView
-        android:id="@+id/txtIDCompany"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="idjadnadhahfhafjajfj" />
-
+        android:text="20 000 VND"
+        android:textColor="@color/black" />
 </LinearLayout>

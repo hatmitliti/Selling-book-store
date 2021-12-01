@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Thu_kho_main extends AppCompatActivity {
 
-   private ImageView imgTongHop,imgLoaiSach,imgNhapHang,imgXuatHang,imgHangTon;
+    private ImageView imgTongHop,imgLoaiSach,imgNhapHang,imgXuatHang,imgHangTon,imgCongTy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,12 @@ public class Thu_kho_main extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Thu_kho_xuat_hang.class));
             }
         });
+        imgCongTy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Thu_Kho_QuanLyCongTy.class));
+            }
+        });
 
         // đăng xuất
         findViewById(R.id.btnLogout).setOnClickListener(new View.OnClickListener() {
@@ -82,5 +88,6 @@ public class Thu_kho_main extends AppCompatActivity {
         imgLoaiSach = findViewById(R.id.btnloaiSach);
         imgXuatHang = findViewById(R.id.btnxuatHang);
         imgNhapHang = findViewById(R.id.btnnhapHang);
+        imgCongTy = findViewById(R.id.btnQuanLyCongTy);
     }
 }

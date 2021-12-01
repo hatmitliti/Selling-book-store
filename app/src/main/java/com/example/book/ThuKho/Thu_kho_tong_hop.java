@@ -50,6 +50,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 
 public class Thu_kho_tong_hop extends AppCompatActivity {
@@ -382,7 +383,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                         result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                String idProduct = "s" + (mKey.size() + 1);
+                                                String idProduct = UUID.randomUUID().toString();
                                                 String tenSP = edtTenSP.getText().toString();
                                                 int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                                                 String theLoai = spnTheLoai.getSelectedItem().toString();
@@ -431,7 +432,7 @@ public class Thu_kho_tong_hop extends AppCompatActivity {
                                         result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                String idProduct = "s" + (mKey.size() + 1);
+                                                String idProduct = UUID.randomUUID().toString();
                                                 String tenSP = edtTenSP.getText().toString();
                                                 int giaSP = Integer.parseInt(edtGiaSP.getText().toString());
                                                 String theLoai = spnTheLoai.getSelectedItem().toString();

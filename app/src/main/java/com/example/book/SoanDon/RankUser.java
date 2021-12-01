@@ -71,6 +71,7 @@ public class RankUser extends AppCompatActivity {
                         list.add(rankUser);
                         selectRank();
                         adapterRankUser.notifyDataSetChanged();
+                        setNameRankUser();
                     }
 
                     @Override
@@ -82,18 +83,20 @@ public class RankUser extends AppCompatActivity {
                                 adapterRankUser.notifyDataSetChanged();
                             }
                         }
-
+                        setNameRankUser();
                     }
 
                     @Override
                     public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                         Rank rank = snapshot.getValue(Rank.class);
-                        for (int i = 0; i <= list.size(); i++) {
+                        for (int i = 0; i < list.size(); i++) {
                             if (list.get(i).getId().equals(rank.getId())) {
                                 list.remove(i);
                                 adapterRankUser.notifyDataSetChanged();
+
                             }
                         }
+                        setNameRankUser();
                     }
 
                     @Override
@@ -189,6 +192,8 @@ public class RankUser extends AppCompatActivity {
                 btnSua.setEnabled(false);
                 btnXoa.setEnabled(false);
                 setNameRankUser();
+                txtNameRank.setText("");
+                txtMoneyRank.setText("");
             }
         });
 
@@ -273,9 +278,6 @@ public class RankUser extends AppCompatActivity {
 
     public void selectRank() {
         Collections.sort(list);
-        for (int q = 0; q < list.size(); q++) {
-            System.out.println(list.get(q).getMoney() + "");
-        }
     }
 
     private void setControl() {

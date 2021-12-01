@@ -12,12 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Store">
         <activity
+            android:name=".ThuKho.Thu_kho_xem_chi_tiet_nhap_hang"
+            android:exported="true" />
+        <activity
+            android:name=".ThuKho.Thu_kho_chon_cong_ty_nhap_hang"
+            android:exported="true" />
+        <activity
+            android:name=".ThuKho.Thu_kho_xem_lai_nhap_hang"
+            android:exported="true" />
+        <activity
             android:name=".ForgotPass"
             android:exported="true" />
         <activity
             android:name=".SoanDon.RankUser"
             android:exported="true" />
-
+        <activity
+            android:name=".ThuKho.Thu_Kho_QuanLyCongTy"
+            android:exported="true" />
+        <activity
+            android:name=".ThuKho.Thu_Kho_AddCompany"
+            android:exported="true" />
+        <activity
+            android:name=".ThuKho.Thu_Kho_UpdateCompany"
+            android:exported="true" />
         <activity
             android:name=".ChuCuaHang.ChangePassChuCuaHang"
             android:exported="true" />
@@ -33,8 +50,6 @@
         <activity
             android:name=".XuLyHD.ChangePassXuLyHD"
             android:exported="true" />
-
-
         <activity
             android:name=".SoanDon.DetailBillShipper"
             android:exported="true" />

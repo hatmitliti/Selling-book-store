@@ -16,6 +16,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/inport_goods" />
 
+    <TextView
+        android:id="@+id/txtXemLai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingRight="5dp"
+        android:text="Xem lại các lần nhập hàng >"
+        android:textColor="@color/black" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,6 +81,36 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:paddingStart="10dp"
+                android:text="Giá nhập: "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtPrice"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30"
+                android:layout_weight="7"
+                android:background="@drawable/vien"
+                android:gravity="center"
+                android:hint="Nhập giá nhập"
+                android:inputType="number"
+                android:textColor="@color/black"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -113,11 +152,13 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txtNamectyNhap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nhà sách HCM" />
 
             <TextView
+                android:id="@+id/txtMSTCtyNhap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="000502146" />
@@ -125,6 +166,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/txtChonCty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="8.5"

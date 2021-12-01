@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_2"
+    android:background="@drawable/vien"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".ThuKho.Thu_kho_xem_lai_nhap_hang">
+
+    <TextView
+        android:id="@+id/txtNameImport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên công ty"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtQualityImport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số lượng hàng: 20"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtDateImport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="10/10/2021"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:gravity="right"
+            android:text="Bấm để xem chi tiết >"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+
+</LinearLayout>

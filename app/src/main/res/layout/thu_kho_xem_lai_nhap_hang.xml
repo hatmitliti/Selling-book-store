@@ -2,25 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ThuKho.Thu_kho_chon_cong_ty_nhap_hang">
+    tools:context=".ThuKho.Thu_kho_xem_lai_nhap_hang">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FF9800"
+        android:background="@color/cam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Chọn công ty nhập hàng" />
-
-
+        app:title="Xem lại các lần nhập hàng" />
     <ListView
-        android:id="@+id/lvChooseCompany"
+        android:id="@+id/lvViewImport"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"/>
 </LinearLayout>
