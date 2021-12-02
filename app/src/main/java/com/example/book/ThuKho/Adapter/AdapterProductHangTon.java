@@ -61,7 +61,8 @@ public class AdapterProductHangTon extends ArrayAdapter {
         if (product.getStock() == 0) {
             tyleBan = 0;
         }
-        txtTiLeThuKhoHangTon.setText("Tỷ lệ bán ra: " + tyleBan + "%");
+        // (Math.floor(tyleBan * 1000) / 1000)+" %"
+        txtTiLeThuKhoHangTon.setText("Tỷ lệ bán ra: " + (Math.floor(tyleBan * 1000) / 1000) + " %");
         return convertView;
     }
 

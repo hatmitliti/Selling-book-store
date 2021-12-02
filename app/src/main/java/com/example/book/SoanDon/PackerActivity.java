@@ -87,7 +87,7 @@ public class PackerActivity extends AppCompatActivity {
         });
 
 
-        findViewById(R.id.btnRankUser).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnHangThanhVien).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), RankUser.class));

@@ -17,6 +17,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.book.ChuCuaHang.ChuCuaHang_ManHinhChinh;
 import com.example.book.Dialog.NotificationDialog;
 import com.example.book.Object.Admin;
+import com.example.book.Object.ChuCuaHang_Login;
+import com.example.book.Object.QuanLy_Login;
+import com.example.book.Object.Shipper_Login;
+import com.example.book.Object.SoanDon_Login;
+import com.example.book.Object.ThuKho_Login;
+import com.example.book.Object.User_Login;
+import com.example.book.Object.XuLyHD_Login;
 import com.example.book.QuanLy.manage.ManageActivity;
 import com.example.book.SoanDon.PackerActivity;
 import com.example.book.ThuKho.Thu_kho_main;
@@ -31,55 +38,220 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnLogin;
     TextView txtUsername, txtPassword;
-    Spinner spQuyenTruyCap;
-    Integer quyenTruyCap;
-    String[] arraypinner = {"Quản lý", "Soạn đơn", "Xử lý hóa đơn", "Chủ cửa hàng", "Thủ kho"};
     DatabaseReference data;
     FirebaseAuth auth;
     String username;
     String password;
     private NotificationDialog notificationDialog;
 
+
+    ArrayList<ChuCuaHang_Login> listChuCuaHang;
+    ArrayList<QuanLy_Login> listQuanLy;
+    ArrayList<Shipper_Login> listShipper;
+    ArrayList<SoanDon_Login> listSoanDon;
+    ArrayList<ThuKho_Login> listThuKho;
+    ArrayList<XuLyHD_Login> listXuLyHD;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         notificationDialog = new NotificationDialog(this);
+        getDataLogin();
         setControl();
         setAction();
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("message");
     }
 
     private void setControl() {
         btnLogin = findViewById(R.id.btnLogin);
         txtPassword = findViewById(R.id.txtPassword);
         txtUsername = findViewById(R.id.txtUsername);
-        spQuyenTruyCap = findViewById(R.id.spQuyenTruyCap);
     }
 
-    private void setAction() {
-        data = FirebaseDatabase.getInstance().getReference("admin");
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraypinner);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-        spQuyenTruyCap.setAdapter(spinnerArrayAdapter);
+    public void getDataLogin() {
+        listChuCuaHang = new ArrayList<>();
+        listQuanLy = new ArrayList<>();
+        listShipper = new ArrayList<>();
+        listSoanDon = new ArrayList<>();
+        listThuKho = new ArrayList<>();
+        listXuLyHD = new ArrayList<>();
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-        // Khi bấm spinner:
-        spQuyenTruyCap.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // lấy danh sách chủ
+        database.child("admin").child("chuCuaHang").addChildEventListener(new ChildEventListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                quyenTruyCap = spQuyenTruyCap.getSelectedItemPosition();
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                listChuCuaHang.add(snapshot.getValue(ChuCuaHang_Login.class));
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+        // ds quản lý
+        database.child("admin").child("quanLy").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                listQuanLy.add(snapshot.getValue(QuanLy_Login.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        // ds shipper
+        database.child("shipper").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                listShipper.add(snapshot.getValue(Shipper_Login.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        // ds soandon
+        database.child("admin").child("soanDon").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                listSoanDon.add(snapshot.getValue(SoanDon_Login.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        // ds thủ kho
+        database.child("admin").child("thuKho").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                listThuKho.add(snapshot.getValue(ThuKho_Login.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        // ds xử lý hd
+        database.child("admin").child("xuLyHD").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                listXuLyHD.add(snapshot.getValue(XuLyHD_Login.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+
+    private void setAction() {
+        data = FirebaseDatabase.getInstance().getReference("admin");
 
         //khi bấm quên passs:
         findViewById(R.id.btnFogotPass).setOnClickListener(new View.OnClickListener() {
@@ -93,10 +265,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 username = txtUsername.getText().toString();
                 password = txtPassword.getText().toString();
-
 
                 if (username.isEmpty()) {
                     txtUsername.setError(getResources().getString(R.string.empty_field));
@@ -109,180 +279,88 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                switch (quyenTruyCap) {
-                                    case 0: // quản lý
-                                        data.child("quanLy").addChildEventListener(new ChildEventListener() {
-                                            @Override
-                                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                                Admin admin = snapshot.getValue(Admin.class);
-                                                if (admin.getId().equals(auth.getUid())) {
-                                                    notificationDialog.endLoadingDialog();
-                                                    startActivity(new Intent(getApplicationContext(), ManageActivity.class));
-                                                    finishAffinity();
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        });
-                                        break;
-                                    case 1: //soan don
-                                        data.child("soanDon").addChildEventListener(new ChildEventListener() {
-                                            @Override
-                                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                                Admin admin = snapshot.getValue(Admin.class);
-                                                if (admin.getId().equals(auth.getUid())) {
-                                                    notificationDialog.endLoadingDialog();
-                                                    startActivity(new Intent(getApplicationContext(), PackerActivity.class));
-                                                    finishAffinity();
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        });
-                                        break;
-                                    case 2:
-                                        data.child("xuLyHD").addChildEventListener(new ChildEventListener() {
-                                            @Override
-                                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                                Admin admin = snapshot.getValue(Admin.class);
-                                                if (admin.getId().equals(auth.getUid())) {
-                                                    notificationDialog.endLoadingDialog();
-                                                    startActivity(new Intent(getApplicationContext(), NguoiXuLyHoaDon_ManHinhChinh.class));
-                                                    finishAffinity();
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        });
-                                        break;
-                                    case 3:
-                                        data.child("chuCuaHang").addChildEventListener(new ChildEventListener() {
-                                            @Override
-                                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                                Admin admin = snapshot.getValue(Admin.class);
-                                                if (admin.getId().equals(auth.getUid())) {
-                                                    notificationDialog.endLoadingDialog();
-                                                    startActivity(new Intent(getApplicationContext(), ChuCuaHang_ManHinhChinh.class));
-                                                    finishAffinity();
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        });
-                                        break;
-                                    case 4:
-                                        data.child("thuKho").addChildEventListener(new ChildEventListener() {
-                                            @Override
-                                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                                Admin admin = snapshot.getValue(Admin.class);
-                                                if (admin.getId().equals(auth.getUid())) {
-                                                    notificationDialog.endLoadingDialog();
-                                                    startActivity(new Intent(getApplicationContext(), Thu_kho_main.class));
-                                                    finishAffinity();
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                            }
-
-                                            @Override
-                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        });
-                                        break;
+                                String checkPermission = checkLogin(username);
+                                if (checkPermission == null) {
+                                    notificationDialog.startErrorDialog("Bạn không có quyền truy cập");
+                                    notificationDialog.endLoadingDialog();
+                                } else {
+                                    switch (checkPermission) {
+                                        case "chuCuaHang":
+                                            notificationDialog.endLoadingDialog();
+                                            startActivity(new Intent(getApplicationContext(), ChuCuaHang_ManHinhChinh.class));
+                                            break;
+                                        case "soanDon":
+                                            notificationDialog.endLoadingDialog();
+                                            startActivity(new Intent(getApplicationContext(), PackerActivity.class));
+                                            break;
+                                        case "shipper":
+                                            notificationDialog.endLoadingDialog();
+                                            notificationDialog.startErrorDialog("Bạn không có quyền truy cập");
+                                            auth.signOut();
+                                            break;
+                                        case "xuLyHD":
+                                            notificationDialog.endLoadingDialog();
+                                            startActivity(new Intent(getApplicationContext(), NguoiXuLyHoaDon_ManHinhChinh.class));
+                                            break;
+                                        case "thuKho":
+                                            notificationDialog.endLoadingDialog();
+                                            startActivity(new Intent(getApplicationContext(), Thu_kho_main.class));
+                                            break;
+                                        case "quanLy":
+                                            notificationDialog.endLoadingDialog();
+                                            startActivity(new Intent(getApplicationContext(), ManageActivity.class));
+                                            break;
+                                    }
                                 }
                             } else {
                                 notificationDialog.startErrorDialog(getResources().getString(R.string.login_failed));
+                                notificationDialog.endLoadingDialog();
                             }
                         }
                     });
                 }
             }
         });
+    }
+
+    public String checkLogin(String email) {
+        String chuCuaHang = "chuCuaHang";
+        String soanDon = "soanDon";
+        String shipper = "shipper";
+        String xuLyHD = "xuLyHD";
+        String thuKho = "thuKho";
+        String quanLy = "quanLy";
+
+        for (int i = 0; i < listChuCuaHang.size(); i++) {
+            if (listChuCuaHang.get(i).getEmail().equals(email)) {
+                return chuCuaHang;
+            }
+        }
+        for (int i = 0; i < listQuanLy.size(); i++) {
+            if (listQuanLy.get(i).getEmail().equals(email)) {
+                return quanLy;
+            }
+        }
+        for (int i = 0; i < listShipper.size(); i++) {
+            if (listShipper.get(i).getEmail().equals(email)) {
+                return shipper;
+            }
+        }
+        for (int i = 0; i < listSoanDon.size(); i++) {
+            if (listSoanDon.get(i).getEmail().equals(email)) {
+                return soanDon;
+            }
+        }
+        for (int i = 0; i < listThuKho.size(); i++) {
+            if (listThuKho.get(i).getEmail().equals(email)) {
+                return thuKho;
+            }
+        }
+        for (int i = 0; i < listXuLyHD.size(); i++) {
+            if (listXuLyHD.get(i).getEmail().equals(email)) {
+                return xuLyHD;
+            }
+        }
+        return null;
     }
 }

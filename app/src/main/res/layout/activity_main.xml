@@ -31,16 +31,19 @@
         android:orientation="vertical">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
 
             <EditText
+                android:paddingLeft="@dimen/_10"
                 android:id="@+id/txtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:background="@drawable/vien"
                 android:hint="@string/account"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
@@ -54,49 +57,27 @@
             android:gravity="center">
 
             <EditText
+                android:paddingLeft="@dimen/_10"
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:background="@drawable/vien"
                 android:hint="@string/pass"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:minHeight="48dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_40"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/roles"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spQuyenTruyCap"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="30dp"
-                android:minHeight="48dp"
-                android:background="@drawable/bg_corner_spiner"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center|bottom"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_20">
 
             <Button
                 android:id="@+id/btnLogin"
@@ -126,9 +107,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center|bottom"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
+                android:gravity="center|bottom"
                 android:text="@string/contentlogin"
                 android:textColor="@color/black" />
         </LinearLayout>
