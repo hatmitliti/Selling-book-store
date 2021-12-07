@@ -62,41 +62,49 @@ public class ChangePassSoanDon extends AppCompatActivity {
 
     private void reAuthenticationPassword() {
         String email = user.getEmail();
-        user = auth.getCurrentUser();
-        String password = edtNewPassword.getText().toString().trim();
-        String repassword = edtRePassword.getText().toString().trim();
-        String curpassword = edtCurrentPassword.getText().toString().trim();
+        String password = edtCurrentPassword.getText().toString().trim();
 
-        if (curpassword.isEmpty()) {
-            edtCurrentPassword.setError(getResources().getString(R.string.empty_field));
-        } else if (password.isEmpty()) {
-            edtNewPassword.setError(getResources().getString(R.string.empty_field));
-        } else if (repassword.isEmpty()) {
-            edtRePassword.setError(getResources().getString(R.string.empty_field));
-        } else if (!repassword.equalsIgnoreCase(password)) {
-            edtRePassword.setError(getResources().getString(R.string.confirm_pass));
+        if (password.isEmpty()) {
+            edtCurrentPassword.setError("Không được để trống");
         } else {
             notificationDialog.startLoadingDialog();
-            AuthCredential credential = EmailAuthProvider
-                    .getCredential(email, password);
+            AuthCredential credential = EmailAuthProvider.getCredential(email, password);
             user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    notificationDialog.endLoadingDialog();
-                                    notificationDialog.startSuccessfulDialog(getResources().getString(R.string.change_pass_success));
-                                } else {
-                                    notificationDialog.endLoadingDialog();
-                                    notificationDialog.startErrorDialog(getResources().getString(R.string.change_pass_failed));                                }
-                            }
-                        });
+
+                        user = auth.getCurrentUser();
+                        String password = edtNewPassword.getText().toString().trim();
+                        String repassword = edtRePassword.getText().toString().trim();
+                        if (password.isEmpty()) {
+                            edtNewPassword.setError("Không được để trống");
+                            notificationDialog.endLoadingDialog();
+                        } else if (repassword.isEmpty()) {
+                            edtRePassword.setError("Không được để trống");
+                            notificationDialog.endLoadingDialog();
+                        } else if (!repassword.equalsIgnoreCase(password)) {
+                            edtRePassword.setError("Không được để trống");
+                            notificationDialog.endLoadingDialog();
+                        } else {
+                            user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        notificationDialog.endLoadingDialog();
+                                        notificationDialog.startSuccessfulDialog("Đổi mật khẩu thành công");
+                                        onBackPressed();
+                                    } else {
+                                        notificationDialog.endLoadingDialog();
+                                        notificationDialog.startErrorDialog("Đổi mật khẩu không thành công");
+                                    }
+                                }
+                            });
+                        }
                     } else {
                         notificationDialog.endLoadingDialog();
-                        notificationDialog.startErrorDialog(getResources().getString(R.string.pass_hientai));                    }
+                        notificationDialog.startErrorDialog("Mật khẩu hiện tại không đúng");
+                    }
                 }
             });
         }
