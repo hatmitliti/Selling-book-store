@@ -310,14 +310,19 @@ public class MainActivity extends AppCompatActivity {
                                             notificationDialog.endLoadingDialog();
                                             startActivity(new Intent(getApplicationContext(), ManageActivity.class));
                                             break;
+                                        default:
+                                            notificationDialog.endLoadingDialog();
+                                            notificationDialog.startErrorDialog(getResources().getString(R.string.login_failed));
+                                            break;
                                     }
                                 }
                             } else {
                                 notificationDialog.startErrorDialog(getResources().getString(R.string.login_failed));
-                                notificationDialog.endLoadingDialog();
+
                             }
                         }
                     });
+                    notificationDialog.endLoadingDialog();
                 }
             }
         });
